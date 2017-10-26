@@ -24,7 +24,7 @@ class UserController extends Controller
     public function updateUser(Request $request)
     {
 
-        //todo fix it
+        //todo check it
         $request->validate([
             'name' => 'required|max:255|string',
             'first_name' => 'required|max:255|alpha',
