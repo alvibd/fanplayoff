@@ -53,6 +53,12 @@
 
                                 <ul class="dropdown-menu" role="menu">
                                     <li>
+                                        @if(Auth::user()->image_url == null)
+                                            <img src="{{ asset('storage/avatars/default.jpeg') }}">
+                                        {{dump(asset(Auth::user()->image_url))}}
+                                        @else
+                                            <img src="{{ asset(Auth::user()->image_url) }}">
+                                        @endif
                                         <a href="{{ route('logout') }}"
                                             onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
