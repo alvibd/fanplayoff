@@ -54,10 +54,9 @@
                                 <ul class="dropdown-menu" role="menu">
                                     <li>
                                         @if(Auth::user()->image_url == null)
-                                            <img src="{{ asset('storage/avatars/default.jpeg') }}">
-                                        {{dump(asset(Auth::user()->image_url))}}
+                                            <img src="{{ asset('storage/avatars/default.jpeg') }}" class="img-thumbnail img-circle img-responsive">
                                         @else
-                                            <img src="{{ asset(Auth::user()->image_url) }}">
+                                            <img src="{{ asset(Auth::user()->image_url) }}" class="img-thumbnail img-circle img-responsive">
                                         @endif
                                         <a href="{{ route('logout') }}"
                                             onclick="event.preventDefault();
