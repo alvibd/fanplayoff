@@ -3,17 +3,24 @@
 namespace App\Http\Controllers;
 
 use App\Model\User;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 
 class UserController extends Controller
 {
+    /**
+     * UserController constructor.
+     */
     public function __construct()
     {
-        $this->middleware('auth');
+        $this->middleware('auth')->except('checkUsername');
     }
 
+    /**
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function editUser()
     {
         $user = Auth::user();
@@ -21,6 +28,10 @@ class UserController extends Controller
         return view('edit_user', ['user' => $user]);
     }
 
+    /**
+     * @param Request $request
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function updateUser(Request $request)
     {
 
@@ -33,7 +44,6 @@ class UserController extends Controller
         ]);
         $data = $request->all();
         $user = User::findOrFail(Auth::user()->id);
-//        dump($data);
         if ($request->hasFile('image'))
         {
             $path = $request->file('image')->store('public/avatars');
@@ -48,8 +58,25 @@ class UserController extends Controller
             'country_id' => $data['country']
         ]);
 
-//        return redirect()->back();
+        $request->session()->flash('success', 'You have successfully updated your profile');
 
-//        $request->file('image')->storeAs('public/avatars', 'default.jpeg');
+        return redirect()->back();
+    }
+
+    /**
+     * @param Request $request
+     * @return JsonResponse
+     */
+    public function checkUsername(Request $request)
+    {
+        $name = $request->get('name');
+        $user = User::whereName($name)->get();
+
+        if($user->count())
+        {
+            return new JsonResponse(['message' => 'This username is already taken, try another'], 449);
+        }
+
+        return new JsonResponse(['message' => 'Ok'], 200);
     }
 }

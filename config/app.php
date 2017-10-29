@@ -169,6 +169,8 @@ return [
          */
         Barryvdh\Debugbar\ServiceProvider::class,
         PrettyRoutes\ServiceProvider::class,
+        Tightenco\Ziggy\ZiggyServiceProvider::class,
+        Asvae\ApiTester\ServiceProvider::class,
 
         /*
          * Application Service Providers...

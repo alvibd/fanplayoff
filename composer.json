@@ -10,7 +10,9 @@
         "fideloper/proxy": "~3.3",
         "garygreen/pretty-routes": "^0.0.8",
         "laravel/framework": "5.5.*",
-        "laravel/tinker": "~1.0"
+        "laravel/tinker": "~1.0",
+        "tightenco/ziggy": "0.4.*",
+        "asvae/laravel-api-tester": "^2.0"
     },
     "require-dev": {
         "filp/whoops": "~2.0",
