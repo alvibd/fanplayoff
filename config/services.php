@@ -30,9 +30,19 @@ return [
     ],
 
     'stripe' => [
-        'model' => App\User::class,
+        'model' => App\Model\User::class,
         'key' => env('STRIPE_KEY'),
         'secret' => env('STRIPE_SECRET'),
     ],
+
+    'facebook' => [
+        'client_id' => env('FACEBOOK_ID'),
+        'client_secret' => env('FACEBOOK_SECRET')
+    ],
+
+    'google' => [
+        'client_id' => env('GOOGLE_ID'),
+        'client_secret' => env('GOOGLE_SECRET')
+    ]
 
 ];

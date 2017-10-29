@@ -171,6 +171,7 @@ return [
         PrettyRoutes\ServiceProvider::class,
         Tightenco\Ziggy\ZiggyServiceProvider::class,
         Asvae\ApiTester\ServiceProvider::class,
+        Laravel\Socialite\SocialiteServiceProvider::class,
 
         /*
          * Application Service Providers...
@@ -234,6 +235,7 @@ return [
          * 3rd party
          */
         'Debugbar' => Barryvdh\Debugbar\Facade::class,
+        'Socialite' => Laravel\Socialite\Facades\Socialite::class,
 
     ],
 
