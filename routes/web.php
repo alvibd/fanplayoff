@@ -19,7 +19,8 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 //social login
-Route::get('/auth/{provider}', 'Auth\Auth');
+Route::get('/auth/{provider}', 'Auth\AuthController@redirectToProvider');
+Route::get('auth/{provider}/callback', 'Auth\AuthController@handleProviderCallback');
 
 Route::get('/edit_profile', 'UserController@editUser')->name('edit.user');
 Route::post('/edit_profile', 'UserController@updateUser')->name('update.user');

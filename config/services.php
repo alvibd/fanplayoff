@@ -37,12 +37,14 @@ return [
 
     'facebook' => [
         'client_id' => env('FACEBOOK_ID'),
-        'client_secret' => env('FACEBOOK_SECRET')
+        'client_secret' => env('FACEBOOK_SECRET'),
+        'redirect' => '/auth/facebook/callback'
     ],
 
     'google' => [
         'client_id' => env('GOOGLE_ID'),
-        'client_secret' => env('GOOGLE_SECRET')
+        'client_secret' => env('GOOGLE_SECRET'),
+        'redirect' => '/auth/google/callback'
     ]
 
 ];

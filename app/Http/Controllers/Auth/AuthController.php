@@ -15,6 +15,7 @@ use Laravel\Socialite\Facades\Socialite;
 
 class AuthController extends Controller
 {
+    //todo complete social login
     public function redirectToProvider($provider)
     {
         return Socialite::driver($provider)->redirect();
@@ -24,9 +25,9 @@ class AuthController extends Controller
     {
         $user = Socialite::driver($provider)->user();
 
-        $authUser = $this->findOrCreateUser($user, $provider);
+//        $authUser = $this->findOrCreateUser($user, $provider);
 
-        Auth::login($authUser, true);
+//        Auth::login($authUser, true);
         return redirect($this->redirect()->intended('home'));
     }
 
