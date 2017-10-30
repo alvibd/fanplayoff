@@ -1,0 +1,358 @@
+/* Medium Layout: 1280px. */
+
+@media only screen and (min-width: 992px) and (max-width: 1200px) {}
+
+
+/* Mobile + Tablet Layout: */
+
+@media only screen and (max-width: 991px) {
+    .header-area,
+    .mobile-display-none,
+    .hero-area,
+    .league-details {
+        display: none;
+    }
+    .responsive-header,
+    .responsive-menu {
+        display: block;
+    }
+    .responsive-menu,
+    .mobile-menu-bar,
+    .mobile-menu-close {
+        background: #df5b37;
+        background: -moz-linear-gradient(45deg, #df5b37 0%, #e11d40 31%, #df5b37 67%, #e11d40 100%);
+        background: -webkit-linear-gradient(45deg, #df5b37 0%, #e11d40 31%, #df5b37 67%, #e11d40 100%);
+        background: linear-gradient(45deg, #df5b37 0%, #e11d40 31%, #df5b37 67%, #e11d40 100%);
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#df5b37', endColorstr='#e11d40', GradientType=1);
+    }
+    .responsive-menu {
+        width: 80%;
+        padding: 10px;
+        position: fixed;
+        left: -80%;
+        top: 10px;
+        z-index: 99;
+        opacity: 0;
+        visibility: hidden;
+        transition: .5s;
+    }
+    .responsive-menu.active {
+        opacity: 1;
+        visibility: visible;
+        left: 0%;
+    }
+    .responsive-menu ul {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+    }
+    .responsive-menu li {
+        display: block;
+    }
+    .responsive-menu li a {
+        display: block;
+        color: #fff;
+        font-size: 18px;
+        font-weight: 500;
+        padding: 6px;
+        transition: .3s;
+        padding-left: 20px;
+        margin-bottom: 1px;
+    }
+    .responsive-menu li a:hover {
+        color: #222;
+        background: #fff;
+    }
+    .menu-divider {
+        background: #fff;
+        height: 2px;
+        margin: 20px;
+    }
+    body {
+        overflow-x: hidden;
+    }
+    .logo-responsive {
+        text-align: center;
+        width: 100%;
+    }
+    .logo-responsive a {
+        transition: .3s;
+    }
+    .logo-responsive a:hover {
+        opacity: .8;
+    }
+    .logo-responsive img {
+        max-width: 180px;
+    }
+    .mobile-menu-bar,
+    .mobile-menu-close {
+        width: 50px;
+        height: 50px;
+        padding: 12px;
+        position: fixed;
+        z-index: 99;
+        top: 10px;
+        left: 10px;
+        border-radius: 50%;
+        box-shadow: 0 0 5px #444;
+        cursor: pointer;
+        transition: .3s;
+        opacity: 0;
+        visibility: hidden;
+    }
+    .mobile-menu-bar:hover,
+    .mobile-menu-close:hover {
+        transform: scale(1.1);
+    }
+    .mobile-menu-bar.active,
+    .mobile-menu-close.active {
+        opacity: 1;
+        visibility: visible;
+    }
+    .mobile-menu-close.active {
+        left: 82%;
+    }
+    .responsive-header {
+        padding: 30px 0;
+        box-shadow: 0 0 6px 1px #333;
+    }
+    .create-account-popup-menu,
+    .signup-popup-menu,
+    .login-popup-menu {
+        width: 300px;
+        margin-left: -150px;
+    }
+    .signup-popup-menu {
+        height: 520px;
+        margin-top: -260px;
+    }
+    .create-account {
+        height: 400px;
+        margin-top: -200px;
+    }
+    .sign-with-mail,
+    .sign-with-facebook {
+        padding: 8px 30px;
+    }
+    .header-content {
+        text-align: center;
+    }
+    .header-content h1 {
+        font-size: 31px;
+        margin-top: 20px;
+        margin-bottom: 25px;
+    }
+    .subtitle {
+        margin-bottom: -4px;
+    }
+    .boxed-btn {
+        display: block;
+        padding: 12px 10px;
+        margin-bottom: 12px;
+    }
+    .how-to-play-title h1 {
+        font-size: 36px;
+        letter-spacing: 3px;
+    }
+    .how-to-play-image {
+        padding-right: 0;
+    }
+    .how-to-play-text img {
+        left: 5px;
+        top: 0px;
+        max-width: 56px;
+    }
+    .how-to-play-text p {
+        padding-left: 80px;
+        font-size: 14px;
+        margin-bottom: 40px;
+    }
+    .how-to-play-area {
+        padding-top: 60px;
+        padding-bottom: 30px;
+        margin-top: 5px;
+    }
+    .about-area {
+        padding: 70px 0;
+    }
+    .about-image {
+        height: 220px;
+    }
+    .about-text h1 {
+        font-size: 36px;
+        text-align: center;
+    }
+    .about-text {
+        padding: 7px;
+        margin-top: 85px;
+    }
+    .how-it-works-text h1 {
+        font-size: 37px;
+        margin-bottom: 40px;
+        text-align: center;
+    }
+    .how-it-works-text p {
+        padding-right: 0;
+    }
+    .how-it-works-text p:after {
+        display: none;
+    }
+    .tips-text h1 {
+        text-align: center;
+    }
+    .tips-text {
+        padding-left: 0;
+    }
+    .tips-text p {
+        font-size: 14px;
+        padding: 20px;
+    }
+    .how-it-works-area {
+        padding-top: 80px;
+        padding-bottom: 80px;
+    }
+    .footer-area-wrap {
+        padding-top: 30px;
+    }
+    .footer-area h3 {
+        margin-top: 30px;
+    }
+    .copyright-text {
+        text-align: center;
+    }
+    .footer-area {
+        padding-bottom: 30px;
+    }
+    .padding-top-less {
+        padding-top: 0px;
+        margin-top: -24px;
+    }
+    .padding-bottom-less {
+        padding-bottom: 5px;
+    }
+    .custom-col-width-1,
+    .custom-col-width-2 {
+        width: 100%;
+        padding-left: 0;
+        padding-right: 0;
+    }
+    .filter-content ul {
+        display: block;
+        margin-left: 15px;
+    }
+    .scoring-content {
+        padding: 15px;
+    }
+    .league-option {
+        padding: 20px 15px 35px;
+        margin-bottom: 40px;
+    }
+    .profile-info h2,
+    .edit-profile-btn,
+    .team-btn {
+        width: 100%;
+        font-size: 26px;
+        margin: 15px auto;
+    }
+    .edit-profile-btn,
+    .team-btn {
+        font-size: 18px;
+    }
+    .profile-sign-up {
+        padding: 25px;
+        height: 215px;
+        margin-top: 10px;
+    }
+    .common-bg {
+        padding: 15px;
+        padding-top: 22px;
+    }
+    .st-head-row.st-head-row-main {
+        text-align: center;
+        color: #e53823;
+        border-right: 1px solid #fff;
+    }
+    .st-head-row {
+        text-align: center;
+        padding-top: 10px;
+        border-right: 1px solid #fff;
+    }
+    .st-key {
+        width: 47%;
+        text-align: left;
+        padding-right: 0;
+        border: 1px solid #efefef;
+        padding: 5px;
+        text-decoration: none !important;
+        color: #6c6c6c;
+        font-weight: 500;
+        text-transform: uppercase;
+    }
+    .st-val {
+        border: 1px solid #efefef;
+        padding: 0 5px;
+        color: #6c6c6c;
+    }
+    .league-details-body tbody tr td:first-child {
+        width: 16.6%;
+    }
+    .ps>.ps__scrollbar-y-rail {
+        top: 77px !important;
+    }
+    .ps>.ps__scrollbar-y-rail>.ps__scrollbar-y {
+        height: 124px !important;
+    }
+    .league-details-bg {
+        background-repeat: repeat;
+    }
+}
+
+
+/* Tablet Layout: 768px. */
+
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+    .boxed-btn {
+        width: 50%;
+        margin: 12px auto;
+    }
+    .how-to-play-text {
+        margin-left: 70px;
+    }
+    .how-to-play-text p {
+        font-size: 18px;
+    }
+    .how-to-play-text img {
+        top: -8px;
+    }
+    .about-image {
+        height: 370px;
+    }
+    .filter-content ul {
+        display: inline-block;
+        margin-left: 10px;
+    }
+    .ps>.ps__scrollbar-y-rail>.ps__scrollbar-y {
+        height: 225px !important;
+    }
+    .scoring-content-bg {
+        background-size: 40%;
+    }
+    .league-option {
+        min-height: 762px;
+    }
+    .view-btn,
+    .join-btn {
+        width: auto;
+        padding: 0 30px;
+    }
+}
+
+
+/* Mobile Layout: 320px. */
+
+@media only screen and (max-width: 767px) {}
+
+
+/* Wide Mobile Layout: 480px. */
+
+@media only screen and (min-width: 480px) and (max-width: 767px) {}
