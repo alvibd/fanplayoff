@@ -16,6 +16,7 @@ Route::get('/', function () {
 })->name('index');
 
 Auth::routes();
+Route::get('/everything', 'Controller@everythingAllowed');
 
 Route::get('/home', 'HomeController@index')->name('home');
 //social login
