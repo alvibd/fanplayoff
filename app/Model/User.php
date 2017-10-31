@@ -15,7 +15,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password','first_name', 'last_name', 'country_id'
+        'username', 'email', 'password','first_name', 'last_name', 'gender', 'date_of_birth'
     ];
 
     /**
@@ -26,9 +26,4 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
-
-    public function country()
-    {
-        $this->belongsTo(Country::class);
-    }
 }

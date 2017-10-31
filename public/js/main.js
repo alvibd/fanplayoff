@@ -65,7 +65,7 @@
 
 		/* DATE PICKER INITIALIZATION */
 		$('.datepicker').datepicker({
-			startDate: '-3d'
+			endDate: 'today'
 		});
 
 		/* STACKABLE TABLE FOR MOBILE RESPONSIVE */
@@ -147,6 +147,10 @@
 		}
 
 
+		$('.logout').click(function (e, element) {
+			e.preventDefault();
+            $(e.target).parent('li').next('form').submit();
+        });
 		$('.bold-btn').click(function () {
 			document.execCommand('bold');
 		});

@@ -32,7 +32,7 @@
         <form action="{{ route('login') }}" method="post">
             {{ csrf_field() }}
             {{-- todo make username login as well --}}
-            <p><input type="email" placeholder="Username or Email Address" name="email" required></p>
+            <p><input type="text" placeholder="Username or Email Address" name="username" required></p>
             <p><input type="password" placeholder="Password" name="password" required></p>
             <p class="padding-top-10"><input type="submit" value="Log In"></p>
         </form>
@@ -58,14 +58,15 @@
     <div class="form-area">
         <h4>Create Account</h4>
 
-        <form action="">
-            <p><input type="text" placeholder="Frist Name" required></p>
-            <p><input type="text" placeholder="Last Name" required></p>
-            <p><input type="email" placeholder="Email Address" required></p>
-            <p><input type="password" placeholder="Password" required></p>
+        <form action="{{ route('register') }}" method="post">
+            {{ csrf_field() }}
+            <p><input type="text" placeholder="First Name" name="first_name" required value="{{ old('first_name') }}"></p>
+            <p><input type="text" placeholder="Last Name" name="last_name" required value="{{ old('last_name') }}"></p>
+            <p><input type="email" placeholder="Email Address" name="email" value="{{ old('email') }}" required></p>
+            <p><input type="password" placeholder="Password" name="password" required></p>
             <p class="checkbox-new"><input type="checkbox" id="c1"><label for="c1">Show Password</label></p>
-            <p><input class="datepicker" type="text" data-date-format="mm/dd/yyyy" placeholder="Birth Day: mm/dd/yy"
-                      required></p>
+            <p><input class="datepicker" type="text" data-date-format="yyyy/mm/dd" name="date_of_birth" placeholder="Birth Day: yyyy/mm/dd"
+                      required value="{{ old('date_of_birth') }}"></p>
             <p class="divider"><input type="submit" value="Sign Up"></p>
         </form>
     </div>

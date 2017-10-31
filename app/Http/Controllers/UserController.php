@@ -52,10 +52,9 @@ class UserController extends Controller
         }
 
         $user->update([
-            'name' => $data['name'],
+            'username' => $data['name'],
             'first_name' => $data['first_name'],
-            'last_name' => $data['last_name'],
-            'country_id' => $data['country']
+            'last_name' => $data['last_name']
         ]);
 
         $request->session()->flash('success', 'You have successfully updated your profile');

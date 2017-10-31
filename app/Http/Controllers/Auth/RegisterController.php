@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\Model\User;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
 
@@ -27,7 +28,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/';
 
     /**
      * Create a new controller instance.
@@ -48,10 +49,9 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'name' => 'required|string|max:255|unique:users,name|min:4',
             'email' => 'required|string|email|max:255|unique:users',
-            'password' => 'required|string|min:6|confirmed',
-            'country' => 'required|exists:countries,id'
+            'password' => 'required|string|min:6',
+            'date_of_birth' => 'required|date|before_or_equal:'. Carbon::today()
         ]);
     }
 
@@ -63,11 +63,12 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+        //todo check for username uniqueness
         return User::create([
-            'name' => $data['name'],
+            'username' => $data['first_name'].$data['last_name'],
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
-            'country_id' => $data['country'],
+            'date_of_birth' => $data['date_of_birth'],
             'first_name' => $data['first_name'],
             'last_name' => $data['last_name']
         ]);

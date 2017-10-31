@@ -13,7 +13,14 @@
     <div class="menu-divider"></div>
     <ul>
         <li><a href="#">FAQ</a></li>
-        <li><a href="#" class="colored-menu login-btn">Log In / Register</a></li>
+        @guest
+            <li><a href="#" class="colored-menu login-btn">Log In / Register</a></li>
+        @else
+            <li><a href="#" class="colored-menu logout" id="logout">Logout</a></li>
+            <form class="logout-form" method="post" action="{{ route('logout') }}" style="display: none">
+                {{ csrf_field() }}
+            </form>
+        @endguest
     </ul>
 </div>
 <!-- RESPONSIVE MENU END -->
@@ -47,7 +54,10 @@
                             <li><a href="my-account.html">My Account</a></li>
                             <li><a href="join-league.html">Join A League</a></li>
                             <li><a href="#">Create A League</a></li>
-                            <li><a href="{{ route('logout') }}" class="colored-menu login-btn">Logout</a></li>
+                            <li><a href="{{ route('logout') }}" class="colored-menu logout">Logout</a></li>
+                            <form class="logout-form" method="post" action="{{ route('logout') }}" style="display: none">
+                                {{ csrf_field() }}
+                            </form>
                         @else
                             <li><a href="#">FAQ</a></li>
                             <li><a href="" class="colored-menu login-btn">Log In / Register</a></li>
