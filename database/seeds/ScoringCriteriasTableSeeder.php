@@ -331,7 +331,7 @@ class ScoringCriteriasTableSeeder extends Seeder
 
         foreach ($this->criterias as $criteria)
         {
-            DB::table('Scoring_Criterias')->insert($criteria);
+            DB::table('scoring_criterias')->insert($criteria);
         }
     }
 }
