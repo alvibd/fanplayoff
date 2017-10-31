@@ -17,8 +17,6 @@ Route::get('/', function () {
 
 Auth::routes();
 
-//Route::post('/login', 'Auth\LoginController@authenticate')->name('login');
-
 Route::get('/home', 'HomeController@index')->name('home');
 //social login
 Route::get('/auth/{provider}', 'Auth\AuthController@redirectToProvider');
