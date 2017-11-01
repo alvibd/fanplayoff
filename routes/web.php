@@ -25,4 +25,5 @@ Route::get('auth/{provider}/callback', 'Auth\AuthController@handleProviderCallba
 
 Route::get('/edit_profile', 'UserController@editUser')->name('edit.user');
 Route::post('/edit_profile', 'UserController@updateUser')->name('update.user');
+Route::get('/show_profile', 'UserController@showProfile')->name('show.profile');
 Route::post('/check_availability', 'UserController@checkUsername')->name('check.username');

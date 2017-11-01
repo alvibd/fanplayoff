@@ -28,6 +28,11 @@ class UserController extends Controller
         return view('edit_profile', ['user' => $user]);
     }
 
+    public function showProfile()
+    {
+        return view('show_profile', ['user' => Auth::user()]);
+    }
+
     /**
      * @param Request $request
      * @return \Illuminate\Http\RedirectResponse
