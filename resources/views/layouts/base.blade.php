@@ -89,7 +89,7 @@
             errors = {{ count($errors)> 0 ? 1 : 0 }};
             if (errors)
             {
-                $(".login-popup-menu").addClass("active");
+                $(".create-account-popup-menu").addClass("active");
             }
         })
     </script>

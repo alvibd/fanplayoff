@@ -45,6 +45,11 @@ return [
         'client_id' => env('GOOGLE_ID'),
         'client_secret' => env('GOOGLE_SECRET'),
         'redirect' => '/auth/google/callback'
+    ],
+    'sportradar' => [
+        'access_level' => env('SPORTRADAR_ACCESS_LEVEL'),
+        'api_key' => env('SPORTRADAR_API_KEY'),
+        'api_version' => env('SPORTRADAR_API_VERSION')
     ]
 
 ];
