@@ -2,6 +2,7 @@
 
 namespace App\Model;
 
+use Carbon\Carbon;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Support\Str;
@@ -34,5 +35,10 @@ class User extends Authenticatable
         $countUser = count($userRows) + 1;
 
         return ($countUser > 1) ? "{$username}-{$countUser}" : $username;
+    }
+
+    public function getDateOfBirthAttribute($date)
+    {
+        return Carbon::parse($date)->format('Y/m/d');
     }
 }

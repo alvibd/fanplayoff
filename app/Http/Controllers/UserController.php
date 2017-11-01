@@ -25,7 +25,7 @@ class UserController extends Controller
     {
         $user = Auth::user();
 
-        return view('edit_user', ['user' => $user]);
+        return view('edit_profile', ['user' => $user]);
     }
 
     /**
@@ -37,7 +37,7 @@ class UserController extends Controller
 
         //todo check it
         $request->validate([
-            'name' => 'required|max:255|string',
+            'email' => 'required|max:255|string|email',
             'first_name' => 'required|max:255|alpha',
             'last_name' => 'required|max:255|alpha',
             'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048'
@@ -52,7 +52,7 @@ class UserController extends Controller
         }
 
         $user->update([
-            'username' => $data['name'],
+            'email' => $data['email'],
             'first_name' => $data['first_name'],
             'last_name' => $data['last_name']
         ]);
