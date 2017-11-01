@@ -52,25 +52,7 @@
 </head>
 <body>
 
-
 @include('layouts.header')
-
-@yield('success_message')
-@section('error_message')
-    @if(count($errors) > 0)
-        <div class="alert alert-danger alert-dismissible">
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span
-                        aria-hidden="true">&times;</span></button>
-            <ul>
-                @foreach ($errors->all() as $error)
-                    <li>{!! $error !!}</li>
-                @endforeach
-            </ul>
-        </div>
-
-    @endif
-@show
-
 
 @yield('content')
 
@@ -101,6 +83,16 @@
 
     <!-- MAIN JS -->
     <script src="{{ asset('js/main.js') }}"></script>
+    <script type="application/javascript">
+        $(document).ready(function () {
+            var errors = 0;
+            errors = {{ count($errors)> 0 ? 1 : 0 }};
+            if (errors)
+            {
+                $(".login-popup-menu").addClass("active");
+            }
+        })
+    </script>
 
     @push('push_javascripts')
 @show

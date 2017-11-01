@@ -4,6 +4,7 @@ namespace App\Model;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Support\Str;
 
 class User extends Authenticatable
 {
@@ -26,4 +27,12 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    static public function uniqueUsername($firstName, $lastName) {
+        $username = Str::slug($firstName . "-" . $lastName);
+        $userRows  = User::whereRaw("username REGEXP '^{$username}(-[0-9]*)?$'")->get();
+        $countUser = count($userRows) + 1;
+
+        return ($countUser > 1) ? "{$username}-{$countUser}" : $username;
+    }
 }

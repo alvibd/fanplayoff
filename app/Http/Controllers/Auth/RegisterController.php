@@ -65,7 +65,7 @@ class RegisterController extends Controller
     {
         //todo check for username uniqueness
         return User::create([
-            'username' => $data['first_name'].$data['last_name'],
+            'username' => User::uniqueUsername($data['first_name'], $data['last_name']),
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
             'date_of_birth' => $data['date_of_birth'],
