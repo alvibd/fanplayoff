@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use App\Sportradar\NationalFootballLeague;
+use GuzzleHttp\Client;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Schema;
 
@@ -32,7 +33,7 @@ class AppServiceProvider extends ServiceProvider
     public function registerService()
     {
         $this->app->bind(NationalFootballLeague::class, function (){
-            return new NationalFootballLeague(\GuzzleHttp\Client::class, config('services.sportradar.api_key'), config('services.sportradar.access_level'), config('services.sportradar.api_version'));
+            return new NationalFootballLeague(new Client(), config('services.sportradar.api_key'), config('services.sportradar.access_level'), config('services.sportradar.api_version'));
         });
 //        $this->app->make('app\\Sportradar\\NationalFootBallLeague');
     }

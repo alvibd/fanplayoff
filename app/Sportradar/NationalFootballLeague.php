@@ -153,7 +153,7 @@ class NationalFootballLeague
      * @param $api_url
      * @return mixed
      */
-    protected function callApi(\GuzzleHttp\Client $guzzle, $api_url)
+    protected function callApi($api_url)
     {
         $response = $this->client->request('get', $this->constructURL($api_url));
         if ($response->getStatusCode()!= 200)
