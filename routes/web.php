@@ -27,3 +27,7 @@ Route::get('/edit_profile', 'UserController@editUser')->name('edit.user');
 Route::post('/edit_profile', 'UserController@updateUser')->name('update.user');
 Route::get('/show_profile', 'UserController@showProfile')->name('show.profile');
 Route::post('/check_availability', 'UserController@checkUsername')->name('check.username');
+Route::view('/mail_league', 'email_league')->name('mail.league');
+Route::view('/join_league', 'join_league')->name('join.league');
+Route::view('/manager', 'manager')->name('manage');
+Route::view('/message', 'message_board')->name('message');
