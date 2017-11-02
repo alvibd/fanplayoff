@@ -14,8 +14,8 @@
                 <div class="col-md-10 col-md-offset-1">
                     <div class="profile-breadcumb">
                         <ul>
-                            <li><a href="">Home</a></li>
-                            <li><a href="">My Account</a></li>
+                            <li><a href="{{ route('index') }}">Home</a></li>
+                            <li><a href="{{ route('show.profile') }}">My Account</a></li>
                         </ul>
                     </div>
                 </div>
@@ -46,7 +46,7 @@
                             <div class="col-md-7">
                                 <div class="profile-info text-center">
                                     <h2>{{$user->first_name.' '.$user->last_name}}</h2>
-                                    <a href="edit-profile.html" class="edit-profile-btn">Edit Profile</a>
+                                    <a href="{{ route('edit.user') }}" class="edit-profile-btn">Edit Profile</a>
                                 </div>
                             </div>
                         </div>
