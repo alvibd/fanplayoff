@@ -32,29 +32,6 @@ class NationalFootballLeague
         $this->client = $client;
     }
 
-
-    /**
-     * @return array
-     */
-    public function allPlayers()
-    {
-        $league = $this->leagueHierarchy();
-        $teams = $this->allTeams($league);
-        $team_roster= [];
-
-        foreach ($teams as $team)
-        {
-            $team_roster[] = $this->teamPlayers($team->id);
-        }
-        $players = [];
-        foreach ($team_roster->players as $player)
-        {
-            $players[] = $players;
-        }
-
-        return $players;
-    }
-
     /*****************************
      * All helper methods start
      * *********************
@@ -82,8 +59,9 @@ class NationalFootballLeague
      * @param $leagueHierarchy
      * @return array
      */
-    public function allTeams($leagueHierarchy)
+    public function allTeams()
     {
+        $leagueHierarchy = $this->leagueHierarchy();
         $teams = [];
         foreach ($leagueHierarchy->conferences as $conference)
         {
