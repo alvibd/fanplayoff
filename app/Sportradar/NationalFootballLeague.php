@@ -7,6 +7,7 @@
  */
 namespace App\Sportradar;
 
+use Carbon\Carbon;
 use Illuminate\Support\Facades\Log;
 
 class NationalFootballLeague
@@ -37,44 +38,6 @@ class NationalFootballLeague
      * *********************
      */
 
-    /**
-     * @param $team_id
-     * @return mixed
-     */
-    public function teamPlayers($team_id)
-    {
-        return $this->teamRoster($team_id);
-    }
-
-    /**
-     * @param $player_id
-     * @return mixed
-     */
-    public function playerInfo($player_id)
-    {
-        return$this->playerProfile($player_id);
-    }
-
-    /**
-     * @param $leagueHierarchy
-     * @return array
-     */
-    public function allTeams()
-    {
-        $leagueHierarchy = $this->leagueHierarchy();
-        $teams = [];
-        foreach ($leagueHierarchy->conferences as $conference)
-        {
-            foreach ($conference->divisions as $division)
-            {
-                foreach ($division->teams as $team)
-                {
-                    $teams[]= $team;
-                }
-            }
-        }
-        return $teams;
-    }
 
     /*****************************
      * All helper methods end
@@ -87,30 +50,229 @@ class NationalFootballLeague
      */
 
     /**
+     * https://api.sportradar.us/nfl-{access_level}{version}/{year}/{nfl_season}/{week}/{away_team}/{home_team}/extended-boxscore.{format}?api_key={your_api_key}
+     * @param int $year
+     * @param string $nflSeasion
+     * @param int $week
+     * @param string $away
+     * @param string $home
      * @return mixed
      */
-    protected function leagueHierarchy()
+    protected function extendedBoxscore($year, $nflSeason, $week, $away, $home)
     {
-        return $this->callApi('league/hierarchy');
-
+        return $this->callApi($year.'/'.$nflSeason.'/'.$week.'/'.$away.'/'.$home.'/extended-boxscore');
     }
 
     /**
-     * @param $team_id
+     * https://api.sportradar.us/nfl-{access_level}{version}/{year}/{nfl_season}/{week}/{away_team}/{home_team}/boxscore.{format}?api_key={your_api_key}
+     * @param  int $year
+     * @param string $nflSeason
+     * @param int $week
+     * @param string $away
+     * @param string $home
      * @return mixed
      */
-    protected function teamRoster($team_id)
+    protected function gameBoxScore($year, $nflSeason, $week, $away, $home)
     {
-        return $this->callApi('teams/'.$team_id.'/full_roster');
+        return $this->callApi($year.'/'.$nflSeason.'/'.$week.'/'.$away.'/'.$home.'/boxscore');
     }
 
     /**
-     * @param $player_id
+     * https://api.sportradar.us/nfl-{access_level}{version}/{year}/{nfl_season}/{week}/{away_team}/{home_team}/depthchart.{format}?api_key={your_api_key}
+     * @param $year
+     * @param $nflSeason
+     * @param $week
+     * @param $away
+     * @param $home
      * @return mixed
      */
-    protected function playerProfile($player_id)
+    protected function gameDepthChart($year, $nflSeason, $week, $away, $home)
     {
-        return $this->callApi('players/'.$player_id.'/profile');
+        return $this->callApi($year.'/'.$nflSeason.'/'.$week.'/'.$away.'/'.$home.'/depthchart');
+    }
+
+    /**
+     * https://api.sportradar.us/nfl-{access_level}{version}/{year}/{nfl_season}/{week}/{away_team}/{home_team}/roster.{format}?api_key={your_api_key}
+     * @param $year
+     * @param $nflSeason
+     * @param $week
+     * @param $away
+     * @param $home
+     * @return mixed
+     */
+    protected function gameRoster($year, $nflSeason, $week, $away, $home)
+    {
+        return $this->callApi($year.'/'.$nflSeason.'/'.$week.'/'.$away.'/'.$home.'/roster');
+    }
+
+    /**
+     * https://api.sportradar.us/nfl-{access_level}{version}/{year}/{nfl_season}/{week}/{away_team}/{home_team}/statistics.{format}?api_key={your_api_key}
+     * @param $year
+     * @param $nflSeason
+     * @param $week
+     * @param $away
+     * @param $home
+     * @return mixed
+     */
+    protected function gameStatistics($year, $nflSeason, $week, $away, $home)
+    {
+        return $this->callApi($year.'/'.$nflSeason.'/'.$week.'/'.$away.'/'.$home.'/statistics');
+    }
+
+    /**
+     * https://api.sportradar.us/nfl-{access_level}{version}/{year}/{nfl_season}/{week}/{away_team}/{home_team}/summary.{format}?api_key={your_api_key}
+     * @param $year
+     * @param $nflSeason
+     * @param $week
+     * @param $away
+     * @param $home
+     * @return mixed
+     */
+    protected function gameSummary($year, $nflSeason, $week, $away, $home)
+    {
+        return $this->callApi($year.'/'.$nflSeason.'/'.$week.'/'.$away.'/'.$home.'/summary');
+    }
+
+    /**
+     * https://api.sportradar.us/nfl-{access_level}{version}/{year}/{nfl_season}/{week}/{away_team}/{home_team}/injuries.{format}?api_key={your_api_key}
+     * @param $year
+     * @param $nflSeason
+     * @param $week
+     * @param $away
+     * @param $home
+     * @return mixed
+     */
+    protected function injuries($year, $nflSeason, $week, $away, $home)
+    {
+        return $this->callApi($year.'/'.$nflSeason.'/'.$week.'/'.$away.'/'.$home.'/injuries');
+    }
+
+    /**
+     * https://api.sportradar.us/nfl-{access_level}{version}/{year}/{nfl_season}/{week}/{away_team}/{home_team}/pbp.{format}?api_key={your_api_key}
+     * @param $year
+     * @param $nflSeason
+     * @param $week
+     * @param $away
+     * @param $home
+     * @return mixed
+     */
+    protected function playByPlay($year, $nflSeason, $week, $away, $home)
+    {
+        return $this->callApi($year.'/'.$nflSeason.'/'.$week.'/'.$away.'/'.$home.'/pbp');
+    }
+
+    /**
+     * https://api.sportradar.us/nfl-{access_level}{version}/{year}/{nfl_season}/{week}/{away_team}/{home_team}/plays/{play_id}.{format}?api_key={your_api_key}
+     * @param $year
+     * @param $nflSeason
+     * @param $week
+     * @param $away
+     * @param $home
+     * @param $playId
+     * @return mixed
+     */
+    protected function playSummary($year, $nflSeason, $week, $away, $home, $playId)
+    {
+        return $this->callApi($year.'/'.$nflSeason.'/'.$week.'/'.$away.'/'.$home.'/plays/'.$playId);
+    }
+
+    /**
+     * https://api.sportradar.us/nfl-{access_level}{version}/teams/{year}/rankings.{format}?api_key={your_api_key}
+     * @param $year
+     * @return mixed
+     */
+    protected function rankings($year)
+    {
+        return $this->callApi('teams/'.$year.'/rankings');
+    }
+
+    /**
+     * https://api.sportradar.us/nfl-{access_level}{version}/{year}/{nfl_season}/schedule.{format}?api_key={your_api_key}
+     * @param $year
+     * @param $nflSeason
+     * @return mixed
+     */
+    protected function seasonSchedule($year, $nflSeason)
+    {
+        return $this->callApi($year.'/'.$nflSeason.'/schedule');
+    }
+
+    /**
+     * https://api.sportradar.us/nfl-{access_level}{version}/teams/{team}/{year}/{nfl_season}/statistics.{format}?api_key={your_api_key}
+     * @param $team
+     * @param $year
+     * @param $nflSeason
+     * @return mixed
+     */
+    protected function seasonalStatistics($team, $year, $nflSeason)
+    {
+        return $this->callApi('teams/'.$team.'/'.$year.'/'.$nflSeason.'/statistics');
+    }
+
+    /**
+     * https://api.sportradar.us/nfl-{access_level}{version}/teams/{year}/{nfl_season}/standings.{format}?api_key={your_api_key}
+     * @param $year
+     * @param $nflSeason
+     * @return mixed
+     */
+    protected function standings($year, $nflSeason)
+    {
+        return $this->callApi('teams/'.$year.'/'.$nflSeason.'/standings');
+    }
+
+    /**
+     * https://api.sportradar.us/nfl-{access_level}{version}/teams/{team}/depthchart.{format}?api_key={your_api_key}
+     * @param $team
+     * @return mixed
+     */
+    protected function teamDepthChart($team)
+    {
+        return $this->callApi('teams/'.$team.'/depthchart');
+    }
+
+    /**
+     * https://api.sportradar.us/nfl-{access_level}{version}/teams/hierarchy.{format}?api_key={your_api_key}
+     * @return mixed
+     */
+    protected function teamHierarchy()
+    {
+        return $this->callApi('teams/hierarchy');
+    }
+
+    /**
+     * https://api.sportradar.us/nfl-{access_level}{version}/teams/{team}/roster.{format}?api_key={your_api_key}
+     * @return mixed
+     */
+    protected function teamRoster($team)
+    {
+        return $this->callApi('teams/'.$team.'/roster');
+    }
+
+    /**
+     * https://api.sportradar.us/nfl-{access_level}{version}/{year}/{nfl_season}/{week}/boxscore.{format}?api_key={your_api_key}
+     * @return mixed
+     */
+    protected function weeklyBoxscore($year, $nflSeason, $week)
+    {
+        return $this->callApi($year.'/'.$nflSeason.'/'.$week.'/boxscore');
+    }
+
+    /**
+     * https://api.sportradar.us/nfl-{access_level}{version}/{year}/{nfl_season}/{week}/leaders.{format}?api_key={your_api_key}
+     * @return mixed
+     */
+    protected function weeklyLeagueLeaders($year, $nflSeasion, $week)
+    {
+        return $this->callApi($year.'/'.$nflSeasion.'/'.$week.'/leaders');
+    }
+
+    /**
+     * https://api.sportradar.us/nfl-{access_level}{version}/{year}/{nfl_season}/{week}/schedule.{format}?api_key={your_api_key}
+     * @return mixed
+     */
+    protected function weeklySchedule($year, $nflSeason, $week)
+    {
+        return $this->callApi($year.'/'.$nflSeason.'/'.$week.'/schedule');
     }
 
     /*******************************
