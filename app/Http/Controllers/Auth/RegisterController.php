@@ -63,7 +63,6 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        //todo check for username uniqueness
         return User::create([
             'username' => User::uniqueUsername($data['first_name'], $data['last_name']),
             'email' => $data['email'],

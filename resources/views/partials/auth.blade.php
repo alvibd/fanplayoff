@@ -31,7 +31,6 @@
 
         <form action="{{ route('login') }}" method="post">
             {{ csrf_field() }}
-            {{-- todo make username login as well --}}
             <p><input type="text" placeholder="Username or Email Address" name="username" required value="{{ old('username') }}"></p>
             @if ($errors->has('username'))
                 <span class="help-block">
