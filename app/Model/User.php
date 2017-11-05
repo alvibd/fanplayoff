@@ -29,7 +29,7 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
-    const gender = [
+    const GENDER = [
       'male' => 'Male',
         'female' => 'Female'
     ];

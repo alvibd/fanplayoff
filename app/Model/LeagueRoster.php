@@ -6,6 +6,16 @@ use Illuminate\Database\Eloquent\Model;
 
 class LeagueRoster extends Model
 {
+    const POSITIONS = [
+        'QB' => 'QB',
+        'RB' => 'RB',
+        'WR' => 'WR',
+        'TE' => 'TE',
+        'FLEX' => 'FLEX',
+        'BE' => 'BE',
+        'DEF' => 'DEF',
+        'K' => 'K'
+    ];
     /********************
      * Relations Start
      * ************
