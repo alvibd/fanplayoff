@@ -29,8 +29,14 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
-    /*
+    const gender = [
+      'male' => 'Male',
+        'female' => 'Female'
+    ];
+
+    /********************
      * Relations Start
+     * ************
      */
 
     /**
@@ -49,10 +55,16 @@ class User extends Authenticatable
         return $this->hasMany('App\Model\Team');
     }
 
-    /*
+    /******************
      * Relations End
+     * **********
      */
 
+    /**
+     * @param $firstName
+     * @param $lastName
+     * @return string
+     */
     static public function uniqueUsername($firstName, $lastName) {
         $username = Str::slug($firstName . "-" . $lastName);
         $userRows  = User::whereRaw("username REGEXP '^{$username}(-[0-9]*)?$'")->get();
@@ -61,8 +73,22 @@ class User extends Authenticatable
         return ($countUser > 1) ? "{$username}-{$countUser}" : $username;
     }
 
+    /*******************
+     * Accessor Start
+     * ***********
+     */
+
+    /**
+     * @param $date
+     * @return string
+     */
     public function getDateOfBirthAttribute($date)
     {
         return Carbon::parse($date)->format('Y/m/d');
     }
+
+    /*****************
+     * Accessor End
+     * *********
+     */
 }
