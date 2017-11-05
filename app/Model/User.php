@@ -29,6 +29,30 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
+    /*
+     * Relations Start
+     */
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function leagues()
+    {
+        return $this->hasMany('App\Model\League');
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function teams()
+    {
+        return $this->hasMany('App\Model\Team');
+    }
+
+    /*
+     * Relations End
+     */
+
     static public function uniqueUsername($firstName, $lastName) {
         $username = Str::slug($firstName . "-" . $lastName);
         $userRows  = User::whereRaw("username REGEXP '^{$username}(-[0-9]*)?$'")->get();

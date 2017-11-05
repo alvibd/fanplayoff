@@ -16,6 +16,59 @@ class League extends Model
         'default' => 'DEFAULT'
     ];
 
+    /********************
+     * Relations Start
+     * ************
+     */
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function creator()
+    {
+        return $this->belongsTo('App\Model\User');
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function leagueRosters()
+    {
+        return $this->hasMany('App\Model\LeagueRoster');
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function scoringCriterias()
+    {
+        return $this->hasMany('App\Model\ScoringCriteria');
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function leagueScorings()
+    {
+        return $this->hasMany('App\Model\LeagueScoring');
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function teams()
+    {
+        return $this->hasMany('App\Model\Team');
+    }
+
+    /******************
+     * Relations End
+     * **********
+     */
+
+    /**
+     * @param int $privacy
+     */
     public function setPrivacyAttribute($privacy=1)
     {
         $this->attributes['privacy'] = $privacy;
