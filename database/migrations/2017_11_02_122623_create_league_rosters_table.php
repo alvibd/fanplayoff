@@ -15,7 +15,7 @@ class CreateLeagueRostersTable extends Migration
     {
         Schema::create('league_rosters', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('league_id');
+            $table->integer('league_id')->unsigned();
             $table->char('position');
             $table->integer('players_allowed');
 

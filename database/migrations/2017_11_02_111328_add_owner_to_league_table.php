@@ -14,7 +14,7 @@ class AddOwnerToLeagueTable extends Migration
     public function up()
     {
         Schema::table('leagues', function (Blueprint $table) {
-            $table->integer('creator_id');
+            $table->integer('creator_id')->unsigned();
             $table->foreign('creator_id')
                 ->references('id')
                 ->on('users')

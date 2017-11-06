@@ -16,11 +16,11 @@ class CreateTeamsTable extends Migration
         Schema::create('teams', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
-            $table->integer('league_id');
+            $table->integer('league_id')->unsigned();
             $table->integer('draft_order');
             $table->integer('league_position');
             $table->decimal('total_points');
-            $table->integer('owner_id');
+            $table->integer('owner_id')->unsigned();
             $table->timestamps();
 
             $table->foreign('league_id')

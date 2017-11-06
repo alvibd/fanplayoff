@@ -14,8 +14,8 @@ class AddColumnsToLeagueScoringsTable extends Migration
     public function up()
     {
         Schema::table('league_scorings', function (Blueprint $table) {
-            $table->integer('league_id');
-            $table->integer('scoring_criteria_id');
+            $table->integer('league_id')->unsigned();
+            $table->integer('scoring_criteria_id')->unsigned();
 
             $table->foreign('league_id')
                 ->references('id')
