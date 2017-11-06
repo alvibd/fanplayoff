@@ -16,6 +16,8 @@ class LeagueRoster extends Model
         'DEF' => 'DEF',
         'K' => 'K'
     ];
+
+    public $timestamps = false;
     /********************
      * Relations Start
      * ************

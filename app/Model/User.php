@@ -66,11 +66,11 @@ class User extends Authenticatable
      * @return string
      */
     static public function uniqueUsername($firstName, $lastName) {
-        $username = Str::slug($firstName . "-" . $lastName);
+        $username = Str::slug($firstName . "\." . $lastName);
         $userRows  = User::whereRaw("username REGEXP '^{$username}(-[0-9]*)?$'")->get();
         $countUser = count($userRows) + 1;
 
-        return ($countUser > 1) ? "{$username}-{$countUser}" : $username;
+        return ($countUser > 1) ? "{$username}.{$countUser}" : $username;
     }
 
     /*******************

@@ -6,6 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class League extends Model
 {
+//    todo add roster size to league
+
     public $timestamps = false;
     const DRAFT_TYPE = [
         'random' => 'RANDOM',
