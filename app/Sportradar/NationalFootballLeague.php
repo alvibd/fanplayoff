@@ -9,7 +9,7 @@ namespace App\Sportradar;
 
 use Illuminate\Support\Facades\Log;
 
-class NationalFootballLeague
+class NationalFootballLeague extends SportRadar
 {
     protected $api_key;
     protected $access_level;
@@ -308,15 +308,6 @@ class NationalFootballLeague
 
         return $this->getResponse($response);
 
-    }
-
-    /**
-     * @param $response
-     * @return mixed
-     */
-    protected function getResponse($response)
-    {
-        return json_decode($response->getBody()->getContents());
     }
 
 }
