@@ -7,7 +7,6 @@
  */
 namespace App\Sportradar;
 
-use Carbon\Carbon;
 use Illuminate\Support\Facades\Log;
 
 class NationalFootballLeague
@@ -37,6 +36,11 @@ class NationalFootballLeague
      * All helper methods start
      * *********************
      */
+
+    public function getTeams()
+    {
+        return $this->teamHierarchy();
+    }
 
 
     /*****************************
