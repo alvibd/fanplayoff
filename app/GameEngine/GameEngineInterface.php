@@ -5,12 +5,11 @@
  * Date: 11/7/2017
  * Time: 2:15 PM
  */
+namespace App\GameEngine;
+
+use App\Model\Player;
 
 interface GameEngineInterface
 {
-    public function calculateDefenseSack();
-    public function calculateDefenseInterception();
-    public function calculateDefenseFumbleRecovery();
-    public function calculateTouchdown();
-    public function calculateDefenseSafety();
+    public function calculateDefenseSack(Player $player);
 }
