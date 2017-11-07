@@ -55,6 +55,11 @@ class User extends Authenticatable
         return $this->hasMany('App\Model\Team');
     }
 
+    public function invitations()
+    {
+        return $this->hasMany('App\Model\Invitations');
+    }
+
     /******************
      * Relations End
      * **********

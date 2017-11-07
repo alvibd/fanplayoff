@@ -39,6 +39,11 @@ class League extends Model
         return $this->hasMany('App\Model\LeagueRoster');
     }
 
+    public function invitations()
+    {
+        return $this->hasMany('App\Model\Invitation');
+    }
+
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
