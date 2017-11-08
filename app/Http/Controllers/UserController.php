@@ -42,9 +42,6 @@ class UserController extends Controller
      */
     public function updateUser(Request $request)
     {
-        dump($request);
-
-        //todo update after ui
         $request->validate([
             'email' => 'required|max:255|string|email',
             'first_name' => 'required|max:255|alpha',
