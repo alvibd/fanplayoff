@@ -59,7 +59,7 @@
 @include('layouts.footer')
 
 @routes
-@stack('javascripts')
+@stack('push_javascripts')
     <!-- JQUERY JS -->
     <script src="{{ asset('js/jquery.min.js') }}"></script>
 
