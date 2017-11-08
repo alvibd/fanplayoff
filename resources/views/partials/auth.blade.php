@@ -89,7 +89,7 @@
                     <strong>{{ $errors->first('email') }}</strong>
                 </span>
             @endif
-            <p><input type="password" placeholder="Password" name="password" required></p>
+            <p><input type="password" id="signup-email" placeholder="Password" name="password" required></p>
             @if ($errors->has('password'))
                 <span class="help-block">
                     <strong>{{ $errors->first('password') }}</strong>

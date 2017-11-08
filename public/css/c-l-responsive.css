@@ -1,0 +1,359 @@
+/* Large Layout: 1920px. */
+
+@media only screen and (min-width: 1601px) and (max-width: 2000px) {
+    /* EX- LARGE TV */
+}
+
+
+/* Medium Large Layout: 1440px. */
+
+@media only screen and (min-width: 1401px) and (max-width: 1600px) {
+    /* MEDIUM LARGE TV */
+}
+
+
+/* Medium Layout: 1280px. */
+
+@media only screen and (min-width: 992px) and (max-width: 1200px) {
+    /* IPad Pro */
+    .c-l-top-data .col-md-8 {
+        width: 77%;
+        margin-left: 150px;
+    }
+    .hero-area {
+        width: 108%;
+        overflow: hidden;
+    }
+    .subtitle {
+        font-size: 20px;
+        margin-left: -94px;
+    }
+    .menu-left li a,
+    .menu-right li a {
+        padding: 6px 10px;
+    }
+    .position-starters {
+        width: 120%;
+    }
+    table.position-starters-stats-table thead {
+        width: 102%;
+        margin-left: 0px;
+    }
+    table.position-starters-stats-table td:nth-child(2) {
+        margin-left: -60px;
+    }
+    .c-l-bottom-normal-button {
+        width: 106%;
+        margin-left: -5px;
+    }
+    .c-l-bottom-area {
+        width: 107%;
+        /* background-color: #ccc; */
+    }
+    a.cl-btn-normal {
+        padding: 3px 37px;
+    }
+    .c-l-bottom-gradient-bg {
+        width: 107%;
+    }
+    .footer-area-wrap {
+        width: 107%;
+    }
+}
+
+
+/* Mobile + Tablet Layout: */
+
+@media only screen and (max-width: 991px) {
+    /* Commmon CSS for Mobile and Tablet Where needed */
+}
+
+
+/* Tablet Layout: 768px. */
+
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+    /* Tablet Device - iPad, iPad Mini, Samsung Tab etc */
+    .single-data.single-data-btn.s-d-2 form,
+    .single-data.single-data-btn.s-d-3 form,
+    .single-data.single-data-btn.s-d-4 form {
+        display: inline-block;
+        float: right;
+        width: 39%;
+        margin-top: -46px;
+    }
+    .c-l-top-area {
+        background-image: none;
+    }
+    .c-l-top-data {
+        /* padding-top: 98px; */
+        margin-left: 0px;
+        /* display: block; */
+    }
+    .ddf {
+        margin-left: 1px;
+    }
+    .single-data.single-data-btn.s-d-2 form,
+    .single-data.single-data-btn.s-d-3 form,
+    .single-data.single-data-btn.s-d-4 form {
+        width: 34%;
+        margin-left: 0px;
+        margin-right: 70px;
+    }
+    .c-l-input {
+        margin-left: 0px;
+        margin-right: 70px;
+    }
+    table.position-starters-stats-table thead {
+        /* width: 102%; */
+        width: 100.6%;
+        margin-left: -5px;
+    }
+    table.position-starters-stats-table thead th:nth-child(2) {
+        padding-left: 20px;
+    }
+    .c-l-top-area {
+        background-image: none;
+    }
+    .c-l-bottom-area {
+        background-image: none;
+    }
+    .c-l-bottom-buttons {
+        margin-top: 30px;
+    }
+    p.form-input-radio.bottom-toggle {
+        margin-right: 50px;
+        margin-bottom: 40px;
+    }
+    .c-l-bottom-normal-button {
+        /* padding-top: 30px; */
+        margin-left: 250px;
+    }
+    .c-l-btn {
+        text-align: center;
+    }
+    table.position-starters-stats-table td:nth-child(2) {
+        margin-left: -60px;
+    }
+    .c-l-middle-data .col-md-7 {
+        padding-left: 0;
+        padding-right: 0;
+    }
+    .position-starters {
+        width: 100%;
+        margin-left: 0;
+    }
+    table.position-starters-stats-table thead th:nth-child(1) {
+        padding: 20px 20px;
+        padding-left: 60px;
+    }
+    table.position-starters-stats-table thead tr th h2 {
+        margin: 0;
+    }
+    table.position-starters-stats-table thead th:nth-child(2) {
+        padding: 20px;
+        padding-left: 66px;
+    }
+    table.position-starters-stats-table thead tr th h2 {
+        color: #fff;
+    }
+    .c-l-btn a {
+        margin-left: 0px;
+    }
+}
+
+
+/* Mobile Layout: 320px. */
+
+@media only screen and (max-width: 767px) {
+    /* Mobile Device - iPhone 6, 6+ etc */
+    .responsive-header {
+        width: 194%;
+    }
+    .c-l-top-data {
+        width: 114%;
+    }
+    .c-l-top-data {
+        width: 100%;
+        margin-left: 32%;
+    }
+    .c-l-input input {
+        margin-right: -62px;
+    }
+    .c-l-middle-data {
+        width: 194%;
+    }
+    table.position-starters-stats-table td:nth-child(1) {
+        text-align: center;
+    }
+    .c-l-bottom-area {
+        width: 194%;
+        background-image: none;
+    }
+    p.form-input-radio.bottom-toggle {
+        /* margin-left: -132px; */
+        margin-bottom: 46px;
+    }
+    .c-l-bottom-toggle-button {
+        margin-right: 15%;
+        margin-top: 25px;
+    }
+    .c-l-bottom-normal-button {
+        margin-left: 160px;
+    }
+    .c-l-bottom-gradient-bg {
+        width: 194%;
+    }
+    .c-l-btn {
+        text-align: center;
+    }
+    .footer-area-wrap {
+        width: 194%;
+    }
+    p.form-input-radio.bottom-toggle {
+        z-index: 99;
+    }
+    .responsive-menu {
+        width: 65%;
+    }
+    .mobile-menu-close.active {
+        left: 68%;
+    }
+    .three-section-btn input.counter-result {
+        width: 29%;
+    }
+    .c-l-input input {
+        margin-right: -114px;
+        width: 202px;
+        padding-left: 18px;
+        /* margin-right: 23px; */
+    }
+    .c-l-bottom-normal-button {
+        margin-left: 200px;
+    }
+    .c-l-bottom-header {
+        margin-left: 40%;
+    }
+    .c-l-bottom-normal-button {
+        margin-left: 36%;
+    }
+    table.position-starters-stats-table td:nth-child(2) {
+        margin-left: -30px;
+    }
+    .single-data.single-data-btn.s-d-2 form,
+    .single-data.single-data-btn.s-d-3 form,
+    .single-data.single-data-btn.s-d-4 form {
+        width: 66%;
+        margin-right: -112px;
+    }
+    .datetimepicker.datetimepicker-dropdown-bottom-left.dropdown-menu {
+        margin-left: 52%;
+    }
+    .c-l-top-area {
+        background-image: none;
+    }
+}
+
+@media only screen and (max-width: 400px) {
+    .single-data.single-data-btn.s-d-2 form,
+    .single-data.single-data-btn.s-d-3 form,
+    .single-data.single-data-btn.s-d-4 form {
+        width: 75%;
+    }
+}
+
+@media only screen and (max-width: 360px) {
+    /* Mobile Device Small - Galaxy S5 */
+    .single-data.single-data-btn.s-d-2 form,
+    .single-data.single-data-btn.s-d-3 form,
+    .single-data.single-data-btn.s-d-4 form {
+        width: 78%;
+    }
+}
+
+@media only screen and (max-width: 350px) {
+    /* Mobile Device Small - iPhone 5 */
+    .responsive-header {
+        width: 194%;
+    }
+    .c-l-top-data {
+        width: 114%;
+    }
+    .c-l-top-data {
+        /* width: 114%; */
+        margin-left: 60px;
+    }
+    .c-l-middle-data {
+        width: 194%;
+    }
+    table.position-starters-stats-table td:nth-child(2) {
+        margin-left: -100px;
+    }
+    table.position-starters-stats-table td:nth-child(1) {
+        text-align: center;
+    }
+    .c-l-bottom-area {
+        width: 194%;
+        background-image: none;
+    }
+    p.form-input-radio.bottom-toggle {
+        /* margin-left: -132px; */
+        margin-bottom: 46px;
+    }
+    .c-l-bottom-header {
+        margin-left: 40%;
+    }
+    /* .c-l-bottom-buttons {
+        margin-left: -105px;
+    } */
+    .c-l-bottom-toggle-button {
+        margin-right: 90px;
+        margin-top: 25px;
+    }
+    .c-l-bottom-normal-button {
+        margin-left: 34%;
+    }
+    .c-l-bottom-gradient-bg {
+        width: 194%;
+    }
+    .c-l-btn {
+        text-align: center;
+    }
+    .footer-area-wrap {
+        width: 194%;
+    }
+    p.form-input-radio.bottom-toggle {
+        z-index: 99;
+    }
+    .single-data.single-data-btn.s-d-2 form,
+    .single-data.single-data-btn.s-d-3 form,
+    .single-data.single-data-btn.s-d-4 form {
+        margin-right: -110px;
+        width: 78%;
+    }
+    .single-data.s-d-1 {
+        width: 400px;
+    }
+    .input-group.date {
+        margin-left: 22px;
+    }
+    .c-l-input {
+        margin-right: 106px;
+    }
+    table.position-starters-stats-table td:nth-child(2) {
+        margin-left: -120px;
+    }
+    .datetimepicker.datetimepicker-dropdown-bottom-left.dropdown-menu {
+        margin-left: 180px;
+    }
+    .three-section-btn input.counter-result {
+        width: 29%;
+    }
+    .single-data.s-d-1 h2:after {
+        width: 76%;
+    }
+}
+
+
+/* Wide Mobile Layout: 480px. */
+
+@media only screen and (min-width: 480px) and (max-width: 767px) {}

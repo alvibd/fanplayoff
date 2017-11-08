@@ -153,7 +153,8 @@ body {
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e11d40', endColorstr='#df5b37', GradientType=1);
 }
 
-.view-btn {
+.view-btn,
+.form-area input[type="submit"].view-league {
     background: #df5b37;
     background: -moz-linear-gradient(top, #df5b37 23%, #e11d40 76%);
     background: -webkit-linear-gradient(top, #df5b37 23%, #e11d40 76%);
@@ -171,7 +172,12 @@ body {
 }
 
 .filter-title,
+.form-input-radio,
+.form-input-radio [type="radio"]:checked+label.option4,
+.form-input input[type=submit],
 .gradient-divider-1,
+.roster-settings-table-header thead,
+.invite-manager-heading,
 .secondary-menu-bg {
     background: #e11d40;
     background: -moz-linear-gradient(left, #e11d40 14%, #df5b37 78%);
@@ -181,7 +187,12 @@ body {
 }
 
 .league-title,
+.team-table-name-header,
+.form-input-radio [type="radio"]:checked+label.option3,
 .gradient-divider-2,
+.basic-settings-table thead,
+.scoring-settings-table thead,
+.league-settings-overview-heading,
 .scoring-title {
     background: #df5b37;
     background: -moz-linear-gradient(left, #df5b37 22%, #e11d40 86%);
@@ -190,6 +201,7 @@ body {
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#df5b37', endColorstr='#e11d40', GradientType=1);
 }
 
+.switch-btn,
 .join-btn,
 .send-btn,
 .submit-message-btn {
@@ -239,7 +251,7 @@ body {
     color: #7d7b7b;
     font-weight: 700;
     font-size: 18px;
-	margin-top:15px;
+    margin-top: 15px;
 }
 
 .menu-left ul,
@@ -257,7 +269,7 @@ body {
 
 .logo {
     padding-top: 8px;
-	text-align: center;
+    text-align: center;
 }
 
 .logo a {
@@ -317,14 +329,14 @@ body {
 }
 
 .boxed-btn::after {
-    width: 100%;
+    width: 104%;
     height: 3px;
     background: #484848;
     -moz-border-radius: 104% / 3px;
     -webkit-border-radius: 104% / 3px;
     border-radius: 104% / 3px;
     position: absolute;
-    left: 0%;
+    left: -2%;
     z-index: -1;
     content: "";
     box-shadow: 0 0 14px #333;
@@ -440,7 +452,7 @@ body {
 .about-text h1 {
     color: #e11d40;
     text-transform: uppercase;
-    font-size: 37px;
+    font-size: 48px;
     margin-bottom: 40px;
 }
 
@@ -454,7 +466,6 @@ body {
 
 .about-text p {
     padding-right: 14px;
-    text-align: justify;
 }
 
 .about-image {
@@ -664,6 +675,7 @@ body {
     position: absolute;
     left: 0;
     bottom: -20px;
+    /* width: 85%; */
     width: 40%;
     height: 2px;
     background: #1c1c1c;
@@ -759,13 +771,35 @@ body {
     padding: 30px 0;
 }
 
-.profile-photo {
+.profile-photo,
+#imageCanvas {
     width: 154px;
     height: 154px;
     margin: 0 auto;
     border-radius: 50%;
     position: relative;
     background: #d5d5d5;
+}
+
+.profile-photo input[type="file"] {
+    display: none;
+}
+
+.custom-file-upload {
+    border: 1px solid rgba(52, 102, 204, .4);
+    display: inline-block;
+    padding: 6px 12px;
+    cursor: pointer;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    background: rgba(52, 102, 204, .4);
+    margin-left: -20px;
+    margin-top: -20px;
+    width: 40px;
+    height: 40px;
+    color: #fff;
+    line-height: 1.88;
 }
 
 .profile-photo .user-shadow {
@@ -906,20 +940,20 @@ table.dataTable thead .no-sort.sorting {
 }
 
 .dataTables_scrollHeadInner thead tr th:first-child {
-    width: 5% !important;
+    width: 6% !important;
     text-align: center;
 }
 
 .dataTables_scrollHeadInner thead tr th:nth-child(2) {
-    width: 40% !important;
+    width: 39.6% !important;
 }
 
 .dataTables_scrollHeadInner thead tr th:nth-child(3) {
-    width: 20% !important;
+    width: 19.8% !important;
 }
 
 .dataTables_scrollHeadInner thead tr th:nth-child(4) {
-    width: 20% !important;
+    width: 19.8% !important;
     text-align: center;
 }
 
@@ -971,6 +1005,7 @@ table.dataTable thead .no-sort.sorting {
     padding-right: 40px !important;
 }
 
+.switch-btn,
 .view-btn,
 .join-btn {
     display: inline-block;
@@ -982,8 +1017,10 @@ table.dataTable thead .no-sort.sorting {
     width: 100%;
     border-radius: 5px;
     text-align: center;
+    cursor: pointer;
 }
 
+.switch-btn:hover,
 .join-btn:hover,
 .view-btn:hover,
 .submit-message-btn:hover {
@@ -1109,6 +1146,11 @@ table.dataTable thead .no-sort.sorting {
     visibility: visible;
 }
 
+.input-link-area,
+.input-image-area,
+.public-access-popup-menu,
+.private-access-popup-menu,
+.switch-popup-menu,
 .view-scoring-popup-menu,
 .create-account-popup-menu,
 .signup-popup-menu,
@@ -1129,7 +1171,9 @@ table.dataTable thead .no-sort.sorting {
     border-radius: 11px;
 }
 
-.create-account {
+.private-access,
+.create-account,
+.switch-account {
     height: 410px;
     margin-top: -205px;
 }
@@ -1139,6 +1183,29 @@ table.dataTable thead .no-sort.sorting {
     margin-top: -230px;
 }
 
+.public-access {
+    width: 700px;
+    height: 610px;
+    margin-left: -350px;
+    margin-top: -305px;
+}
+
+.input-image-area {
+    height: 246px;
+    margin-top: -123px;
+}
+
+.input-link-area {
+    height: 228px;
+    margin-top: -114px;
+}
+
+.input-link-area.active,
+.input-image-area.active,
+.view-scoring-popup-menu.active,
+.public-access-popup-menu.active,
+.private-access-popup-menu.active,
+.switch-popup-menu.active,
 .create-account-popup-menu.active,
 .signup-popup-menu.active,
 .login-popup-menu.active {
@@ -1152,9 +1219,9 @@ table.dataTable thead .no-sort.sorting {
     margin-left: -335px;
     height: 580px;
     margin-top: -290px;
-    opacity: 1;
+    /* opacity: 1;
     visibility: visible;
-    transform: scale(1);
+    transform: scale(1); */
 }
 
 .menu-trigger,
@@ -1569,21 +1636,29 @@ input[type="checkbox"]:focus+label::before {
 
 .scoring-content {
     background: #fff;
-    padding: 16px 30px;
+    padding: 20px;
     box-shadow: 0 2px 2px #666;
+    min-height: 100px;
+}
+
+.league-option-bg-1 {
+    background-image: url("../img/join-league-left-pic.png");
+    background-size: 90%;
+    background-position: center 85%;
+    background-repeat: no-repeat;
 }
 
 .scoring-content-bg {
     background-image: url("../img/join-league-left-pic.png");
-    background-size: 86%;
-    background-position: bottom center;
+    background-size: 90%;
+    background-position: 29% -8%;
     background-repeat: no-repeat;
 }
 
 .league-details-bg {
     background-image: url("../img/join-league-right-pic.png");
     background-size: 86%;
-    background-position: center 136px;
+    background-position: center 154px;
     background-repeat: no-repeat;
 }
 
@@ -1640,6 +1715,32 @@ input[type="checkbox"]:focus+label::before {
     border: none;
 }
 
+.league-details thead tr th:first-child {
+    /* width: 24.1% !important; */
+    width: 24.3% !important;
+}
+
+.league-details thead tr th:nth-child(2) {
+    /* width: 14.6% !important; */
+    width: 14.7% !important;
+}
+
+.league-details thead tr th:nth-child(3) {
+    width: 10.9% !important;
+}
+
+.league-details thead tr th:nth-child(4) {
+    width: 19.2% !important;
+}
+
+.league-details thead tr th:nth-child(5) {
+    width: 12% !important;
+}
+
+.league-details thead tr th:last-child {
+    width: 17% !important;
+}
+
 .league-details thead tr {
     box-shadow: 0 2px 2px #666;
 }
@@ -1661,6 +1762,44 @@ input[type="checkbox"]:focus+label::before {
 
 .league-details-body tbody {
     box-shadow: 0 2px 2px #444;
+    position: relative;
+    overflow-x: hidden;
+    overflow-y: auto;
+    height: 680px;
+    display: block;
+}
+
+.league-details-body .ps__rail-y,
+.league-details-body .ps__thumb-y {
+    opacity: 1 !important;
+}
+
+.league-details-body .ps__rail-y {
+    opacity: 1 !important;
+}
+
+.league-details-body .ps__thumb-y {
+    background-color: #9F9F9F;
+    width: 8px;
+    right: 0px;
+}
+
+.league-details-body .ps__rail-y:hover .ps__thumb-y {
+    width: 8px !important;
+}
+
+.league-details-body .ps__rail-y,
+.league-details-body.ps.ps--active-y>.ps__rail-y {
+    background: #fff;
+    border: 1px solid #cecece;
+    border-radius: 50px;
+    width: 10px;
+}
+
+.league-details-body .ps__rail-x,
+.league-details-body .ps__thumb-x,
+.league-details-body.ps:hover>.ps__rail-x:hover {
+    display: none;
 }
 
 .height-20 {
@@ -1669,12 +1808,12 @@ input[type="checkbox"]:focus+label::before {
 
 .league-details-body tbody tr td:first-child {
     width: 24.6%;
-    text-decoration: underline;
+    /*text-decoration: underline;*/
 }
 
 .league-details-body tbody tr td:nth-child(2) {
     width: 14.8%;
-    text-decoration: underline;
+    /*text-decoration: underline;*/
 }
 
 .league-details-body tbody tr td:nth-child(3) {
@@ -1706,6 +1845,62 @@ input[type="checkbox"]:focus+label::before {
 
 .mobile-display-block {
     display: none;
+}
+
+.form-input-radio {
+    position: relative;
+    transition: .3s;
+    width: 100%;
+    height: 36px;
+    border-radius: 5px;
+}
+
+.form-input-radio input[type="radio"]:checked,
+.form-input-radio input[type="radio"]:not(:checked) {
+    position: absolute;
+    left: -9999px;
+}
+
+.option3,
+.option4 {
+    position: absolute;
+    font-size: 12px;
+    padding: 5px;
+    left: 3px;
+    top: 3px;
+    border-radius: 0;
+    width: 50%;
+    text-align: center;
+    cursor: pointer;
+    line-height: 20px;
+    text-transform: uppercase;
+}
+
+.option4 {
+    left: auto;
+    right: 3px;
+}
+
+.form-input-radio [type="radio"]:checked+label.option3 {
+    color: #fff;
+    border-radius: 3px 0 0 3px;
+}
+
+.form-input-radio [type="radio"]:checked+label.option4 {
+    color: #fff;
+    border-radius: 0 3px 3px 0;
+}
+
+.form-input-radio [type="radio"]:not(:checked)+label.option3 {
+    color: #e11d40;
+    background: #fff;
+    border-radius: 3px 0 0 3px;
+}
+
+.form-input-radio [type="radio"]:not(:checked)+label.option4 {
+    color: #e11d40;
+    background: #fff;
+    border-radius: 0 3px 3px 0;
 }
 
 
@@ -1761,6 +1956,149 @@ input[type="checkbox"]:focus+label::before {
     border: 1px solid #bfafaf;
 }
 
+.request-access {
+    background: #b9b9b9;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 700;
+    display: block;
+    width: 80%;
+    margin: 0 auto;
+    text-align: center;
+    border-radius: 5px;
+    padding: 7px;
+    margin-bottom: 20px;
+    transition: .3s;
+}
+
+.form-area input.view-league[type="submit"] {
+    border: none;
+    margin-top: 3px;
+    transition: .3s;
+}
+
+.request-access:hover {
+    color: #fff;
+    background-color: #9a9a9a;
+}
+
+.form-area input.view-league[type="submit"]:hover {
+    opacity: .8;
+}
+
+.public-info-area {
+    padding: 10px;
+    height: 540px;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    background: #efefef;
+    position: relative;
+}
+
+.info-area .container {
+    width: 100%;
+}
+
+.info-area {
+    padding: 30px;
+    padding-bottom: 5px;
+    border-bottom: 1px solid #fff;
+    color: #656565;
+    line-height: 1.5;
+    font-size: 15px;
+}
+
+.join-league-form input[type=submit] {
+    background: #3466cc;
+    border: navajowhite;
+    color: #fff;
+    font-weight: 700;
+    width: 90%;
+    display: inline-block;
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 18px;
+}
+
+.join-league-form input[type=text] {
+    background: #fff;
+    border: none;
+    width: 90%;
+    padding: 12px 15px;
+    font-size: 16px;
+    border-radius: 5px;
+    display: inline-block;
+    margin-bottom: 10px;
+}
+
+.team-details-head {
+    width: 100%;
+}
+
+.team-details-head thead tr {
+    background: #fff;
+}
+
+.team-details-head thead tr th {
+    padding: 10px;
+    padding-left: 18px;
+    border-right: 1px solid #efefef;
+    color: #e53823;
+    text-transform: uppercase;
+}
+
+.team-details-head thead tr th:first-child {
+    width: 8% !important;
+    text-align: center;
+}
+
+.team-details-body {
+    width: 100%;
+    background: #fff;
+    color: #6c6c6c;
+    box-shadow: 0 2px 5px #ddd;
+}
+
+.team-details-body tbody tr td {
+    padding: 5px 20px;
+    border-right: 1px solid #efefef;
+    border-bottom: 1px solid #efefef;
+}
+
+.team-details-body tbody tr td:first-child {
+    text-align: center;
+    width: 8% !important;
+}
+
+.team-details-head thead tr th:nth-child(2),
+.team-details-body tbody tr td:nth-child(2) {
+    width: 15% !important;
+}
+
+.team-details-head thead tr th:nth-child(3),
+.team-details-body tbody tr td:nth-child(3) {
+    width: 30% !important;
+}
+
+.team-details-head thead tr th:nth-child(4),
+.team-details-body tbody tr td:nth-child(4) {
+    width: 30% !important;
+}
+
+.league-setting-header {
+    background: #d3d3d3;
+    padding: 5px 30px;
+    margin-top: 35px;
+    color: #fff;
+    font-size: 25px;
+    font-weight: 500;
+}
+
+.custom-line-height {
+    line-height: 1.4 !important;
+    padding: 30px;
+}
+
 
 /* EDIT PROFILE CSS */
 
@@ -1814,16 +2152,21 @@ input[type="checkbox"]:focus+label::before {
     position: relative;
 }
 
-.form-input input[type=submit] {
-    position: absolute;
-    right: 3px;
-    top: -61px;
-    font-size: 20px;
-    color: #626262;
+.form-input input[type="submit"] {
+    color: #fff;
     font-weight: 500;
-    background: no-repeat;
     border: none;
     letter-spacing: 1px;
+    border-radius: 5px;
+    padding: 7px 30px;
+    font-size: 16px;
+    margin-top: 15px;
+    transition: .3s;
+}
+
+.form-input input[type="submit"]:hover {
+    color: #fff;
+    opacity: .8;
 }
 
 .checkbox-new-custom,
@@ -1891,7 +2234,7 @@ input[type="checkbox"]:focus+label.checkbox-new-custom::before {
 }
 
 .secondary-menu li a:hover {
-    color: #626262;
+    color: #000;
 }
 
 .secondary-menu li:first-child a {
@@ -1943,7 +2286,7 @@ input[type="checkbox"]:focus+label.checkbox-new-custom::before {
 .td-right input[type=text],
 .td-right textarea,
 .custom-select,
-#fake_textarea {
+#custom-textarea {
     width: 100%;
     background: #fff;
     border: 1px solid #bfafaf;
@@ -2103,9 +2446,10 @@ input[type="checkbox"]:focus+label.checkbox-new-custom::before {
 
 .view-scoring-table .custom-select {
     padding: 0px 10px;
-    width: 70%;
+    width: 100px;
     margin: 7px 0;
     background: url("../img/both-caret.png") no-repeat 93% 51% #fff;
+    margin-left: 6px;
 }
 
 .view-scoring-table .ps__rail-y,
@@ -2128,8 +2472,7 @@ input[type="checkbox"]:focus+label.checkbox-new-custom::before {
 }
 
 .view-scoring-table .ps__rail-y,
-.view-scoring-table.ps.ps--active-y>.ps__rail-y,
-.dataTables_scrollBody.ps:hover>.ps__rail-y:hover {
+.view-scoring-table.ps.ps--active-y>.ps__rail-y {
     background: #fff;
     border: 1px solid #cecece;
     border-radius: 50px;
@@ -2198,6 +2541,8 @@ input[type="checkbox"]:focus+label.checkbox-new-custom::before {
     background: #dfdfdf;
 }
 
+.basic-settings-table input[type=text],
+.basic-settings-table input[type=text],
 .owner-info-table input[type=text],
 .owner-info-table input[type=email] {
     border: 1px solid #ababab;
@@ -2218,6 +2563,30 @@ input[type="checkbox"]:focus+label.checkbox-new-custom::before {
 
 .owner-info-table tbody tr td:nth-child(2) {
     text-transform: uppercase;
+}
+
+.owner-info-table thead tr th:first-child {
+    width: 5%;
+}
+
+.owner-info-table thead tr th:nth-child(2) {
+    width: 15%;
+}
+
+.owner-info-table thead tr th:nth-child(3) {
+    width: 20%;
+}
+
+.owner-info-table thead tr th:nth-child(4) {
+    width: 25%;
+}
+
+.owner-info-table thead tr th:nth-child(5) {
+    width: 25%;
+}
+
+.owner-info-table thead tr th:last-child {
+    width: 10%;
 }
 
 .space-between-tables {
@@ -2282,6 +2651,7 @@ input[type="checkbox"]:focus+label.checkbox-new-custom::before {
 
 .text-with-btn {
     position: relative;
+    height: 105px !important;
 }
 
 .submit-invite-btn {
@@ -2387,8 +2757,8 @@ input[type="checkbox"]:focus+label.checkbox-new-custom::before {
     vertical-align: top;
 }
 
-.message-board-input-table #fake_textarea {
-    height: 230px;
+.message-board-input-table #custom-textarea {
+    min-height: 230px;
 }
 
 .message-board-input-form {
@@ -2442,16 +2812,1326 @@ input[type="checkbox"]:focus+label.checkbox-new-custom::before {
     height: 7px;
 }
 
-.topic-body {
+.topic-body,
+.topic-body1 {
     color: #b8b8b8;
     font-size: 14px;
     padding: 25px;
     box-shadow: 0 2px 2px #aaa;
-    min-height: 1000px;
+    height: 1000px;
+    position: relative;
+    overflow-x: hidden;
+    overflow-y: auto;
 }
 
 .recent-message-area .col-md-4 {
     padding-right: 0;
+}
+
+
+/* 1 */
+
+.topic-body .ps__rail-y,
+.topic-body .ps__thumb-y {
+    opacity: 1 !important;
+}
+
+.topic-body .ps__rail-y {
+    opacity: 1 !important;
+}
+
+.topic-body .ps__thumb-y {
+    background-color: #9F9F9F;
+    width: 8px;
+    right: 0px;
+}
+
+.topic-body .ps__rail-y:hover .ps__thumb-y {
+    width: 8px !important;
+}
+
+.topic-body .ps__rail-y,
+.topic-body.ps.ps--active-y>.ps__rail-y {
+    background: #fff;
+    border: 1px solid #cecece;
+    border-radius: 50px;
+    width: 10px;
+}
+
+.topic-body .ps__rail-x,
+.topic-body .ps__thumb-x,
+.topic-body.ps:hover>.ps__rail-x:hover {
+    display: none;
+}
+
+
+/* 2 */
+
+.topic-body1 .ps__rail-y,
+.topic-body1 .ps__thumb-y {
+    opacity: 1 !important;
+}
+
+.topic-body1 .ps__rail-y {
+    opacity: 1 !important;
+}
+
+.topic-body1 .ps__thumb-y {
+    background-color: #9F9F9F;
+    width: 8px;
+    right: 0px;
+}
+
+.topic-body1 .ps__rail-y:hover .ps__thumb-y {
+    width: 8px !important;
+}
+
+.topic-body1 .ps__rail-y,
+.topic-body1.ps.ps--active-y>.ps__rail-y {
+    background: #fff;
+    border: 1px solid #cecece;
+    border-radius: 50px;
+    width: 10px;
+}
+
+.topic-body1 .ps__rail-x,
+.topic-body1 .ps__thumb-x,
+.topic-body1.ps:hover>.ps__rail-x:hover {
+    display: none;
+}
+
+
+/* SETTINGS CSS */
+
+.settings-header h3 {
+    color: #666666;
+    font-size: 25px;
+    font-weight: 500;
+}
+
+.settings-area {
+    padding: 30px 0;
+    padding-bottom: 0;
+}
+
+.summary-heading h4 {
+    font-size: 16px;
+    text-transform: uppercase;
+    color: #565656;
+    font-weight: 500;
+    margin: 0;
+}
+
+.summary-heading {
+    background: #d2d2d2;
+    padding: 15px 20px;
+}
+
+.settings-table-wrapper {
+    padding: 15px 20px;
+    background: #eaeaea;
+}
+
+.basic-settings-table,
+.roster-settings-table-header,
+.roster-settings-table,
+.scoring-settings-table {
+    width: 100%;
+}
+
+.basic-settings-table thead tr th:last-child,
+.scoring-settings-table thead tr th:last-child,
+.roster-settings-table-header thead tr th:last-child {
+    text-align: right;
+}
+
+.basic-settings-table thead tr th,
+.scoring-settings-table thead tr th,
+.roster-settings-table-header thead tr th,
+.roster-settings-table thead tr th {
+    padding: 10px;
+    font-size: 16px;
+    font-weight: 500;
+    width: 50%;
+    text-transform: uppercase;
+    color: #fff;
+}
+
+.basic-settings-table tbody tr td {
+    color: #565656;
+    font-size: 16px;
+    padding: 2px 10px;
+    border-left: 1px solid #fff;
+    border-bottom: 1px solid #fff;
+    font-weight: 500;
+}
+
+.basic-settings-table tbody tr td:last-child {
+    border-right: 1px solid #fff;
+}
+
+.basic-settings-table tbody tr:nth-child(3) td,
+.basic-settings-table tbody tr:nth-child(4) td {
+    border-left: none;
+    border-right: none;
+    border-bottom: none;
+}
+
+.height-30 {
+    height: 30px;
+}
+
+.roster-text,
+.roster-text1 {
+    font-size: 15px;
+    color: #565656;
+    font-weight: 500;
+    padding: 10px 0;
+    margin: 0;
+    line-height: 12px;
+}
+
+.secondary-table-wrapper {
+    background: #fff;
+    padding: 10px;
+    border-left: 1px solid #e1e1e1;
+}
+
+.roster-settings-table thead tr th,
+.roster-settings-table tbody tr td {
+    border-right: 1px solid #fff;
+    border-bottom: 1px solid #fff;
+    color: #565656;
+    font-size: 15px;
+    padding: 2px 10px;
+    height: 30px;
+    text-align: center;
+}
+
+.roster-settings-table thead tr th {
+    background: #e1e1e1;
+    width: 50%;
+}
+
+.roster-settings-table tbody tr:nth-child(odd) {
+    background: #f1f1f1;
+}
+
+.roster-settings-table tbody tr:nth-child(even) {
+    background: #e1e1e1;
+}
+
+.roster-settings-table tbody tr:first-child td {
+    text-transform: uppercase;
+}
+
+.roster-settings-table tbody {
+    height: 100px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    position: relative;
+    display: block;
+    width: 200%;
+}
+
+.roster-settings-table tbody tr {
+    width: 100%;
+    display: table;
+}
+
+.roster-settings-table thead tr th:last-child,
+.roster-settings-table tbody tr td:last-child {
+    border-right: none;
+}
+
+.roster-settings-table tbody tr td {
+    width: 48%;
+}
+
+.public-info-area .ps__rail-y,
+.public-info-area .ps__thumb-y,
+.roster-settings-table .ps__rail-y,
+.roster-settings-table .ps__thumb-y {
+    opacity: 1 !important;
+}
+
+.public-info-area .ps__rail-y,
+.roster-settings-table .ps__rail-y {
+    opacity: 1 !important;
+}
+
+.public-info-area .ps__thumb-y,
+.roster-settings-table .ps__thumb-y {
+    background-color: #9F9F9F;
+    width: 8px;
+    right: 0px;
+}
+
+.public-info-area .ps__rail-y:hover .ps__thumb-y,
+.roster-settings-table .ps__rail-y:hover .ps__thumb-y {
+    width: 8px !important;
+}
+
+.public-info-area .ps__rail-y,
+.public-info-area.ps.ps--active-y>.ps__rail-y,
+.sroster-settings-table .ps__rail-y,
+.roster-settings-table .ps.ps--active-y>.ps__rail-y {
+    background: #fff;
+    border: 1px solid #cecece;
+    border-radius: 50px;
+    width: 10px;
+}
+
+.public-info-area .ps__rail-x,
+.public-info-area .ps__thumb-x,
+.public-info-area.ps:hover>.ps__rail-x:hover,
+.roster-settings-table .ps__rail-x,
+.roster-settings-table .ps__thumb-x,
+.roster-settings-table .ps:hover>.ps__rail-x:hover {
+    display: none;
+}
+
+.position-relative {
+    position: relative;
+}
+
+.roster-edit,
+.roster-submit {
+    position: absolute;
+    cursor: pointer;
+    width: 25px;
+    height: auto;
+    right: 8px;
+    top: 50%;
+    margin-top: -14px;
+}
+
+.roster-submit-img {
+    max-height: 23px;
+}
+
+.roster-submit {
+    background: none;
+    border: none;
+    padding: 0;
+}
+
+.scoring-content-2 {
+    padding: 20px 120px;
+    margin-bottom: 20px;
+    height: 200px;
+    position: relative;
+    /* overflow-y: auto;
+	overflow-x: hidden; */
+}
+
+.scoring-content-2 .scroring-checkbox label {
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.scoring-content-2 .scroring-checkbox input[type="checkbox"]+label::before {
+    font: 20px/1em sans-serif;
+}
+
+.scoring-content-2 .ps__rail-y,
+.scoring-content-2 .ps__thumb-y {
+    opacity: 1 !important;
+}
+
+.scoring-content-2 .ps__rail-y {
+    opacity: 1 !important;
+}
+
+.scoring-content-2 .ps__thumb-y {
+    background-color: #9F9F9F;
+    width: 8px;
+    right: 0px;
+}
+
+.scoring-content-2 .ps__rail-y:hover .ps__thumb-y {
+    width: 8px !important;
+}
+
+.scoring-content-2 .ps__rail-y,
+.scoring-content-2.ps.ps--active-y>.ps__rail-y {
+    background: #fff;
+    border: 1px solid #cecece;
+    border-radius: 50px;
+    width: 10px;
+}
+
+.scoring-content-2 .ps__rail-x,
+.scoring-content-2 .ps__thumb-x,
+.scoring-content-2.ps:hover>.ps__rail-x:hover {
+    display: none;
+}
+
+
+/* LEAGUE HOME CSS */
+
+.league-home-area {
+    padding: 20px 0;
+}
+
+.league-home-table {
+    width: 100%;
+}
+
+.league-home-table thead {
+    background: #d2d2d2;
+    border-bottom: 1px solid #b6b6b6;
+}
+
+.league-home-table thead tr th {
+    color: #585857;
+    text-transform: uppercase;
+    font-size: 14px;
+    text-align: center;
+    padding: 8px 10px;
+    width: 13%;
+    line-height: 16px;
+}
+
+.league-home-table thead tr th:first-child,
+.league-home-table tbody tr td:first-child {
+    text-align: left;
+    padding-left: 45px;
+    width: 35%;
+    position: relative;
+}
+
+.league-home-table thead tr th:first-child:before,
+.league-home-table tbody tr td:first-child:before {
+    position: absolute;
+    left: 30px;
+    top: 30%;
+    width: 1px;
+    height: 47%;
+    background: #919191;
+    content: "";
+}
+
+.league-home-table tbody tr td:first-child::after {
+    position: absolute;
+    left: 0;
+    bottom: -1px;
+    width: 100%;
+    height: 1px;
+    background: #cccccc;
+    content: "";
+}
+
+.league-home-table tbody tr td:nth-child(odd) {
+    background: #f1f1f1;
+    border-bottom: 1px solid #cccccc;
+}
+
+.league-home-table tbody tr td:nth-child(even) {
+    background: #fff;
+    border-bottom: 1px solid #d8d8d8;
+}
+
+.league-home-table tbody tr td {
+    font-size: 15px;
+    color: #7f7f7f;
+    text-align: center;
+    font-weight: 500;
+    padding: 14px 10px;
+    line-height: 16px;
+}
+
+.league-home-table tbody tr:first-child td:first-child {
+    color: #0060b4;
+}
+
+.league-home-table tbody tr:nth-child(2) td:first-child {
+    color: #1f7600;
+}
+
+.league-home-table tbody tr:nth-child(3) td:first-child {
+    color: #912900;
+}
+
+.league-home-table tbody tr:nth-child(4) td:first-child {
+    color: #006268;
+}
+
+.league-home-table tbody tr:nth-child(5) td:first-child {
+    color: #340052;
+}
+
+.league-home-table tbody tr:nth-child(6) td:first-child {
+    color: #0060b4;
+}
+
+.invite-manager-heading {
+    text-align: center;
+}
+
+.invite-manager-heading h3,
+.league-settings-overview-heading h3 {
+    font-size: 25px;
+    padding: 10px;
+    color: #fff;
+    font-weight: 400;
+    margin: 0;
+}
+
+.invite-manager-heading,
+.league-settings-overview-heading {
+    height: 50px;
+}
+
+.league-settings-overview {
+    padding: 20px 0;
+}
+
+.league-settings-overview .col-sm-4 {
+    padding-right: 0;
+}
+
+.invite-manager-body {
+    background: #f1f1f1;
+    padding: 30px;
+    color: #3f3f3f;
+    line-height: 30px;
+}
+
+.invite-manager-btn {
+    display: inline-block;
+    background: #3466cc;
+    color: #fff;
+    width: 100%;
+    text-align: center;
+    border-radius: 5px;
+    font-size: 18px;
+    font-weight: 500;
+    margin-top: 20px;
+    transition: .3s;
+}
+
+.invite-manager-btn:hover {
+    color: #fff;
+    background: #1343a3;
+}
+
+.league-special-text {
+    color: #6c6c6c;
+    padding-left: 60px;
+    padding-right: 60px;
+    line-height: 25px;
+    margin-bottom: 20px;
+}
+
+.league-settings-overview-heading h3 {
+    color: #000;
+    text-transform: uppercase;
+    padding-left: 30px;
+}
+
+
+/* ROSTER PAGE CSS */
+
+.roster-profile-area {
+    background: #4a2306;
+}
+
+.roster-profile-wrapper {
+    background: #442008;
+    text-align: center;
+    padding: 60px 0;
+}
+
+.roster-profile-img img {
+    max-width: 105px;
+    border-radius: 50%;
+}
+
+.roster-profile-name ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.roster-profile-name li {
+    display: inline-block;
+    position: relative;
+}
+
+.roster-profile-name li a {
+    color: #fff;
+    font-weight: 500;
+    font-size: 16px;
+}
+
+.roster-profile-name-icon {
+    color: #fff;
+    font-size: 20px;
+    opacity: .6;
+}
+
+.roster-profile-status {
+    background: #ee4023;
+    width: 34%;
+    margin: 0 auto;
+    font-size: 15px;
+    font-weight: 700;
+    border-radius: 3px;
+    padding: 8px;
+}
+
+.roster-profile-status .status {
+    color: #fff;
+    margin-right: 23px;
+}
+
+.roster-profile-status .date {
+    color: #321e18;
+}
+
+.custom-select-roster {
+    width: auto;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    appearance: none;
+    background: url("../img/custom-angle-down-btn.png") no-repeat 97% 53% #442008;
+    cursor: pointer;
+    padding-right: 25px;
+    border: none;
+    color: #fff;
+    font-size: 17px;
+}
+
+.custom-option-roster {
+    text-align: center;
+    border-bottom: 1px solid #bfafaf;
+    background: #442008;
+    padding: 2px;
+    outline: 0px;
+    border: none;
+}
+
+.custom-select-roster-week {
+    width: 160px;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    appearance: none;
+    background: url("../img/custom-angle-down-btn-dark.png") no-repeat 85% 48% #fefefe;
+    cursor: pointer;
+    border: 1px solid #dadada;
+    color: #aaaaaa;
+    font-size: 17px;
+    text-transform: uppercase;
+    display: inline-block;
+    right: 0;
+    position: absolute;
+    bottom: 3px;
+    font-size: 20px;
+    font-weight: 500;
+    padding: 4px 30px;
+    padding-right: 50px;
+}
+
+.custom-option-roster-week {
+    text-align: center;
+    border-bottom: 1px solid #bfafaf;
+    background: transparent;
+    padding: 2px;
+    outline: 0px;
+}
+
+.roster-table-name-header h3 {
+    color: #d03121;
+    text-transform: uppercase;
+    display: inline-block;
+    margin: 0;
+    font-size: 25px;
+}
+
+.roster-table-name-header {
+    width: 100%;
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.team-table2,
+.team-table,
+.roster-starter-table,
+.roster-starter-table2,
+.roster-starter-table3 {
+    width: 100%;
+    position: relative;
+}
+
+.roster-starter-table thead tr,
+.roster-starter-table2 thead tr,
+.roster-starter-table3 thead tr {
+    background: #d2d2d2;
+}
+
+.roster-starter-table thead tr th,
+.roster-starter-table2 thead tr th,
+.roster-starter-table3 thead tr th {
+    color: #d03121;
+    text-transform: uppercase;
+    font-size: 15px;
+    padding: 10px 20px;
+    position: relative;
+}
+
+.roster-starter-table thead tr th:before,
+.roster-starter-table2 thead tr th:before,
+.roster-starter-table3 thead tr th:before {
+    position: absolute;
+    right: 0;
+    top: 15%;
+    width: 1px;
+    height: 70%;
+    background: #fff;
+    content: "";
+}
+
+.roster-starter-table thead tr th:last-child:before,
+.roster-starter-table3 thead tr th:last-child:before,
+.roster-starter-table2 thead tr th:last-child:before {
+    display: none;
+}
+
+.roster-starter-table tbody tr td:nth-child(odd),
+.roster-starter-table3 tbody tr td:nth-child(odd),
+.roster-starter-table2 tbody tr td:nth-child(odd) {
+    background: #f1f1f1;
+}
+
+.roster-starter-table tbody tr td,
+.roster-starter-table3 tbody tr td,
+.roster-starter-table2 tbody tr td {
+    border-bottom: 1px solid #fff;
+}
+
+.roster-starter-table tbody tr td:nth-child(even),
+.roster-starter-table3 tbody tr td:nth-child(even),
+.roster-starter-table2 tbody tr td:nth-child(even) {
+    background: #e6e6e6;
+}
+
+.switch-btn {
+    width: auto;
+    padding: 2px 20px;
+}
+
+.pos-red-bg {
+    background: #d03121;
+    text-align: center;
+    color: #fff;
+    font-weight: 500;
+    padding: 4px;
+}
+
+.roster-starter-table tbody tr td,
+.roster-starter-table3 tbody tr td,
+.roster-starter-table2 tbody tr td {
+    padding: 10px 20px;
+    color: #7e7e7e;
+    font-weight: 500;
+    font-size: 15px;
+}
+
+.team-table thead,
+.team-table2 thead,
+.roster-starter-table thead,
+.roster-starter-table3 thead,
+.roster-starter-table2 thead {
+    position: relative;
+}
+
+.team-table thead:before,
+.team-table2 thead:before,
+.roster-starter-table thead:before,
+.roster-starter-table2 thead:before {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background: #d2d2d2;
+    width: 20px;
+    height: 100%;
+    content: "";
+    border-left: 1px solid #fff;
+    border-bottom: 1px solid #fff;
+    z-index: 15;
+}
+
+.league-details thead,
+.league-details-body tbody tr,
+.team-table2 thead,
+.team-table2 tbody tr,
+.team-table thead,
+.team-table tbody tr,
+.roster-starter-table thead,
+.roster-starter-table tbody tr,
+.roster-starter-table3 thead,
+.roster-starter-table3 tbody tr,
+.roster-starter-table2 thead,
+.roster-starter-table2 tbody tr {
+    display: table;
+    width: 100%;
+}
+
+.team-table2 tbody,
+.team-table tbody,
+.roster-starter-table tbody,
+.roster-starter-table3 tbody,
+.roster-starter-table2 tbody {
+    position: relative;
+    height: 500px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    display: block;
+}
+
+.roster-starter-table3 tbody {
+    height: 200px;
+}
+
+.team-table:before,
+.team-table2:before,
+.roster-starter-table:before,
+.roster-starter-table2:before {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background: #d2d2d2;
+    width: 20px;
+    height: 100%;
+    content: "";
+    z-index: 10;
+}
+
+.team-table2 .ps__rail-y,
+.team-table2 .ps__thumb-y,
+.team-table .ps__rail-y,
+.team-table .ps__thumb-y,
+.roster-starter-table .ps__rail-y,
+.roster-starter-table .ps__thumb-y,
+.roster-starter-table3 .ps__rail-y,
+.roster-starter-table3 .ps__thumb-y,
+.roster-starter-table2 .ps__rail-y,
+.roster-starter-table2 .ps__thumb-y {
+    opacity: 1 !important;
+}
+
+.team-table .ps__rail-y,
+.team-table2 .ps__rail-y,
+.roster-starter-table .ps__rail-y,
+.roster-starter-table3 .ps__rail-y,
+.roster-starter-table2 .ps__rail-y {
+    opacity: 1 !important;
+}
+
+.team-table .ps__thumb-y,
+.team-table2 .ps__thumb-y,
+.roster-starter-table .ps__thumb-y,
+.roster-starter-table3 .ps__thumb-y,
+.roster-starter-table2 .ps__thumb-y {
+    background-color: #9F9F9F;
+    width: 8px;
+    right: 0px;
+}
+
+.team-table2 .ps__rail-y:hover .ps__thumb-y,
+.team-table .ps__rail-y:hover .ps__thumb-y,
+.roster-starter-table .ps__rail-y:hover .ps__thumb-y,
+.roster-starter-table3 .ps__rail-y:hover .ps__thumb-y,
+.roster-starter-table2 .ps__rail-y:hover .ps__thumb-y {
+    width: 8px !important;
+}
+
+.team-table2 .ps__rail-y,
+.team-table2.ps.ps--active-y>.ps__rail-y,
+.team-table .ps__rail-y,
+.team-table.ps.ps--active-y>.ps__rail-y,
+.roster-starter-table .ps__rail-y,
+.roster-starter-table.ps.ps--active-y>.ps__rail-y,
+.roster-starter-table3 .ps__rail-y,
+.roster-starter-table3.ps.ps--active-y>.ps__rail-y,
+.roster-starter-table2 .ps__rail-y,
+.roster-starter-table2.ps.ps--active-y>.ps__rail-y {
+    background: transparent;
+    border: 1px solid #ddd;
+    border-radius: 50px;
+    width: 10px;
+    z-index: 13;
+    right: 4px !important;
+}
+
+.team-table2 .ps__rail-x,
+.team-table2 .ps__thumb-x,
+.team-table2.ps:hover>.ps__rail-x:hover,
+.team-table .ps__rail-x,
+.team-table .ps__thumb-x,
+.team-table.ps:hover>.ps__rail-x:hover,
+.roster-starter-table .ps__rail-x,
+.roster-starter-table .ps__thumb-x,
+.roster-starter-table.ps:hover>.ps__rail-x:hover,
+.roster-starter-table3 .ps__rail-x,
+.roster-starter-table3 .ps__thumb-x,
+.roster-starter-table3.ps:hover>.ps__rail-x:hover,
+.roster-starter-table2 .ps__rail-x,
+.roster-starter-table2 .ps__thumb-x,
+.roster-starter-table2.ps:hover>.ps__rail-x:hover {
+    display: none;
+}
+
+.roster-starter-table thead tr th:first-child {
+    width: 9% !important;
+}
+
+.roster-starter-table thead tr th:nth-child(2) {
+    width: 35% !important;
+}
+
+.roster-starter-table thead tr th:nth-child(3) {
+    width: 35% !important;
+}
+
+.roster-starter-table thead tr th:last-child {
+    width: 21% !important;
+}
+
+.roster-starter-table tbody tr td:first-child {
+    width: 9% !important;
+}
+
+.roster-starter-table tbody tr td:nth-child(2) {
+    width: 35% !important;
+}
+
+.roster-starter-table tbody tr td:nth-child(3) {
+    width: 35% !important;
+}
+
+.roster-starter-table tbody tr td:last-child {
+    width: 21% !important;
+}
+
+.roster-starter-table2 thead tr th:first-child {
+    width: 9% !important;
+}
+
+.roster-starter-table2 thead tr th:nth-child(2) {
+    width: 35% !important;
+}
+
+.roster-starter-table2 thead tr th:last-child {
+    width: 56% !important;
+}
+
+.roster-starter-table2 tbody tr td:first-child {
+    width: 9% !important;
+}
+
+.roster-starter-table2 tbody tr td:nth-child(2) {
+    width: 35% !important;
+}
+
+.roster-starter-table2 tbody tr td:last-child {
+    width: 56% !important;
+}
+
+.roster-starter-table3 thead tr th:first-child {
+    width: 9% !important;
+}
+
+.roster-starter-table3 thead tr th:nth-child(2) {
+    width: 35% !important;
+}
+
+.roster-starter-table3 thead tr th:last-child {
+    width: 56% !important;
+}
+
+.roster-starter-table3 tbody tr td:first-child {
+    width: 9% !important;
+}
+
+.roster-starter-table3 tbody tr td:nth-child(2) {
+    width: 35% !important;
+}
+
+.roster-starter-table3 tbody tr td:last-child {
+    width: 56% !important;
+}
+
+.roster-area {
+    padding: 60px 0;
+}
+
+.roster-profile-name {
+    margin: 15px 0;
+}
+
+
+/* TEAM PAGE CSS */
+
+.pos-blue-bg {
+    background: #03a9f4;
+    color: #fff;
+    padding: 8px;
+    text-align: center;
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.team-table2 tbody tr td:first-child,
+.team-table2 tbody tr td:nth-child(2),
+.team-table tbody tr td:first-child,
+.team-table tbody tr td:nth-child(2) {
+    background: #f1f1f1;
+}
+
+.team-table tbody tr td,
+.team-table2 tbody tr td {
+    padding: 2px;
+}
+
+.team-table thead tr,
+.team-table2 thead tr {
+    background: #d2d2d2;
+}
+
+.team-table thead tr th:nth-child(2),
+.team-table2 thead tr th:nth-child(2) {
+    border-right: 1px solid #b5b5b5;
+    width: 32.5% !important;
+    text-align: center;
+}
+
+.team-table thead tr th:nth-child(1),
+.team-table2 thead tr th:nth-child(1) {
+    width: 12% !important;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.team-table thead tr th,
+.team-table2 thead tr th {
+    padding: 2px;
+}
+
+.team-table thead tr th:nth-child(3),
+.team-table2 thead tr th:nth-child(3) {
+    width: 6% !important;
+}
+
+.team-table thead tr th:last-child,
+.team-table2 thead tr th:last-child {
+    width: 80% !important;
+}
+
+.team-table-name-header h3 {
+    color: #fff;
+    font-size: 25px;
+    padding: 15px 30px;
+    margin: 0;
+    margin-top: 20px;
+    text-transform: uppercase;
+}
+
+.team-table tbody tr td:nth-child(2),
+.team-table2 tbody tr td:nth-child(2) {
+    border-right: 1px solid #b5b5b5;
+    width: 221px !important;
+}
+
+.team-table tbody tr td:nth-child(1),
+.team-table2 tbody tr td:nth-child(1) {
+    width: 7% !important;
+    padding: 20px;
+}
+
+.yellow-text {
+    color: #ffb300;
+    font-size: 23px;
+    font-weight: 500;
+    margin: 0;
+    line-height: 25px;
+}
+
+.thin-text {
+    color: #555555;
+    font-size: 15px;
+    font-weight: 300;
+    margin: 0;
+    line-height: 20px;
+}
+
+.team-table tbody,
+.team-table2 tbody {
+    border-bottom: 1px solid #b5b5b5;
+}
+
+.team-table thead,
+.team-table2 thead {
+    border-bottom: 1px solid #b5b5b5;
+}
+
+.team-table tbody tr td,
+.team-table2 tbody tr td {
+    border-bottom: 1px solid #eaeaea;
+    border-right: 1px solid #eaeaea;
+}
+
+.team-table tbody tr td:first-child,
+.team-table2 tbody tr td:first-child {
+    border-right: none;
+}
+
+
+/* TEAM PAGE BORDER CHECK */
+
+.team-table thead tr th,
+.team-table2 thead tr th {
+    /* border-right: 1px solid #b5b5b5; */
+    border-top: 1px solid #b5b5b5;
+}
+
+.team-table2 thead tr th.width-1 {
+    width: 5% !important;
+}
+
+.team-table2 thead tr th.width-2 {
+    width: 18.7% !important;
+}
+
+.team-table2 thead tr th.width-3 {
+    width: 20% !important;
+    text-align: center;
+    background: #b7b7b7;
+}
+
+.team-table2 thead tr th.width-4 {
+    width: 38% !important;
+    text-align: center;
+    padding-right: 18px;
+}
+
+.team-table2 thead tr th.width-5 {
+    width: 10% !important;
+    background: #c7c7c7;
+}
+
+.team-table2 thead tr th.width-6 {
+    width: 10% !important;
+    background: #c7c7c7;
+}
+
+.team-table2 thead tr th.width-7 {
+    width: 10% !important;
+    text-align: center;
+    background: #c7c7c7;
+}
+
+.team-table2 thead tr th.width-8 {
+    width: 10% !important;
+    text-align: center;
+    background: #c7c7c7;
+}
+
+.team-table2 thead tr th.width-9 {
+    width: 10% !important;
+    text-align: center;
+    background: #c7c7c7;
+}
+
+.team-table2 thead tr th.width-10 {
+    width: 10% !important;
+    text-align: center;
+    background: #c7c7c7;
+}
+
+.team-table2 tbody tr td.width-50 {
+    width: 8.2% !important;
+}
+
+.team-table2 tbody tr td:last-child {
+    padding-right: 20px;
+}
+
+.team-table tbody tr td:last-child {
+    padding-right: 5px;
+}
+
+.team-table thead tr th.width-1 {
+    width: 8% !important; /*value -> 3 --> changes 7-nov*/
+}
+
+.team-table thead tr th.width-2 {
+    width: 28.5% !important; /*value -> 31.4 --> changes 7-nov*/
+}
+
+.team-table thead tr th.width-3 {
+    width: 20% !important;
+}
+
+.team-table thead tr th.width-4 {
+    width: 3.5% !important;
+}
+
+.team-table thead tr th.width-5 {
+    width: 40% !important;
+}
+
+.team-table thead tr th.width-6 {
+    width: 3.5% !important;
+}
+
+.team-table thead tr th.width-7 {
+    width: 40% !important;
+}
+
+.team-table thead tr th.width-8 {
+    width: 3.5% !important;
+}
+
+.team-table thead tr th.width-9 {
+    width: auto !important;
+}
+
+.team-table thead tr th.width-10 {
+    width: 3.2% !important;
+}
+
+.team-table thead tr th.width-11 {
+    width: 3.6% !important;
+    border: none;
+}
+
+.team-table thead tr th.width-12 {
+    width: 3.5% !important;
+}
+
+.team-table thead tr th.width-13 {
+    width: 3.1% !important;
+}
+
+.team-table thead tr th.width-14 {
+    width: 3.1% !important;
+}
+
+.team-table thead tr th.width-15 {
+    width: 3% !important;
+}
+
+.team-table thead tr th.width-16 {
+    width: 3.1% !important;
+}
+
+.team-table thead tr th.width-17 {
+    width: 3.6% !important;
+}
+
+.team-table thead tr th.width-18 {
+    width: 3.5% !important;
+}
+
+.team-table thead tr th.width-19 {
+    width: 3.5% !important;
+}
+
+.team-table thead tr th.width-20 {
+    width: 3.6% !important;
+}
+
+.team-table thead tr th.width-21 {
+    width: 4% !important;
+}
+
+.team-table thead tr th.width-22 {
+    width: 3.3% !important;
+}
+
+.team-table thead tr th.width-23 {
+    width: 3.3% !important;
+}
+
+.team-table thead tr th.width-24 {
+    width: 3.5% !important;
+}
+
+.team-table thead tr th.width-25 {
+    width: 3.2% !important;
+    padding-left: 7px;
+    padding-right: 7px;
+}
+
+.team-table thead tr th.width-26 {
+    width: 3% !important;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.team-table thead tr th.width-27 {
+    width: 4% !important;
+    padding-left: 7px;
+    padding-right: 7px;
+}
+
+.team-table thead tr th.width-28 {
+    width: 3.9% !important;
+    padding-left: 7px;
+    padding-right: 7px;
+}
+
+.team-table thead tr th.width-29 {
+    width: 4% !important;
+    padding-left: 3px;
+    padding-right: 4px;
+}
+
+.team-table thead tr th.width-30 {
+    width: 4% !important;
+    padding-left: 3px;
+    padding-right: 4px;
+}
+
+.team-table thead tr th.width-31 {
+    width: 4% !important;
+}
+
+.team-table thead tr th.width-32 {
+    width: 4% !important;
+    padding-left: 3px;
+    padding-right: 5px;
+}
+
+.team-table thead tr th.width-33 {
+    width: 11% !important;
+    padding-right: 27px;
+}
+
+.team-table thead tr th {
+    text-align: center !important;
+}
+
+.team-area {
+    padding: 50px 0;
+}
+
+.team-table2 thead tr td {
+    text-align: center;
+}
+
+.team-table2 thead tr th {
+    text-transform: uppercase;
+}
+
+.team-table2 tbody tr td {
+    text-align: center;
+}
+
+.team-table2 tbody tr td:nth-child(2) {
+    text-align: left;
 }
 
 
@@ -2469,6 +4149,10 @@ input[type="checkbox"]:focus+label.checkbox-new-custom::before {
     padding-bottom: 0;
 }
 
+.margin-bottom-0 {
+    margin-bottom: 0;
+}
+
 .message-board-header {
     background: #e1e1e1;
     height: 60px;
@@ -2477,6 +4161,92 @@ input[type="checkbox"]:focus+label.checkbox-new-custom::before {
 .message-board-area {
     padding: 20px 0;
     padding-bottom: 0;
+}
+
+.white-bg {
+    background: #fff;
+}
+
+.sign-up-btn-custom {
+    background: #3466cc;
+    color: #fff;
+    transition: .3s;
+}
+
+.sign-up-btn-custom:hover {
+    background: #194bb2;
+    color: #fff;
+}
+/* INSERT IMAGE CSS */
+
+.input-image-area,
+.input-link-area {
+    padding: 20px;
+}
+
+.insert-image-btn,
+.insert-link-btn {
+    display: block;
+    float: right;
+    background: #0060b4;
+    color: #fff;
+    font-size: 16px;
+    padding: 8px 30px;
+    border: none;
+    transition: .3s;
+    border-radius: 5px;
+    text-transform: uppercase;
+    font-weight: 500;
+    margin-top: 20px;
+}
+
+.insert-image-btn:hover,
+.insert-link-btn:hover {
+    color: #fff;
+    background: #00469a;
+}
+
+.input-image-area input[type=url],
+.input-link-area input[type=url],
+.input-link-area input[type=text] {
+    width: 100%;
+    display: block;
+    padding: 4px;
+    border: 1px solid #aaa;
+    border-radius: 5px;
+    font-size: 15px;
+    margin-top: 20px;
+}
+
+.separator {
+    width: 100%;
+    height: 1px;
+    background: #ccc;
+}
+
+.input-image-area input[type="file"] {
+    background: #ddd;
+    padding: 20px;
+    display: block;
+    width: 100%;
+    margin-bottom: 20px;
+    border-radius: 5px;
+}
+
+.show {
+    display: block;
+}
+
+.hidden {
+    display: none;
+}
+
+.pl-10 {
+    padding-left: 10px;
+}
+
+.mt-30 {
+    margin-top: 30px;
 }
 
 

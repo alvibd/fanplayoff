@@ -1,15 +1,81 @@
+/* Large Layout: 1920px. */
+
+@media only screen and (min-width: 1601px) and (max-width: 2000px) {
+    .team-table tbody tr td:nth-child(2),
+    .team-table2 tbody tr td:nth-child(2) {
+        width: 250px !important;
+    }
+    .team-table thead tr th.width-2 {
+        width: 15.6% !important;
+    }
+}
+
+
+/* Medium Large Layout: 1440px. */
+
+@media only screen and (min-width: 1401px) and (max-width: 1600px) {
+    .team-table tbody tr td:nth-child(2),
+    .team-table2 tbody tr td:nth-child(2) {
+        width: 238px !important;
+    }
+    .team-table thead tr th.width-2 {
+        width: 28.4% !important;
+    }
+    .team-table2 thead tr th.width-2 {
+        width: 18.9% !important;
+    }
+}
+
+
 /* Medium Layout: 1280px. */
 
-@media only screen and (min-width: 992px) and (max-width: 1200px) {}
+@media only screen and (min-width: 992px) and (max-width: 1200px) {
+    .team-table2 tbody tr td:nth-child(2) {
+        width: 174px !important;
+    }
+    .team-table2 thead tr th.width-2 {
+        width: 20.8% !important;
+    }
+    .team-table thead tr th.width-33 {
+        padding-right: 28px;
+    }
+    .team-table thead tr th.width-1 {
+        width: 8% !important;
+    }
+    .team-table2 tbody tr td.width-50 {
+        width: 7.2% !important;
+    }
+    .responsive-table {
+        overflow-x: scroll;
+    }
+    table.team-table {
+        width: 1321px;
+    }
+    .team-table thead tr th.width-2 {
+        width: 28.4% !important;
+    }
+    .roster-profile-status {
+        width: 43%;
+    }
+    .secondary-menu li a {
+        font-size: 23px;
+        padding: 10px 24px;
+    }
+}
 
 
 /* Mobile + Tablet Layout: */
 
 @media only screen and (max-width: 991px) {
+    table.team-table {
+        width: 1321px;
+    }
+    table.team-table2 {
+        width: 1312px;
+    }
     .header-area,
     .mobile-display-none,
-    .hero-area,
-    .league-details {
+    .hero-area {
         display: none;
     }
     .responsive-header,
@@ -115,24 +181,6 @@
     .responsive-header {
         padding: 30px 0;
         box-shadow: 0 0 6px 1px #333;
-    }
-    .create-account-popup-menu,
-    .signup-popup-menu,
-    .login-popup-menu {
-        width: 300px;
-        margin-left: -150px;
-    }
-    .signup-popup-menu {
-        height: 520px;
-        margin-top: -260px;
-    }
-    .create-account {
-        height: 400px;
-        margin-top: -200px;
-    }
-    .sign-with-mail,
-    .sign-with-facebook {
-        padding: 8px 30px;
     }
     .header-content {
         text-align: center;
@@ -294,7 +342,40 @@
         color: #6c6c6c;
     }
     .league-details-body tbody tr td:first-child {
-        width: 16.6%;
+        width: 17.1%;
+    }
+    .league-details-body tbody tr td:nth-child(2) {
+        width: 14.6%;
+    }
+    .league-details-body tbody tr td:nth-child(3) {
+        width: 13.9%;
+    }
+    .league-details-body tbody tr td:nth-child(4) {
+        width: 18.9%;
+    }
+    .league-details-body tbody tr td:nth-child(5) {
+        width: 15.8%;
+    }
+    .league-details-body tbody tr td:last-child {
+        width: 11%;
+    }
+    .league-details thead tr th:first-child {
+        width: 17.3% !important;
+    }
+    .league-details thead tr th:nth-child(2) {
+        width: 14.7% !important;
+    }
+    .league-details thead tr th:nth-child(3) {
+        width: 8.9% !important;
+    }
+    .league-details thead tr th:nth-child(4) {
+        width: 19.2% !important;
+    }
+    .league-details thead tr th:nth-child(5) {
+        width: 7% !important;
+    }
+    .league-details thead tr th:last-child {
+        width: 19% !important;
     }
     .ps>.ps__scrollbar-y-rail {
         top: 77px !important;
@@ -305,12 +386,71 @@
     .league-details-bg {
         background-repeat: repeat;
     }
+    .mobile-mt-90 {
+        margin-top: 90px;
+    }
+    .edit-profile-pb-150 {
+        padding-bottom: 80px !important;
+    }
+    .recent-message-area .col-md-4,
+    .recent-message-area .col-md-8 {
+        padding-right: 15px;
+    }
+    .position-1 {
+        background: #fff;
+        margin-bottom: 20px;
+    }
+    .position-2 {
+        background: #fff;
+    }
+    .recent-message-area {
+        background: #e1e1e1;
+    }
+    .topic-body,
+    .topic-body1 {
+        height: 400px;
+    }
+    .invite-manager-body {
+        margin-bottom: 20px;
+    }
+    .league-option {
+        min-height: auto;
+    }
+    .league-option-bg-1,
+    .scoring-content-bg,
+    .league-details-bg,
+    .league-option-bg {
+        background-image: none;
+    }
+    .secondary-menu {
+        margin-top: 15px;
+    }
+    .secondary-menu ul li {
+        display: block;
+        text-align: center;
+    }
+    .secondary-menu li a {
+        padding: 5px;
+        font-size: 22px;
+        line-height: 29px;
+    }
+    .pb-0 {
+        padding-bottom: 0;
+    }
+    .responsive-table {
+        overflow-x: scroll;
+    }
 }
 
 
 /* Tablet Layout: 768px. */
 
 @media only screen and (min-width: 768px) and (max-width: 991px) {
+    .league-details thead tr th {
+        padding-top: 8px;
+        padding-bottom: 8px;
+        line-height: 20px;
+    }
     .boxed-btn {
         width: 50%;
         margin: 12px auto;
@@ -337,20 +477,319 @@
     .scoring-content-bg {
         background-size: 40%;
     }
-    .league-option {
-        min-height: 762px;
-    }
     .view-btn,
     .join-btn {
         width: auto;
         padding: 0 30px;
+    }
+    .secondary-table-wrapper {
+        border-left: none;
+    }
+    .invite-manager-body {
+        padding: 20px;
+    }
+    .league-special-text {
+        padding-left: 40px;
+        padding-right: 20px;
+    }
+    .profile-sign-up {
+        padding: 20px;
+        height: 190px;
+        margin-top: 0;
+    }
+    .pd-lt-0 {
+        padding-left: 0;
     }
 }
 
 
 /* Mobile Layout: 320px. */
 
-@media only screen and (max-width: 767px) {}
+@media only screen and (max-width: 767px) {
+    .public-access {
+        width: 320px;
+        height: 550px;
+        margin-left: -160px;
+        margin-top: -275px;
+    }
+    .public-info-area {
+        height: 460px;
+    }
+    .public-info-area .text-right {
+        text-align: center;
+    }
+    .join-league-form input[type=submit],
+    .join-league-form input[type=text] {
+        width: 100%;
+    }
+    .league-details {
+        display: none;
+    }
+    .profile-area .text-right {
+        text-align: left;
+    }
+    .team-table2,
+    .team-table {
+        min-width: 800px;
+    }
+    .invite-info-table tr>*,
+    .message-board-input-table tr>*,
+    .email-league-table tr>* {
+        display: block;
+        width: 100%;
+    }
+    .invite-info-table tr,
+    .message-board-input-table tr,
+    .email-league-table tr {
+        display: table;
+        width: 100%;
+    }
+    .invite-info-table tbody tr td {
+        border-right: none;
+    }
+    .invite-info-table thead tr th,
+    .invite-info-table tbody tr td {
+        width: 100% !important;
+    }
+    .submit-invite-btn {
+        bottom: -165px;
+        left: 3%;
+        width: 94%;
+    }
+    .mobile-d-none {
+        display: none !important;
+    }
+    form.manager-input-table {
+        min-height: 1525px !important;
+    }
+    .fake-bg-for-mobile {
+        position: absolute;
+        left: 0;
+        bottom: -182px;
+        width: 100%;
+        height: 160%;
+        background: #dfdfdf;
+        content: "";
+        z-index: -1
+    }
+    table.owner-info-table .st-key {
+        color: #fff;
+        background: #d03222;
+        border-left: none;
+    }
+    table.owner-info-table .st-head-row {
+        padding: 10px;
+    }
+    .settings-table-wrapper {
+        padding: 15px;
+    }
+    .basic-settings-table thead tr th,
+    .scoring-settings-table thead tr th,
+    .roster-settings-table-header thead tr th {
+        padding: 10px;
+        font-size: 16px;
+        font-weight: 500;
+        width: 50%;
+        text-transform: uppercase;
+        color: #fff;
+        line-height: 20px;
+    }
+    .secondary-table-wrapper {
+        border-left: none;
+    }
+    .scoring-content-2 {
+        padding: 20px;
+        margin-bottom: 0;
+    }
+    .message-board-input-form {
+        padding: 10px 20px 30px;
+    }
+    .td-left,
+    .td-right {
+        padding: 0;
+    }
+    .td-left {
+        padding-top: 10px;
+    }
+    .submit-message-btn,
+    .cancel-btn {
+        margin-bottom: 10px;
+        width: 100%;
+    }
+    .email-input-table {
+        padding: 10px 15px 30px;
+    }
+    .email-league-table .custom-select {
+        width: 100%;
+    }
+    .send-btn {
+        margin-bottom: 10px;
+    }
+    .email-header h3 {
+        padding: 20px;
+    }
+    .league-home-table .st-key {
+        color: #7f7f7f !important;
+        padding-left: 25px !important;
+    }
+    .league-home-table thead tr th:first-child:before,
+    .league-home-table tbody tr td:first-child:before {
+        left: 14px;
+        top: 20%;
+        height: 60%;
+    }
+    .league-home-table .st-head-row {
+        text-align: center;
+        padding: 10px;
+        border-right: 1px solid #fff;
+    }
+    .league-settings-overview-heading {
+        height: auto;
+    }
+    .league-settings-overview .col-sm-4 {
+        padding-right: 15px;
+    }
+    .league-settings-overview-heading h3 {
+        padding-left: 20px;
+        font-size: 24px;
+    }
+    .invite-manager-body {
+        padding: 20px;
+    }
+    .league-special-text {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+    .view-scoring-popup-menu {
+        width: 412px;
+        margin-left: -206px;
+        height: 548px;
+        margin-top: -274px;
+    }
+    .view-scoring-content-wrapper {
+        padding: 20px;
+    }
+    .view-scoring-table thead tr th:nth-child(3),
+    .view-scoring-table tbody tr td:nth-child(3) {
+        width: 30%;
+    }
+    .view-scoring-table thead tr th {
+        font-size: 16px;
+        font-weight: 700;
+    }
+    .view-scoring-table .scroring-checkbox {
+        font-size: 17px;
+        line-height: 25px;
+    }
+    .view-scoring-table .scroring-checkbox input[type="checkbox"]+label::before {
+        top: 2px;
+    }
+    .league-details-body tbody tr td:first-child {
+        width: 10%;
+    }
+    .roster-starter-table tbody tr td {
+        padding: 6px;
+    }
+    .roster-profile-status {
+        width: 90%;
+    }
+    .roster-starter-table:before,
+    .roster-starter-table2:before {
+        display: none;
+    }
+    .roster-starter-table,
+    .roster-starter-table2,
+    .roster-starter-table3 {
+        display: block;
+    }
+    .switch-popup-menu,
+    .create-account-popup-menu,
+    .signup-popup-menu,
+    .login-popup-menu {
+        width: 300px;
+        margin-left: -150px;
+    }
+    .signup-popup-menu {
+        height: 520px;
+        margin-top: -260px;
+    }
+    .create-account,
+    .switch-account {
+        height: 400px;
+        margin-top: -200px;
+    }
+    .sign-with-mail,
+    .sign-with-facebook {
+        padding: 8px 30px;
+    }
+    .roster-starter-table .ps__rail-y,
+    .roster-starter-table.ps.ps--active-y>.ps__rail-y,
+    .roster-starter-table3 .ps__rail-y,
+    .roster-starter-table3.ps.ps--active-y>.ps__rail-y,
+    .roster-starter-table2 .ps__rail-y,
+    .roster-starter-table2.ps.ps--active-y>.ps__rail-y {
+        background: #222;
+        right: 0px !important;
+    }
+    .roster-starter-table tbody tr td.st-val,
+    .roster-starter-table2 tbody tr td.st-val {
+        width: 21% !important;
+    }
+    .roster-starter-table tbody tr td.st-key,
+    .roster-starter-table2 tbody tr td.st-key {
+        width: 20% !important;
+    }
+}
+
+@media only screen and (max-width: 400px) {
+    .team-details-head,
+    .team-details-body {
+        width: 500px;
+    }
+    .public-access {
+        width: 320px;
+        height: 550px;
+        margin-left: -160px;
+        margin-top: -275px;
+    }
+    .public-info-area {
+        height: 460px;
+    }
+    .public-info-area .text-right {
+        text-align: center;
+    }
+    .join-league-form input[type=submit],
+    .join-league-form input[type=text] {
+        width: 100%;
+    }
+    form.manager-input-table {
+        min-height: 1750px !important;
+    }
+    .view-scoring-popup-menu {
+        width: 320px;
+        margin-left: -160px;
+        height: 544px;
+        margin-top: -272px;
+    }
+    .view-scoring-content-wrapper {
+        padding: 20px;
+    }
+    .view-scoring-table thead tr th:nth-child(3),
+    .view-scoring-table tbody tr td:nth-child(3) {
+        width: 30%;
+    }
+    .view-scoring-table thead tr th {
+        font-size: 13px;
+        font-weight: 700;
+    }
+    .view-scoring-table .scroring-checkbox {
+        font-size: 16px;
+        line-height: 22px;
+    }
+    .view-scoring-table .scroring-checkbox input[type="checkbox"]+label::before {
+        top: 2px;
+    }
+}
 
 
 /* Wide Mobile Layout: 480px. */

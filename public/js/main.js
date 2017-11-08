@@ -26,26 +26,90 @@
 
 		$(".sign-up-btn").on('click', function () {
 			$(".login-popup-menu").removeClass("active");
-			$(".show-off-canvas-menu-shade").removeClass("active");
-
-			$(".signup-popup-menu").addClass("active");
-			$(".show-off-canvas-menu-shade").addClass("active");
-		});
-// backup, integrate with the page later
-		$(".sign-with-mail").on('click', function (event) {
-			event.preventDefault();
-			$(".create-account-popup-menu").removeClass("active");
+			$(".view-scoring-popup-menu").removeClass("active");
 			$(".show-off-canvas-menu-shade").removeClass("active");
 
 			$(".signup-popup-menu").addClass("active");
 			$(".show-off-canvas-menu-shade").addClass("active");
 		});
 
+        $(".sign-with-mail").on('click', function (e) {
+        	e.preventDefault();
+            $(".login-popup-menu").removeClass("active");
+            $(".view-scoring-popup-menu").removeClass("active");
+            $(".show-off-canvas-menu-shade").removeClass("active");
 
-		$(".menu-close, .show-off-canvas-menu-shade").on('click', function () {
+            $(".signup-popup-menu").addClass("active");
+            $(".show-off-canvas-menu-shade").addClass("active");
+        });
+
+
+		$(".menu-close, .show-off-canvas-menu-shade, .insert-image-btn, .insert-link-btn").on('click', function () {
 			$(".create-account-popup-menu").removeClass("active");
 			$(".login-popup-menu").removeClass("active");
 			$(".signup-popup-menu").removeClass("active");
+			$(".show-off-canvas-menu-shade").removeClass("active");
+			$(".input-image-area").removeClass("active");
+			$(".input-link-area").removeClass("active");
+			$(".switch-popup-menu").removeClass("active");
+			$(".private-access-popup-menu").removeClass("active");
+			$(".public-access-popup-menu").removeClass("active");
+			$(".view-scoring-popup-menu").removeClass("active");
+		});
+
+		$(".cl-btn-normal").on('click', function () {
+
+
+			if($("input[type='radio']#test3x").is(':checked')) {
+				var card_type = $("input[type='radio']#test3x:checked").val();
+				/* alert(card_type); */
+			}
+			/* alert(selectedVal); */
+
+			if (card_type == 'on') {
+				$(".view-scoring-popup-menu").addClass("active");
+				$(".show-off-canvas-menu-shade").addClass("active");
+
+				$(".view-scoring-table thead tr th.custom-view-scoring").removeClass("show");
+				$(".view-scoring-table tbody tr td.custom-view-scoring").removeClass("show");
+
+				$(".view-scoring-table thead tr th.custom-view-scoring").addClass("hidden");
+				$(".view-scoring-table tbody tr td.custom-view-scoring").addClass("hidden");
+
+
+
+			} else {
+				$(".view-scoring-popup-menu").addClass("active");
+				$(".show-off-canvas-menu-shade").addClass("active");
+
+				$(".view-scoring-table thead tr th.custom-view-scoring").removeClass("hidden");
+				$(".view-scoring-table tbody tr td.custom-view-scoring").removeClass("hidden");
+
+				$(".view-scoring-table thead tr th.custom-view-scoring").addClass("show");
+				$(".view-scoring-table tbody tr td.custom-view-scoring").addClass("show");
+			}
+
+
+
+			$(".view-scoring-popup-menu").addClass("active");
+			$(".show-off-canvas-menu-shade").addClass("active");
+		});
+
+
+
+
+		$(".image-btn").on('click', function () {
+			$(".input-image-area").addClass("active");
+			$(".show-off-canvas-menu-shade").addClass("active");
+		});
+
+		$(".link-btn").on('click', function () {
+			$(".input-link-area").addClass("active");
+			$(".show-off-canvas-menu-shade").addClass("active");
+		});
+
+		$("#inputFileToLoad").on('change', function () {
+			$(".input-image-area").removeClass("active");
 			$(".show-off-canvas-menu-shade").removeClass("active");
 		});
 
@@ -65,12 +129,13 @@
 
 		/* DATE PICKER INITIALIZATION */
 		$('.datepicker').datepicker({
-			endDate: 'today'
+			startDate: '-3d'
 		});
 
 		/* STACKABLE TABLE FOR MOBILE RESPONSIVE */
-		$('.league-details-body').stacktable();
+
 		$('#data-table-simple').stacktable();
+
 
 
 
@@ -81,6 +146,14 @@
 		/* BROWSER WINDOW DETECTION */
 		var w = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
 		var h = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
+
+		if (is_mobile || (w < 767)) {
+			$('.owner-info-table').stacktable();
+			$('.league-home-table').stacktable();
+			$('.league-details-body').stacktable();
+			$('.roster-starter-table').stacktable();
+			$('.roster-starter-table2').stacktable();
+		}
 
 		/* DATATABLE INITIALIZATION FOR LARGE DEVICE */
 		if (!is_mobile && (w > 991)) {
@@ -147,10 +220,6 @@
 		}
 
 
-		$('.logout').click(function (e, element) {
-			e.preventDefault();
-            $(e.target).parent('li').next('form').submit();
-        });
 		$('.bold-btn').click(function () {
 			document.execCommand('bold');
 		});
@@ -160,6 +229,83 @@
 		$('.underline-btn').click(function () {
 			document.execCommand('underline');
 		});
+
+
+		$("#theSelect").change(function () {
+			var value = $("#theSelect option:selected").val();
+
+			if (value == 'Yes') {
+				$(".invite-message").removeClass("hidden");
+				$('.invite-message').addClass('show');
+			} else {
+				$(".invite-message").removeClass("show");
+				$('.invite-message').addClass('hidden');
+			}
+		});
+
+		$(".roster-edit").on('click', function () {
+			$(".roster-edit").removeClass("show");
+			$(".roster-edit").addClass("hidden");
+			$(".roster-submit").removeClass("hidden");
+			$('.roster-submit').addClass("show");
+
+
+			$(".roster-text").removeClass("show");
+			$(".roster-text").addClass("hidden");
+			$(".roster-input").removeClass("hidden");
+			$('.roster-input').addClass("show");
+		});
+		$(".roster-submit").on('click', function () {
+			$(".roster-submit").removeClass("show");
+			$(".roster-submit").addClass("hidden");
+			$(".roster-edit").removeClass("hidden");
+			$('.roster-edit').addClass("show");
+
+			$(".roster-input").removeClass("show");
+			$(".roster-input").addClass("hidden");
+			$(".roster-text").removeClass("hidden");
+			$('.roster-text').addClass("show");
+		});
+
+		$(".switch-btn").on('click', function () {
+			$(".switch-popup-menu").addClass("active");
+			$(".show-off-canvas-menu-shade").addClass("active");
+		});
+
+		$(".join-btn-1").on('click', function () {
+			var text = $(".league-details-body tbody tr td#access-1").text();
+			/* alert(text); */
+			if(text == "Private"){
+				$(".private-access-popup-menu").addClass("active");
+				$(".show-off-canvas-menu-shade").addClass("active");
+			}else{
+				$(".public-access-popup-menu").addClass("active");
+				$(".show-off-canvas-menu-shade").addClass("active");
+			}
+		});
+
+		$(".join-btn-2").on('click', function () {
+			var text = $(".league-details-body tbody tr td#access-2").text();
+			/* alert(text); */
+			if(text == "Private"){
+				$(".private-access-popup-menu").addClass("active");
+				$(".show-off-canvas-menu-shade").addClass("active");
+			}else{
+				$(".public-access-popup-menu").addClass("active");
+				$(".show-off-canvas-menu-shade").addClass("active");
+			}
+		});
+
+        $('.logout').click(function (e) {
+            e.preventDefault();
+            $(this).parent('li').next('form').submit();
+        });
+
+        $('#c1').click(function () {
+			$(this).is(':checked')? $('#signup-email').attr('type', 'text') : $('#signup-email').attr('type', 'password');
+        })
+
+
 	});
 
 	jQuery(window).load(function ($) {
