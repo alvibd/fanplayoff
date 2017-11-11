@@ -53,7 +53,7 @@
                         @if(Auth::check())
                             <li><a href="{{ route('show.profile') }}">My Account</a></li>
                             <li><a href="join-league.html">Join A League</a></li>
-                            <li><a href="#">Create A League</a></li>
+                            <li><a href="{{ route('crate.league') }}">Create A League</a></li>
                             <li><a href="{{ route('logout') }}" class="colored-menu logout">Logout</a></li>
                             <form class="logout-form" method="post" action="{{ route('logout') }}" style="display: none">
                                 {{ csrf_field() }}

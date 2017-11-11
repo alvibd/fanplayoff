@@ -22,7 +22,7 @@
                 <div class="col-md-8 col-md-offset-2 text-center">
                     <div class="header-content">
                         <h1>post-season Fantasy Sports</h1>
-                        <a href="#" class="boxed-btn">CREATE a LEAGUE</a>
+                        <a href="{{ route('crate.league') }}" class="boxed-btn">CREATE a LEAGUE</a>
                         <a href="join-league.html" class="boxed-btn">JOIN A LEAGUE</a>
                     </div>
                 </div>
