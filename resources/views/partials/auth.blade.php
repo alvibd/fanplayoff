@@ -32,17 +32,9 @@
         <form action="{{ route('login') }}" method="post">
             {{ csrf_field() }}
             <p><input type="text" placeholder="Username or Email Address" name="username" required value="{{ old('username') }}"></p>
-            @if ($errors->has('username'))
-                <span class="help-block">
-                    <strong>{{ $errors->first('username') }}</strong>
-                </span>
-            @endif
+
             <p><input type="password" placeholder="Password" name="password" required></p>
-            @if ($errors->has('password'))
-                <span class="help-block">
-                    <strong>{{ $errors->first('password') }}</strong>
-                </span>
-            @endif
+
             <input type="checkbox" name="remember" checked style="display: none">
             <p class="padding-top-10"><input type="submit" value="Log In"></p>
         </form>
@@ -72,39 +64,14 @@
             {{ csrf_field() }}
             <p><input type="text" placeholder="First Name" name="first_name" required value="{{ old('first_name') }}">
             </p>
-            @if ($errors->has('first_name'))
-                <span class="help-block">
-                    <strong>{{ $errors->first('first_name') }}</strong>
-                </span>
-            @endif
             <p><input type="text" placeholder="Last Name" name="last_name" required value="{{ old('last_name') }}"></p>
-            @if ($errors->has('last_name'))
-                <span class="help-block">
-                    <strong>{{ $errors->first('last_name') }}</strong>
-                </span>
-            @endif
             <p><input type="email" placeholder="Email Address" name="email" value="{{ old('email') }}" required></p>
-            @if ($errors->has('email'))
-                <span class="help-block">
-                    <strong>{{ $errors->first('email') }}</strong>
-                </span>
-            @endif
-            <p><input type="password" id="signup-email" placeholder="Password" name="password" required></p>
-            @if ($errors->has('password'))
-                <span class="help-block">
-                    <strong>{{ $errors->first('password') }}</strong>
-                </span>
-            @endif
+            <p><input type="password" class="signup-email" placeholder="Password" name="password" required></p>
             <p class="checkbox-new"><input type="checkbox" id="c1"><label for="c1">Show Password</label></p>
             <p><input class="datepicker" type="text" data-date-format="yyyy/mm/dd" name="date_of_birth"
                       placeholder="Birth Day: yyyy/mm/dd"
                       required value="{{ old('date_of_birth') }}">
             </p>
-            @if ($errors->has('date_of_birth'))
-                <span class="help-block">
-                    <strong>{{ $errors->first('date_of_birth') }}</strong>
-                </span>
-            @endif
             <p class="divider"><input type="submit" value="Sign Up"></p>
         </form>
     </div>

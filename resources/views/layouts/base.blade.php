@@ -19,8 +19,8 @@
     <meta name="msapplication-TileColor" content="#e53935">
     <meta name="msapplication-TileImage" content="{{ asset('img/favicon-600x600.png') }}" sizes="144x144">
 
-    @section('stylesheets')
-        <!-- BOOTSTRAP CSS -->
+@section('stylesheets')
+    <!-- BOOTSTRAP CSS -->
         <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
 
         <!-- FONT AWESOME CSS -->
@@ -41,6 +41,9 @@
         <!-- STACKABLE TABLE CSS -->
         <link href="{{ asset('css/stacktable.css') }}" rel="stylesheet">
 
+        <!-- toastr -->
+        <link rel="stylesheet" href="{{ asset('css/toastr.min.css') }}">
+
         <!-- MAIN CSS -->
         <link href="{{ asset('css/style.css') }}" rel="stylesheet">
 
@@ -60,41 +63,68 @@
 
 @routes
 @stack('push_javascripts')
-    <!-- JQUERY JS -->
-    <script src="{{ asset('js/jquery.min.js') }}"></script>
+<!-- JQUERY JS -->
+<script src="{{ asset('js/jquery.min.js') }}"></script>
 
-    <!-- BOOTSTRAP JS -->
-    <script src="{{ asset('js/bootstrap.min.js') }}"></script>
+<!-- BOOTSTRAP JS -->
+<script src="{{ asset('js/bootstrap.min.js') }}"></script>
 
-    <!-- MAGNIFIC POPUP -->
-    <script src="{{ asset('js/jquery.magnific-popup.min.js') }}"></script>
+<!-- MAGNIFIC POPUP -->
+<script src="{{ asset('js/jquery.magnific-popup.min.js') }}"></script>
 
-    <!-- DATA TABLE JS -->
-    <script type="text/javascript" src="{{ asset('js/jquery.dataTables.min.js') }}"></script>
+<!-- DATA TABLE JS -->
+<script type="text/javascript" src="{{ asset('js/jquery.dataTables.min.js') }}"></script>
 
-    <!-- PERFECT SCROLLBAR JS -->
-    <script src="{{ asset('js/perfect-scrollbar.jquery.min.js') }}"></script>
+<!-- PERFECT SCROLLBAR JS -->
+<script src="{{ asset('js/perfect-scrollbar.jquery.min.js') }}"></script>
 
-    <!-- DATE PICKER JS -->
-    <script src="{{ asset('js/bootstrap-datepicker.min.js') }}"></script>
+<!-- DATE PICKER JS -->
+<script src="{{ asset('js/bootstrap-datepicker.min.js') }}"></script>
 
-    <!-- STACKABLE TABLE JS -->
-    <script src="{{ asset('js/stacktable.js') }}"></script>
+<!-- STACKABLE TABLE JS -->
+<script src="{{ asset('js/stacktable.js') }}"></script>
 
-    <!-- MAIN JS -->
-    <script src="{{ asset('js/main.js') }}"></script>
-    <script type="application/javascript">
-        $(document).ready(function () {
-            var errors = 0;
-            errors = {{ count($errors)> 0 ? 1 : 0 }};
-            if (errors)
-            {
-                $(".create-account-popup-menu").addClass("active");
-            }
-        })
-    </script>
+<!-- toastr -->
+<script src="{{ asset('js/toastr.min.js') }}"></script>
 
-    @push('push_javascripts')
-@show
+<!-- MAIN JS -->
+<script src="{{ asset('js/main.js') }}"></script>
+@routes
+<script type="application/javascript">
+    $(document).ready(function () {
+        //toastr initialize
+        toastr.options = {
+            "closeButton": true,
+            "debug": false,
+            "newestOnTop": false,
+            "progressBar": false,
+            "positionClass": "toast-bottom-left",
+            "preventDuplicates": true,
+            "showDuration": "300",
+            "hideDuration": "1000",
+            "timeOut": "-1",
+            "extendedTimeOut": "1000",
+            "showEasing": "swing",
+            "hideEasing": "linear",
+            "showMethod": "fadeIn",
+            "hideMethod": "fadeOut"
+        };
+
+        var errors = new Array();
+
+        @if(count($errors))
+                @foreach($errors->all() as $error)
+        errors.push("{{ $error }}");
+                @endforeach
+                @endif
+
+        errors.forEach(function (error, index) {
+            toastr["error"](error);
+                });
+    });
+</script>
+
+@stack('push_javascripts')
+    @show
 </body>
 </html>

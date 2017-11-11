@@ -302,7 +302,7 @@
         });
 
         $('#c1').click(function () {
-			$(this).is(':checked')? $('#signup-email').attr('type', 'text') : $('#signup-email').attr('type', 'password');
+			$(this).is(':checked')? $('.signup-email').attr('type', 'text') : $('.signup-email').attr('type', 'password');
         })
 
 
