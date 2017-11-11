@@ -62,12 +62,15 @@
 @include('layouts.footer')
 
 @routes
-@stack('push_javascripts')
+@section('javascripts')
 <!-- JQUERY JS -->
 <script src="{{ asset('js/jquery.min.js') }}"></script>
 
 <!-- BOOTSTRAP JS -->
 <script src="{{ asset('js/bootstrap.min.js') }}"></script>
+
+<!-- MOMENT JS -->
+<script src="{{ asset('js/moment-with-locales.min.js') }}"></script>
 
 <!-- MAGNIFIC POPUP -->
 <script src="{{ asset('js/jquery.magnific-popup.min.js') }}"></script>
@@ -113,18 +116,19 @@
         var errors = new Array();
 
         @if(count($errors))
-                @foreach($errors->all() as $error)
+        @foreach($errors->all() as $error)
         errors.push("{{ $error }}");
-                @endforeach
-                @endif
+        @endforeach
+        @endif
 
         errors.forEach(function (error, index) {
             toastr["error"](error);
-                });
+        });
     });
 </script>
 
+
+@show
 @stack('push_javascripts')
-    @show
 </body>
 </html>

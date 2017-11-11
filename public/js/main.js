@@ -57,8 +57,9 @@
 			$(".view-scoring-popup-menu").removeClass("active");
 		});
 
-		$(".cl-btn-normal").on('click', function () {
+		$(".cl-btn-normal").on('click', function (event) {
 
+			event.preventDefault();
 
 			if($("input[type='radio']#test3x").is(':checked')) {
 				var card_type = $("input[type='radio']#test3x:checked").val();

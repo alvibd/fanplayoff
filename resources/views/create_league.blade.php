@@ -3,6 +3,213 @@
 @section('page_title', 'FANPLAY off| Create a League')
 
 @section('content')
+    <!-- VIEW SCORING POPUP START -->
+    <div class="view-scoring-popup-menu">
+        <div class="view-scoring-header-area">
+            <span class="menu-close"><img src="{{ asset('img/menu-close.png') }}" alt=""></span>
+        </div>
+        <div class="view-scoring-content-wrapper">
+            <form action="">
+                <table cellspacing="0" class="view-scoring-table">
+                    <thead>
+                    <tr>
+                        <th>Scoring</th>
+                        <th>Default</th>
+                        <th class="custom-view-scoring hidden">Custom</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>
+                            <p class="scroring-checkbox"><input type="checkbox" id="c2"><label for="c2">Passing yards
+                                    (YDS)</label></p>
+                        </td>
+                        <td>1</td>
+                        <td class="custom-view-scoring hidden">
+                            <select class="custom-select">
+                                <option class="custom-option" value=""></option>
+                                <option class="custom-option" value=""></option>
+                                <option class="custom-option" value=""></option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <p class="scroring-checkbox"><input type="checkbox" id="c3"><label for="c3">Passing
+                                    touchdowns (TD)</label></p>
+                        </td>
+                        <td>2</td>
+                        <td class="custom-view-scoring hidden">
+                            <select class="custom-select">
+                                <option class="custom-option" value=""></option>
+                                <option class="custom-option" value=""></option>
+                                <option class="custom-option" value=""></option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <p class="scroring-checkbox"><input type="checkbox" id="c4"><label for="c4">Rushing
+                                    yards</label></p>
+                        </td>
+                        <td>3</td>
+                        <td class="custom-view-scoring hidden">
+                            <select class="custom-select">
+                                <option class="custom-option" value=""></option>
+                                <option class="custom-option" value=""></option>
+                                <option class="custom-option" value=""></option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <p class="scroring-checkbox"><input type="checkbox" id="c5"><label for="c5">Rushing
+                                    touchdowns</label></p>
+                        </td>
+                        <td>4</td>
+                        <td class="custom-view-scoring hidden">
+                            <select class="custom-select">
+                                <option class="custom-option" value=""></option>
+                                <option class="custom-option" value=""></option>
+                                <option class="custom-option" value=""></option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <p class="scroring-checkbox"><input type="checkbox" id="c6"><label
+                                        for="c6">Receptions</label></p>
+                        </td>
+                        <td>5</td>
+                        <td class="custom-view-scoring hidden">
+                            <select class="custom-select">
+                                <option class="custom-option" value=""></option>
+                                <option class="custom-option" value=""></option>
+                                <option class="custom-option" value=""></option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <p class="scroring-checkbox"><input type="checkbox" id="c7"><label for="c7">Receiving
+                                    yards</label></p>
+                        </td>
+                        <td>6</td>
+                        <td class="custom-view-scoring hidden">
+                            <select class="custom-select">
+                                <option class="custom-option" value=""></option>
+                                <option class="custom-option" value=""></option>
+                                <option class="custom-option" value=""></option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <p class="scroring-checkbox"><input type="checkbox" id="c8"><label for="c8">Receiving
+                                    touchdowns</label></p>
+                        </td>
+                        <td>7</td>
+                        <td class="custom-view-scoring hidden">
+                            <select class="custom-select">
+                                <option class="custom-option" value=""></option>
+                                <option class="custom-option" value=""></option>
+                                <option class="custom-option" value=""></option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <p class="scroring-checkbox"><input type="checkbox" id="c9"><label for="c9">Points
+                                    allowed/games played</label></p>
+                        </td>
+                        <td>8</td>
+                        <td class="custom-view-scoring hidden">
+                            <select class="custom-select">
+                                <option class="custom-option" value=""></option>
+                                <option class="custom-option" value=""></option>
+                                <option class="custom-option" value=""></option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <p class="scroring-checkbox"><input type="checkbox" id="c10"><label for="c10">Points
+                                    allowed</label></p>
+                        </td>
+                        <td>8</td>
+                        <td class="custom-view-scoring hidden">
+                            <select class="custom-select">
+                                <option class="custom-option" value=""></option>
+                                <option class="custom-option" value=""></option>
+                                <option class="custom-option" value=""></option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <p class="scroring-checkbox"><input type="checkbox" id="c11"><label for="c11">Points
+                                    allowed/games </label></p>
+                        </td>
+                        <td>8</td>
+                        <td class="custom-view-scoring hidden">
+                            <select class="custom-select">
+                                <option class="custom-option" value=""></option>
+                                <option class="custom-option" value=""></option>
+                                <option class="custom-option" value=""></option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <p class="scroring-checkbox"><input type="checkbox" id="c12"><label for="c12">Points not
+                                    allowed</label></p>
+                        </td>
+                        <td>8</td>
+                        <td class="custom-view-scoring hidden">
+                            <select class="custom-select">
+                                <option class="custom-option" value=""></option>
+                                <option class="custom-option" value=""></option>
+                                <option class="custom-option" value=""></option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <p class="scroring-checkbox"><input type="checkbox" id="c13"><label for="c13">Games
+                                    played</label></p>
+                        </td>
+                        <td>8</td>
+                        <td class="custom-view-scoring hidden">
+                            <select class="custom-select">
+                                <option class="custom-option" value=""></option>
+                                <option class="custom-option" value=""></option>
+                                <option class="custom-option" value=""></option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <p class="scroring-checkbox"><input type="checkbox" id="c14"><label for="c14">Games not
+                                    played</label></p>
+                        </td>
+                        <td>8</td>
+                        <td class="custom-view-scoring hidden">
+                            <select class="custom-select">
+                                <option class="custom-option" value=""></option>
+                                <option class="custom-option" value=""></option>
+                                <option class="custom-option" value=""></option>
+                            </select>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+
+                <p class="sign-up-btn sign-up-btn-custom">Sign up</p>
+            </form>
+        </div>
+    </div>
+    <!-- VIEW SCORING POPUP END -->
+
     <!-- HERO AREA START -->
     <div class="hero-area padding-bottom-less padding-top-less hero-area-bg c-l-hero-area">
         <p class="subtitle">CREATE YOUR OWN LEAGUE</p>
@@ -29,7 +236,8 @@
                                 <form action="">
                                     <div class="three-section-btn">
                                         <a class="incx" onclick="decrementValue()">-</a>
-                                        <input class="counter-result" type="text" id="number" value="3" max="5" min="3" disabled>
+                                        <input class="counter-result" type="text" id="number" value="3" max="5" min="3"
+                                               disabled>
                                         <a class="decx" onclick="incrementValue()">+</a>
                                     </div>
                                 </form>
@@ -56,17 +264,19 @@
 
 
                                     <div class="form-group">
-                                        <div class="input-group date form_datetime col-md-5 d-p" data-date="1979-09-16T05:25:07Z" data-date-format="dd M yy - HH:ii p"
+                                        <div class="input-group date form_datetime col-md-5 d-p"
+                                             data-date="1979-09-16T05:25:07Z" data-date-format="dd M yy - HH:ii p"
                                              data-link-field="dtp_input1">
-                                            <input class="form-control" size="16" type="text" value="pick date &amp; time" readonly>
+                                            <input class="form-control" size="16" type="text"
+                                                   value="pick date &amp; time" readonly>
                                             <span class="input-group-addon dp-x">
                                                 <span class="glyphicon glyphicon-th">
-                                                    <img src="assets/img/calendar-icon.png" alt="">
+                                                    <img src="{{ asset('img/calendar-icon.png') }}" alt="">
                                                 </span>
 
                                             </span>
                                         </div>
-                                        <input type="hidden" id="dtp_input1" value="" />
+                                        <input type="hidden" id="dtp_input1" value=""/>
                                         <br/>
                                     </div>
 
@@ -90,7 +300,6 @@
                                 </form>
 
                             </div>
-
 
 
                         </div>
@@ -151,7 +360,8 @@
                                 </td>
                                 <td>
                                     <div class="range-slider">
-                                        <input class="range-slider__range" type="range" value="0" max="5" min="0" id="qb-id" onclick="qbValue()">
+                                        <input class="range-slider__range" type="range" value="0" max="5" min="0"
+                                               id="qb-id" onclick="qbValue()">
                                         <div class="data-count">
                                             <!-- <span class="range-slider__value" id="bench-data" value="0">0</span> -->
 
@@ -168,7 +378,8 @@
                                 </td>
                                 <td>
                                     <div class="range-slider">
-                                        <input class="range-slider__range" type="range" value="0" max="5" min="0" id="rb-id" onclick="rbValue()">
+                                        <input class="range-slider__range" type="range" value="0" max="5" min="0"
+                                               id="rb-id" onclick="rbValue()">
                                         <div class="data-count">
                                             <!-- <span class="range-slider__value" id="bench-data" value="0">0</span> -->
 
@@ -186,7 +397,8 @@
                                 </td>
                                 <td>
                                     <div class="range-slider">
-                                        <input class="range-slider__range" type="range" value="0" max="5" min="0" id="wr-id" onclick="wrValue()">
+                                        <input class="range-slider__range" type="range" value="0" max="5" min="0"
+                                               id="wr-id" onclick="wrValue()">
                                         <div class="data-count">
                                             <!-- <span class="range-slider__value" id="bench-data" value="0">0</span> -->
 
@@ -202,7 +414,8 @@
                                 </td>
                                 <td>
                                     <div class="range-slider">
-                                        <input class="range-slider__range" type="range" value="0" max="5" min="0" id="te-id" onclick="teValue()">
+                                        <input class="range-slider__range" type="range" value="0" max="5" min="0"
+                                               id="te-id" onclick="teValue()">
                                         <div class="data-count">
 
                                             <input class="range-slider__value" id="te-data" value="0" disabled>
@@ -218,7 +431,8 @@
                                 </td>
                                 <td>
                                     <div class="range-slider">
-                                        <input class="range-slider__range" type="range" value="0" max="5" min="0" id="flex" onclick="flexValue()">
+                                        <input class="range-slider__range" type="range" value="0" max="5" min="0"
+                                               id="flex" onclick="flexValue()">
                                         <div class="data-count">
                                             <!-- <span class="range-slider__value" id="bench-data" value="0">0</span> -->
 
@@ -229,14 +443,14 @@
                             </tr>
 
 
-
                             <tr>
                                 <td>
                                     <h3>def</h3>
                                 </td>
                                 <td>
                                     <div class="range-slider">
-                                        <input class="range-slider__range" type="range" value="0" max="5" min="0" id="def" onclick="defValue()">
+                                        <input class="range-slider__range" type="range" value="0" max="5" min="0"
+                                               id="def" onclick="defValue()">
                                         <div class="data-count">
                                             <!-- <span class="range-slider__value" id="bench-data" value="0">0</span> -->
 
@@ -254,7 +468,8 @@
                                 </td>
                                 <td>
                                     <div class="range-slider">
-                                        <input class="range-slider__range" type="range" value="0" max="5" min="0" id="k-id" onclick="kValue()">
+                                        <input class="range-slider__range" type="range" value="0" max="5" min="0"
+                                               id="k-id" onclick="kValue()">
                                         <div class="data-count">
                                             <!-- <span class="range-slider__value" id="bench-data" value="0">0</span> -->
 
@@ -279,9 +494,9 @@
                                     </div> -->
 
 
-
                                     <div class="range-slider">
-                                        <input class="range-slider__range" type="range" value="0" max="10" min="0" id="bench" onclick="benchValue()">
+                                        <input class="range-slider__range" type="range" value="0" max="10" min="0"
+                                               id="bench" onclick="benchValue()">
 
                                         <!-- <input type="text" name="" id="benci"> -->
                                         <div class="data-count">
@@ -293,14 +508,8 @@
                                     </div>
 
 
-
-
                                 </td>
                             </tr>
-
-
-
-
 
 
                             </tbody>
@@ -369,7 +578,6 @@
             </div> -->
 
 
-
         </div>
     </div>
 
@@ -401,7 +609,8 @@
 @endpush
 
 @push('push_javascripts')
-    <script src="{{ asset('js/bootstrap-datetimepicker.js') }}"></script>
+    <script src="{{ asset('js/bootstrap-datetimepicker.js') }}" charset="UTF-8"></script>
+    <script src="{{ asset('js/c-l.js') }}"></script>
     <script src="{{ asset('js/ranger.js') }}"></script>
     <script>
         var rangeSlider = function () {
@@ -436,9 +645,9 @@
             startView: 2,
             forceParse: 0,
             showMeridian: 1,
+            startDate: new Date(),
             pickerPosition: "bottom-left"
         });
     </script>
-    <script src="{{ asset('js/c-l.js') }}"></script>
     <script src="{{ asset('js/view-scoring.js') }}"></script>
 @endpush
