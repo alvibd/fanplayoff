@@ -73,6 +73,7 @@
 
 				$(".view-scoring-table thead tr th.custom-view-scoring").removeClass("show");
 				$(".view-scoring-table tbody tr td.custom-view-scoring").removeClass("show");
+                $(".view-scoring-table tbody tr td.custom-view-scoring").attr('disabled', 'disabled');
 
 				$(".view-scoring-table thead tr th.custom-view-scoring").addClass("hidden");
 				$(".view-scoring-table tbody tr td.custom-view-scoring").addClass("hidden");
@@ -85,6 +86,7 @@
 
 				$(".view-scoring-table thead tr th.custom-view-scoring").removeClass("hidden");
 				$(".view-scoring-table tbody tr td.custom-view-scoring").removeClass("hidden");
+                $(".view-scoring-table tbody tr td.custom-view-scoring").attr('disabled', false);
 
 				$(".view-scoring-table thead tr th.custom-view-scoring").addClass("show");
 				$(".view-scoring-table tbody tr td.custom-view-scoring").addClass("show");

@@ -14,7 +14,7 @@ class LeagueController extends Controller
 
     public function createLeague()
     {
-        $scoringCriterias = ScoringCriteria::all();
+        $scoringCriterias = ScoringCriteria::whereIsFixed(0)->get();
 
         return view('create_league', ['scoring_criterias' => $scoringCriterias]);
     }

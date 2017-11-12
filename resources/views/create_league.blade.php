@@ -3,6 +3,7 @@
 @section('page_title', 'FANPLAY off| Create a League')
 
 @section('content')
+    {{--{{ dump($scoring_criterias) }}--}}
     <!-- VIEW SCORING POPUP START -->
     <div class="view-scoring-popup-menu">
         <div class="view-scoring-header-area">
@@ -19,192 +20,40 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <tr>
-                        <td>
-                            <p class="scroring-checkbox"><input type="checkbox" id="c2"><label for="c2">Passing yards
-                                    (YDS)</label></p>
-                        </td>
-                        <td>1</td>
-                        <td class="custom-view-scoring hidden">
-                            <select class="custom-select">
-                                <option class="custom-option" value=""></option>
-                                <option class="custom-option" value=""></option>
-                                <option class="custom-option" value=""></option>
-                            </select>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <p class="scroring-checkbox"><input type="checkbox" id="c3"><label for="c3">Passing
-                                    touchdowns (TD)</label></p>
-                        </td>
-                        <td>2</td>
-                        <td class="custom-view-scoring hidden">
-                            <select class="custom-select">
-                                <option class="custom-option" value=""></option>
-                                <option class="custom-option" value=""></option>
-                                <option class="custom-option" value=""></option>
-                            </select>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <p class="scroring-checkbox"><input type="checkbox" id="c4"><label for="c4">Rushing
-                                    yards</label></p>
-                        </td>
-                        <td>3</td>
-                        <td class="custom-view-scoring hidden">
-                            <select class="custom-select">
-                                <option class="custom-option" value=""></option>
-                                <option class="custom-option" value=""></option>
-                                <option class="custom-option" value=""></option>
-                            </select>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <p class="scroring-checkbox"><input type="checkbox" id="c5"><label for="c5">Rushing
-                                    touchdowns</label></p>
-                        </td>
-                        <td>4</td>
-                        <td class="custom-view-scoring hidden">
-                            <select class="custom-select">
-                                <option class="custom-option" value=""></option>
-                                <option class="custom-option" value=""></option>
-                                <option class="custom-option" value=""></option>
-                            </select>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <p class="scroring-checkbox"><input type="checkbox" id="c6"><label
-                                        for="c6">Receptions</label></p>
-                        </td>
-                        <td>5</td>
-                        <td class="custom-view-scoring hidden">
-                            <select class="custom-select">
-                                <option class="custom-option" value=""></option>
-                                <option class="custom-option" value=""></option>
-                                <option class="custom-option" value=""></option>
-                            </select>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <p class="scroring-checkbox"><input type="checkbox" id="c7"><label for="c7">Receiving
-                                    yards</label></p>
-                        </td>
-                        <td>6</td>
-                        <td class="custom-view-scoring hidden">
-                            <select class="custom-select">
-                                <option class="custom-option" value=""></option>
-                                <option class="custom-option" value=""></option>
-                                <option class="custom-option" value=""></option>
-                            </select>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <p class="scroring-checkbox"><input type="checkbox" id="c8"><label for="c8">Receiving
-                                    touchdowns</label></p>
-                        </td>
-                        <td>7</td>
-                        <td class="custom-view-scoring hidden">
-                            <select class="custom-select">
-                                <option class="custom-option" value=""></option>
-                                <option class="custom-option" value=""></option>
-                                <option class="custom-option" value=""></option>
-                            </select>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <p class="scroring-checkbox"><input type="checkbox" id="c9"><label for="c9">Points
-                                    allowed/games played</label></p>
-                        </td>
-                        <td>8</td>
-                        <td class="custom-view-scoring hidden">
-                            <select class="custom-select">
-                                <option class="custom-option" value=""></option>
-                                <option class="custom-option" value=""></option>
-                                <option class="custom-option" value=""></option>
-                            </select>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <p class="scroring-checkbox"><input type="checkbox" id="c10"><label for="c10">Points
-                                    allowed</label></p>
-                        </td>
-                        <td>8</td>
-                        <td class="custom-view-scoring hidden">
-                            <select class="custom-select">
-                                <option class="custom-option" value=""></option>
-                                <option class="custom-option" value=""></option>
-                                <option class="custom-option" value=""></option>
-                            </select>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <p class="scroring-checkbox"><input type="checkbox" id="c11"><label for="c11">Points
-                                    allowed/games </label></p>
-                        </td>
-                        <td>8</td>
-                        <td class="custom-view-scoring hidden">
-                            <select class="custom-select">
-                                <option class="custom-option" value=""></option>
-                                <option class="custom-option" value=""></option>
-                                <option class="custom-option" value=""></option>
-                            </select>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <p class="scroring-checkbox"><input type="checkbox" id="c12"><label for="c12">Points not
-                                    allowed</label></p>
-                        </td>
-                        <td>8</td>
-                        <td class="custom-view-scoring hidden">
-                            <select class="custom-select">
-                                <option class="custom-option" value=""></option>
-                                <option class="custom-option" value=""></option>
-                                <option class="custom-option" value=""></option>
-                            </select>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <p class="scroring-checkbox"><input type="checkbox" id="c13"><label for="c13">Games
-                                    played</label></p>
-                        </td>
-                        <td>8</td>
-                        <td class="custom-view-scoring hidden">
-                            <select class="custom-select">
-                                <option class="custom-option" value=""></option>
-                                <option class="custom-option" value=""></option>
-                                <option class="custom-option" value=""></option>
-                            </select>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <p class="scroring-checkbox"><input type="checkbox" id="c14"><label for="c14">Games not
-                                    played</label></p>
-                        </td>
-                        <td>8</td>
-                        <td class="custom-view-scoring hidden">
-                            <select class="custom-select">
-                                <option class="custom-option" value=""></option>
-                                <option class="custom-option" value=""></option>
-                                <option class="custom-option" value=""></option>
-                            </select>
-                        </td>
-                    </tr>
+                    @foreach($scoring_criterias as $scoring_criteria)
+                        {{--{{dump($scoring_criteria)}}--}}
+                        <tr>
+                            <td>
+                                <p class="scoring-checkbox"><input type="checkbox" name="scoring_criteria{{ $loop->index+1 }}" id="c{{ $loop->index+1 }}"><label for="c{{ $loop->index }}">{{ $scoring_criteria->name }}</label> </p>
+                            </td>
+                            <td>{{ $scoring_criteria->default_point }}</td>
+                            <td class="custom-view-scoring hidden">
+                                <select class="custom-select" name="custom_point{{ $loop->index }}">
+                                    @for($scoring_criteria->starts_from; $scoring_criteria->starts_from <= $scoring_criteria->ends_at;$scoring_criteria->starts_from++)
+                                        <option class="custom-option" value="{{ $scoring_criteria->starts_from }}">{{ $scoring_criteria->starts_from }}</option>
+                                    @endfor
+                                </select>
+                            </td>
+                        </tr>
+                    @endforeach
+                    {{--<tr>--}}
+                        {{--<td>--}}
+                            {{--<p class="scroring-checkbox"><input type="checkbox" id="c2"><label for="c2">Passing yards--}}
+                                    {{--(YDS)</label></p>--}}
+                        {{--</td>--}}
+                        {{--<td>1</td>--}}
+                        {{--<td class="custom-view-scoring hidden">--}}
+                            {{--<select class="custom-select">--}}
+                                {{--<option class="custom-option" value=""></option>--}}
+                                {{--<option class="custom-option" value=""></option>--}}
+                                {{--<option class="custom-option" value=""></option>--}}
+                            {{--</select>--}}
+                        {{--</td>--}}
+                    {{--</tr>--}}
                     </tbody>
                 </table>
 
-                <p class="sign-up-btn sign-up-btn-custom">Sign up</p>
+                <p class="sign-up-btn sign-up-btn-custom">Save</p>
             </form>
         </div>
     </div>
