@@ -113,7 +113,7 @@ class ScoringCriteriasTableSeeder extends Seeder
             'name' => 'Points Allowed 28-34 point',
             'default_point' => '-1',
             'starts_from' => -3,
-            'ends_at' => -1
+            'ends_at' => 1
         ];
 
         $this->criterias[] = [

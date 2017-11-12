@@ -32,5 +32,6 @@ Route::middleware('auth')->group(function (){
     Route::view('/join_league', 'join_league')->name('join.league');
     Route::view('/manager', 'manager')->name('manage');
     Route::view('/message', 'message_board')->name('message');
-    Route::get('/create_league', 'LeagueController@createLeague')->name('crate.league');
+    Route::get('/create_league', 'LeagueController@createLeague')->name('create.league');
+    Route::post('/create_league', 'LeagueController@storeLeague')->name('store.league');
 });

@@ -15,7 +15,7 @@ class CreateLeagueScoringsTable extends Migration
     {
         Schema::create('league_scorings', function (Blueprint $table) {
             $table->increments('id');
-            $table->decimal('custom_point', 3, 3);
+            $table->char('custom_point');
         });
     }
 

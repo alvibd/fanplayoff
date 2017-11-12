@@ -44,7 +44,7 @@ class User extends Authenticatable
      */
     public function leagues()
     {
-        return $this->hasMany('App\Model\League');
+        return $this->hasMany('App\Model\League', 'creator_id');
     }
 
     /**
