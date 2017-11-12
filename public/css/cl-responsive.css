@@ -1,0 +1,126 @@
+/* Medium Layout: 1280px. */
+
+@media only screen and (min-width: 992px) and (max-width: 1200px) {}
+
+
+/* Tablet Layout: 768px. */
+
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+    .c-l-middle-data {
+        overflow: hidden;
+        width: 106%;
+    }
+    .c-l-top-data {
+        margin-left: 20px;
+    }
+    .c-l-input input {
+        width: 226px;
+    }
+    .c-l-top-area {
+        background-image: none;
+    }
+    table.position-starters-stats-table thead {
+        margin-left: -6px;
+    }
+    .c-l-bottom-area {
+        background-image: url(../img/about-bg.png);
+        background-position: bottom center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        width: 102% !important;
+    }
+    .c-l-bottom-normal-button {
+        margin-right: 196px;
+        float: right;
+        padding: 10px 36px;
+    }
+    a.cl-btn-normal {
+        border: none;
+    }
+    .c-l-bottom-buttons {
+        padding-top: 30px;
+    }
+    .c-l-btn {
+        text-align: center;
+        margin-left: 70px;
+    }
+    .c-l-bottom-gradient-bg {
+        width: 106% !important;
+    }
+    .footer-area-wrap {
+        width: 106% !important;
+    }
+    .three-section-btn {
+        width: 95%;
+        margin-left: 12px;
+    }
+    .form-input-radio {
+        width: 95%;
+    }
+    .input-group.date {
+        width: 95%;
+        margin-left: 10px;
+    }
+    .three-section-btn input.counter-result{
+        width: 36px !important;
+    }
+}
+
+
+/* Mobile Layout: 320px. */
+
+@media only screen and (max-width: 767px) {
+    /* body {
+        width: 170%;
+    } */
+    .responsive-menu {
+        width: 26% !important;
+    }
+    .c-l-bottom-area {
+        background-image: url(../img/about-bg.png);
+        background-position: bottom center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        width: 154% !important;
+    }
+    .c-l-bottom-normal-button {
+        margin-right: 196px;
+        float: right;
+        padding: 10px 36px;
+    }
+    a.cl-btn-normal {
+        border: none;
+    }
+    .c-l-bottom-buttons {
+        padding-top: 30px;
+    }
+    .c-l-btn {
+        text-align: center;
+        margin-left: 70px;
+    }
+    .c-l-bottom-header {
+        margin-left: 42%;
+    }
+    .c-l-bottom-normal-button {
+        margin-right: 106px;
+    }
+    p.form-input-radio.bottom-toggle {
+        margin-right: 20px;
+    }
+    .c-l-btn {
+        text-align: center;
+        margin-left: 42px;
+    }
+    .c-l-top-area {
+        background-image: none;
+        margin-left: 1px;
+    }
+    table.position-starters-stats-table thead {
+        width: 100%;
+    }
+}
+
+
+/* Wide Mobile Layout: 480px. */
+
+@media only screen and (min-width: 480px) and (max-width: 767px) {}

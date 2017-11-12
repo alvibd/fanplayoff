@@ -18,4 +18,8 @@ Easy Installation
 - set database configurations in _.env_
 - install all the requirements: `$ composer install`
 - generate key: `$ php artisan key:generate`
+- create all the tables: `$ php artisan migrate`
+- run the database seeding: `$ php artisan db:seed`
+- insert dummy player data from `players.sql`
+- create public disk: `$ php artisan storage:link`
 - run `$ php artisan serve` enjoy start the server and enjoy
