@@ -47,7 +47,7 @@ class LeagueController extends Controller
             {
                 $league_scoring = new LeagueScoring();
                 $league_scoring->scoringCriteria()->associate($scoring_criteria);
-                $league_scoring->league()->associate($league_scoring);
+                $league_scoring->league()->associate($league);
                 $league_scoring->custom_point = $scoring_criteria->default_point;
                 $league_scoring->saveorFail();
             }
@@ -81,5 +81,12 @@ class LeagueController extends Controller
         $leagues = League::all();
 
         return view('join_league', ['leagues' => $leagues]);
+    }
+
+    public function showLeague($id)
+    {
+        $league = League::findOrFail($id)->first();
+
+        return view('league_home', compact('league'));
     }
 }

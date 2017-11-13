@@ -20,7 +20,12 @@ class TeamController extends Controller
         $team->league()->associate($league);
         $team->owner()->associate(Auth::user());
         $team->name= $data['team_name'];
+        $team->league_position = 0;
+        $team->draft_order = 0;
+        $team->total_points = 0.0;
         $team->saveOrFail();
+
+        return redirect(route('league.home',['id'=> $league->id]));
 
     }
 }

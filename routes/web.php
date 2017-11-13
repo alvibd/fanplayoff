@@ -35,4 +35,5 @@ Route::middleware('auth')->group(function (){
     Route::view('/message', 'message_board')->name('message');
     Route::get('/create_league', 'LeagueController@createLeague')->name('create.league');
     Route::post('/create_league', 'LeagueController@storeLeague')->name('store.league');
+    Route::get('/league_home/{id}', 'LeagueController@showLeague')->name('league.home');
 });
