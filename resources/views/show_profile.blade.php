@@ -56,7 +56,7 @@
                     <div class="profile-sign-up common-bg">
                         <p>Create League to FANPLAY or join to view your favorites</p>
                         <a href="{{ route('create.league') }}" class="create-league-btn">Create League</a>
-                        <a href="join-league.html" class="join-league-btn">Join League</a>
+                        <a href="{{ route('join.league') }}" class="join-league-btn">Join League</a>
                     </div>
                 </div>
             </div>
