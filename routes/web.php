@@ -29,7 +29,8 @@ Route::middleware('auth')->group(function (){
     Route::post('/edit_profile', 'UserController@updateUser')->name('update.user');
     Route::get('/show_profile', 'UserController@showProfile')->name('show.profile');
     Route::view('/mail_league', 'email_league')->name('mail.league');
-    Route::view('/join_league', 'join_league')->name('join.league');
+    Route::get('/join_league', 'LeagueController@showLeagues')->name('join.league');
+    Route::post('/join_league', 'TeamController@joinLeague')->name('store.team');
     Route::view('/manager', 'manager')->name('manage');
     Route::view('/message', 'message_board')->name('message');
     Route::get('/create_league', 'LeagueController@createLeague')->name('create.league');

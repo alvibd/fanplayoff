@@ -75,4 +75,11 @@ class LeagueController extends Controller
 
         return redirect(route('show.profile'));
     }
+
+    public function showLeagues()
+    {
+        $leagues = League::all();
+
+        return view('join_league', ['leagues' => $leagues]);
+    }
 }

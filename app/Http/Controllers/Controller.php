@@ -17,6 +17,14 @@ class Controller extends BaseController
     {
         $nfl = $container->get('App\Sportradar\NationalFootballLeague');
         dump($nfl->getTeams());
+        $team_hierarchy = $nfl->getTeams();
+        $team_hierarchy = $team_hierarchy['conferences'];
+
+        dump($team_hierarchy);
+        foreach ($team_hierarchy as $conference)
+        {
+            dump($conference['divisions']);
+        }
 //        $client = new Guzzle();
 //        $response = $client->request('get', 'http://api.sportradar.us/nfl-ot2/players/04ca4fb9-194e-47fe-8fc8-adb5790a8e78/profile.json?api_key=fpyzj35z5ckedtnvjuxuyuje');
 //
