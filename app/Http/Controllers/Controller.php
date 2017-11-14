@@ -7,6 +7,7 @@ use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use \GuzzleHttp\Client as Guzzle;
+use Illuminate\Support\Carbon;
 use Psr\Container\ContainerInterface;
 
 class Controller extends BaseController
@@ -17,6 +18,8 @@ class Controller extends BaseController
     {
         $nfl = $container->get('App\Sportradar\NFLOfficialAPIv2');
         dump($nfl->getLeagueHierarchy());
+        $carbon =  new Carbon();
+        dump($carbon->startOfWeek());
 //        $team_hierarchy = $nfl->getTeams();
 //        $team_hierarchy = $team_hierarchy->conferences;
 //
