@@ -79,12 +79,12 @@
 {{--                        {{ dump($user->leagues()->get()) }}--}}
                         @foreach($user->leagues()->get() as $league)
                             <tr>
-                                <td class="serial-no">1.</td>
+                                <td class="serial-no">{{ $loop->index+1 }}.</td>
                                 <td>{{ $league->name }}</td>
                                 <td>Awaiting Draft</td>
                                 <td>N/A</td>
                                 <td>
-                                    <a href="" class="view-btn">view</a>
+                                    <a href="{{ route('league.home', ['id' => $league->id]) }}" class="view-btn">view</a>
                                 </td>
 
                             </tr>

@@ -15,7 +15,7 @@ class Controller extends BaseController
 
     public function everythingAllowed(ContainerInterface $container)
     {
-        $nfl = $container->get('App\Sportradar\NationalFootballLeague');
+        $nfl = $container->get('App\Sportradar\NFLOfficialAPIv2');
 //        dump($nfl->getTeams());
         $team_hierarchy = $nfl->getTeams();
         $team_hierarchy = $team_hierarchy->conferences;

@@ -1,4 +1,5 @@
 @extends('layouts.base')
+@section('page_title', 'FANPLAYoff | Join League')
 
 @section('content')
 
@@ -63,13 +64,23 @@
                     <div class="league-setting-header">LEAGUE SETTINGS OVERVIEW</div>
                     <div class="invite-manager-body">
                         <p><strong>Game Format: FANPLAYOFF Custom</strong> FANPLAYOFF Custom</p>
-                        <p><strong>Draft Date: </strong> 21-SEP-2017</p>
-                        <p><strong>Teams in League:</strong> 4</p>
+                        <p><strong>Draft Date: </strong> {{ Carbon\Carbon::parse($league->draft_time)->format('d-M-Y') }}</p>
+                        <p><strong>Teams in League:</strong> {{ $league->teams()->count() }}</p>
                         <p><strong>Lineup Locktime:</strong>  Lock Individually at Scheduled Gametime</p>
-                        <p class="margin-bottom-0"><strong>Roster Size:</strong>  16 (9 starters, 7 bench)</p>
-                        <p class="league-special-text"><strong>Offense (16):</strong> QB, RB, RB, WR, WR, TE, FLEX, D/ST, K, BE, BE, BE, BE, BE, BE, NK</p>
-                        <p><strong>Stat Categories:</strong>  52</p>
-                        <p class="league-special-text">RTD(6pts), RTD(6pts),  RTD(6pts),  RTD(6pts),  RTD(6pts), RTD(6pts), RTD(6pts), RTD(6pts),  RTD(6pts),  RTD(6pts),  RTD(6pts), RTD(6pts), RTD(6pts), RTD(6pts),  RTD(6pts),  RTD(6pts),  RTD(6pts), RTD(6pts), RTD(6pts), RTD(6pts),  RTD(6pts),  RTD(6pts),  RTD(6pts), RTD(6pts), RTD(6pts), RTD(6pts),  RTD(6pts),  RTD(6pts),  RTD(6pts), RTD(6pts), RTD(6pts), RTD(6pts),  RTD(6pts),  RTD(6pts),  RTD(6pts), RTD(6pts), RTD(6pts), RTD(6pts),  RTD(6pts),  RTD(6pts),  RTD(6pts), RTD(6pts), RTD(6pts), RTD(6pts),  RTD(6pts),  RTD(6pts),  RTD(6pts), RTD(6pts), RTD(6pts), RTD(6pts),  RTD(6pts),  RTD(6pts),  RTD(6pts), RTD(6pts), RTD(6pts), RTD(6pts),</p>
+                        <p class="margin-bottom-0"><strong>Roster Size:</strong>  {{ $league->roster_size }} ({{ $league->total_starters }} starters, {{ $league->total_on_bench }} bench)</p>
+                        <p class="league-special-text"><strong>Offense ({{ $league->roster_size }}):</strong> 
+                            @foreach($league->leagueRosters()->get() as $roster)
+                                @for($i= 0; $i<$roster->players_allowed; $i++)
+                                    {{ $roster->position }},
+                                @endfor
+                            @endforeach</p>
+                        <p><strong>Stat Categories:</strong>  {{ $league->leagueScorings()->count() }}</p>
+
+                        <p class="league-special-text">
+                            @foreach($league->leagueScorings()->get() as $scoring)
+                                {{ $scoring->scoringCriteria()->first()->name }}({{ $scoring->custom_point }}pts) {{ $loop->last? '': ',' }}
+                            @endforeach
+                        </p>
                     </div>
                 </div>
             </div>
@@ -193,7 +204,7 @@
                                 @else
                                     <td id="access-1">Public</td>
                                 @endif
-                                <td>{{ Carbon\Carbon::parse($league->draft_time)->format('d-m-Y') }}</td>
+                                <td>{{ Carbon\Carbon::parse($league->draft_time)->format('D M d, H:i A') }}</td>
                                 <td>{{ count($league->teams()->get()) }} / {{$league->no_of_teams}}</td>
                                 <td style="text-align: center">
                                     <span class="join-btn {{ $league->privacy? 'join-btn-2': 'join-btn-1' }}" data-league-id="{{ $league->id }}">join</span>
