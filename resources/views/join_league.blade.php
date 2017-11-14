@@ -1,6 +1,113 @@
 @extends('layouts.base')
+@section('page_title', 'FANPLAYoff | Join League')
 
 @section('content')
+
+
+    @foreach($leagues as $league)
+        @if(!$league->privacy)
+            <!-- PUBLIC ACCESS POPUP START -->
+            <div class="public-access-popup-menu public-access" id="{{ $league->id }}">
+                <div class="logo-area">
+                    <div class="menu-logo"><a href="{{ route('home') }}"><img src="{{ asset('img/logo-white.png') }}" alt=""></a></div>
+                    <span class="menu-close"><img src="{{ asset('img/menu-close.png') }}" alt=""></span>
+                </div>
+                <div class="public-info-area">
+                    <div class="info-area">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <p><strong>League: </strong>{{ $league->name }}</p>
+                                    <p><strong>Creator: </strong>{{ $league->creator()->first()->username }}</p>
+                                    <p><strong>You are signed in as: </strong>{{ Auth::User()->username }}</p>
+                                    <p><strong>Member Name: </strong>{{ $league->creator()->first()->username }}</p>
+                                </div>
+                                <div class="col-sm-6 text-right">
+                                    <form action="{{ route('store.team') }}" method="POST" class="join-league-form">
+                                        {{ csrf_field() }}
+                                        <input type="hidden" name="league_id" value="{{$league->id}}">
+                                        <p><input type="text" placeholder="Your Team" name="team_name" required></p>
+
+                                        <p><input type="submit" value="Join This League"></p>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="responsive-table">
+                        <table cellspacing="0" class="team-details-head">
+                            <thead>
+                            <tr>
+                                <th>#</th>
+                                <th></th>
+                                <th>Team Name</th>
+                                <th>Manager Name</th>
+                                <th>Status</th>
+
+                            </tr>
+                            </thead>
+                        </table>
+                        <table cellspacing="0" class="team-details-body">
+                            <tbody>
+                            @foreach($league->teams()->get() as $team)
+                            <tr>
+                                <td>{{ $loop->index+1 }}</td>
+                                <td>{{ $team->name }}</td>
+                                <td>{{ $team->name }}</td>
+                                <td>{{ $team->owner()->first()->username }}</td>
+                                <td>Joined</td>
+                            </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="league-setting-header">LEAGUE SETTINGS OVERVIEW</div>
+                    <div class="invite-manager-body">
+                        <p><strong>Game Format: FANPLAYOFF Custom</strong> FANPLAYOFF Custom</p>
+                        <p><strong>Draft Date: </strong> {{ Carbon\Carbon::parse($league->draft_time)->format('d-M-Y') }}</p>
+                        <p><strong>Teams in League:</strong> {{ $league->teams()->count() }}</p>
+                        <p><strong>Lineup Locktime:</strong>  Lock Individually at Scheduled Gametime</p>
+                        <p class="margin-bottom-0"><strong>Roster Size:</strong>  {{ $league->roster_size }} ({{ $league->total_starters }} starters, {{ $league->total_on_bench }} bench)</p>
+                        <p class="league-special-text"><strong>Offense ({{ $league->roster_size }}):</strong> 
+                            @foreach($league->leagueRosters()->get() as $roster)
+                                @for($i= 0; $i<$roster->players_allowed; $i++)
+                                    {{ $roster->position }},
+                                @endfor
+                            @endforeach</p>
+                        <p><strong>Stat Categories:</strong>  {{ $league->leagueScorings()->count() }}</p>
+
+                        <p class="league-special-text">
+                            @foreach($league->leagueScorings()->get() as $scoring)
+                                {{ $scoring->scoringCriteria()->first()->name }}({{ $scoring->custom_point }}pts) {{ $loop->last? '': ',' }}
+                            @endforeach
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <!-- PUBLIC ACCESS POPUP END -->
+        @else
+            <!-- PRIVATE ACCESS POPUP START -->
+            <div class="private-access-popup-menu private-access" id="{{ $league->id }}">
+                <div class="logo-area">
+                    <div class="menu-logo"><a href="{{ route('home') }}"><img src="{{ asset('img/logo-white.png') }}" alt=""></a></div>
+                    <span class="menu-close"><img src="{{ asset('img/menu-close.png') }}" alt=""></span>
+                </div>
+                <div class="form-area">
+                    <h4>LEAGUE</h4>
+                    <p class="terms-and-condition">This League is Private. You need a password to view this league</p>
+
+                    <form action="">
+                        <a href="" class="request-access">Request Access</a>
+                        <p><input type="password" class="text-center" placeholder="Password" required></p>
+
+                        <p><input type="submit" class="view-league" value="View League"></p>
+                    </form>
+                </div>
+            </div>
+            <!-- PRIVATE ACCESS POPUP END -->
+        @endif
+    @endforeach
+
     <!-- HERO AREA START -->
     <div class="hero-area padding-bottom-less padding-top-less hero-area-bg">
         <p class="subtitle">JOIN A LEAGUE</p>
@@ -15,12 +122,12 @@
                     <div class="league-title">
                         <h2>LEAGUE NAME</h2>
                     </div>
-                    <div class="league-option">
+                    <div class="league-option league-option-bg-1">
                         <div class="league-search">
                             <form action="">
                                 <p>
                                     <input type="search" name="" id="" placeholder="Search League">
-                                    <button type="submit"><img src="assets/img/search-icon.png" alt=""></button>
+                                    <button type="submit"><img src="{{ asset('img/search-icon.png') }}" alt=""></button>
                                 </p>
                             </form>
                         </div>
@@ -47,13 +154,13 @@
                         <p class="filter-title scoring-title">Scoring</p>
                         <div class="scoring-content scoring-content-bg">
                             <form action="">
-                                <!-- <p class="custom-radio-container">
-                                    <input type="radio" id="test1" name="radio-group" checked>
-                                    <label for="test1">Default</label>
+                                <p class="form-input-radio">
+                                    <input type="radio" id="test3" name="radio-group" checked>
+                                    <label for="test3" class="option3">Default</label>
 
-                                    <input type="radio" id="test2" name="radio-group">
-                                    <label for="test2">Custom</label>
-                                </p> -->
+                                    <input type="radio" id="test4" name="radio-group" >
+                                    <label for="test4" class="option4">Custom</label>
+                                </p>
                             </form>
                         </div>
                     </div>
@@ -66,12 +173,12 @@
                         <table cellspacing="0" class="league-details">
                             <thead>
                             <tr>
-                                <th style="width:25%;">NAME</th>
-                                <th style="width:15%;">FORMAR</th>
-                                <th style="width:10%;">ACCESS</th>
-                                <th style="width:20%;">DRAFT DATE</th>
-                                <th style="width:13%;">MEMBERS</th>
-                                <th style="width:17%;">JOIN LEAGUE</th>
+                                <th>NAME</th>
+                                <th>FORMAT</th>
+                                <th>ACCESS</th>
+                                <th>DRAFT DATE</th>
+                                <th>MEMBERS</th>
+                                <th>JOIN LEAGUE</th>
                             </tr>
                             </thead>
                         </table>
@@ -88,196 +195,22 @@
                             </tr>
                             </thead>
                             <tbody>
+                            @foreach($leagues as $league)
                             <tr>
-                                <td>Sfro</td>
-                                <td>Custom</td>
-                                <td>Private</td>
-                                <td>Thu, Sep 21 6:00 PM</td>
-                                <td>1 / 12</td>
+                                <td>{{ $league->name }}</td>
+                                <td>{{ $league->draft_type }}</td>
+                                @if($league->privacy)
+                                    <td id="access-2">Private</td>
+                                @else
+                                    <td id="access-1">Public</td>
+                                @endif
+                                <td>{{ Carbon\Carbon::parse($league->draft_time)->format('D M d, H:i A') }}</td>
+                                <td>{{ count($league->teams()->get()) }} / {{$league->no_of_teams}}</td>
                                 <td style="text-align: center">
-                                    <a href="" class="join-btn">join</a>
+                                    <span class="join-btn {{ $league->privacy? 'join-btn-2': 'join-btn-1' }}" data-league-id="{{ $league->id }}">join</span>
                                 </td>
                             </tr>
-                            <tr>
-                                <td>All Due Respect</td>
-                                <td>Standard</td>
-                                <td>Private</td>
-                                <td>Thu, Sep 21 6:00 PM</td>
-                                <td>1 / 10</td>
-                                <td style="text-align: center">
-                                    <a href="" class="join-btn">join</a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Comms Yard</td>
-                                <td>Custom</td>
-                                <td>Public</td>
-                                <td>Thu, Sep 21 6:00 PM</td>
-                                <td>1 / 8</td>
-                                <td style="text-align: center">
-                                    <a href="" class="join-btn">join</a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Disciples of Roger</td>
-                                <td>Standard</td>
-                                <td>Private</td>
-                                <td>Thu, Sep 21 6:00 PM</td>
-                                <td>1 / 14</td>
-                                <td style="text-align: center">
-                                    <a href="" class="join-btn">join</a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>West Coast Best Coast</td>
-                                <td>Custom</td>
-                                <td>Public</td>
-                                <td>Thu, Sep 21 6:00 PM</td>
-                                <td>1 / 10</td>
-                                <td style="text-align: center">
-                                    <a href="" class="join-btn">join</a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>AJG Cleveland</td>
-                                <td>Custom</td>
-                                <td>Private</td>
-                                <td>Thu, Sep 21 6:00 PM</td>
-                                <td>1 / 12</td>
-                                <td style="text-align: center">
-                                    <a href="" class="join-btn">join</a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>The League</td>
-                                <td>Custom</td>
-                                <td>Public</td>
-                                <td>Thu, Sep 21 6:00 PM</td>
-                                <td>1 / 16</td>
-                                <td style="text-align: center">
-                                    <a href="" class="join-btn">join</a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Wentztastic Season 2</td>
-                                <td>Custom</td>
-                                <td>Private</td>
-                                <td>Thu, Sep 21 6:00 PM</td>
-                                <td>1 / 17</td>
-                                <td style="text-align: center">
-                                    <a href="" class="join-btn">join</a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>777</td>
-                                <td>Standard</td>
-                                <td>Public</td>
-                                <td>Thu, Sep 21 6:00 PM</td>
-                                <td>1 / 14</td>
-                                <td style="text-align: center">
-                                    <a href="" class="join-btn">join</a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>DYNASTY KEY</td>
-                                <td>Custom</td>
-                                <td>Public</td>
-                                <td>Thu, Sep 21 6:00 PM</td>
-                                <td>1 / 20</td>
-                                <td style="text-align: center">
-                                    <a href="" class="join-btn">join</a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Meme</td>
-                                <td>Custom</td>
-                                <td>Public</td>
-                                <td>Thu, Sep 21 6:00 PM</td>
-                                <td>1 / 18</td>
-                                <td style="text-align: center">
-                                    <a href="" class="join-btn">join</a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Texas Custom Patios</td>
-                                <td>Custom</td>
-                                <td>Private</td>
-                                <td>Thu, Sep 21 6:00 PM</td>
-                                <td>1 / 9</td>
-                                <td style="text-align: center">
-                                    <a href="" class="join-btn">join</a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Meme</td>
-                                <td>Standard</td>
-                                <td>Public</td>
-                                <td>Thu, Sep 21 6:00 PM</td>
-                                <td>1 / 10</td>
-                                <td style="text-align: center">
-                                    <a href="" class="join-btn">join</a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Winter is coming...</td>
-                                <td>Custom</td>
-                                <td>Public</td>
-                                <td>Thu, Sep 21 6:00 PM</td>
-                                <td>1 / 12</td>
-                                <td style="text-align: center">
-                                    <a href="" class="join-btn">join</a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>LL of Produce n Peons</td>
-                                <td>Standard</td>
-                                <td>Public</td>
-                                <td>Thu, Sep 21 6:00 PM</td>
-                                <td>1 / 12</td>
-                                <td style="text-align: center">
-                                    <a href="" class="join-btn">join</a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Custom test</td>
-                                <td>Custom</td>
-                                <td>Private</td>
-                                <td>Thu, Sep 21 6:00 PM</td>
-                                <td>1 / 12</td>
-                                <td style="text-align: center">
-                                    <a href="" class="join-btn">join</a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Dynasty league</td>
-                                <td>Custom</td>
-                                <td>Private</td>
-                                <td>Thu, Sep 21 6:00 PM</td>
-                                <td>1 / 2</td>
-                                <td style="text-align: center">
-                                    <a href="" class="join-btn">join</a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Average Joe's</td>
-                                <td>Standard</td>
-                                <td>Private</td>
-                                <td>Thu, Sep 21 6:00 PM</td>
-                                <td>1 / 13</td>
-                                <td style="text-align: center">
-                                    <a href="" class="join-btn">join</a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Sfro</td>
-                                <td>Custom</td>
-                                <td>Private</td>
-                                <td>Thu, Sep 21 6:00 PM</td>
-                                <td>1 / 12</td>
-                                <td style="text-align: center">
-                                    <a href="" class="join-btn">join</a>
-                                </td>
-                            </tr>
+                                @endforeach
                             </tbody>
                         </table>
                     </div>
@@ -287,3 +220,7 @@
     </div>
     <!-- JOIN LEAGUE AREA END -->
 @endsection
+
+@push('push_javascripts')
+    <script src="{{ asset('js/join-league.js') }}"></script>
+@endpush

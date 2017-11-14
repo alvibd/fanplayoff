@@ -47,14 +47,6 @@ class League extends Model
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
-    public function scoringCriterias()
-    {
-        return $this->hasMany('App\Model\ScoringCriteria');
-    }
-
-    /**
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
-     */
     public function leagueScorings()
     {
         return $this->hasMany('App\Model\LeagueScoring');

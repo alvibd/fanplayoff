@@ -10,7 +10,7 @@
         <div class="header-content">
             <h1>post-season Fantasy Sports</h1>
             <a href="#" class="boxed-btn">CREATE a LEAGUE</a>
-            <a href="join-league.html" class="boxed-btn">JOIN A LEAGUE</a>
+            <a href="{{ route('join.league') }}" class="boxed-btn">JOIN A LEAGUE</a>
         </div>
         <div class="mobile-menu-bar active"><img src="{{ asset('img/menu-bar.png') }}" alt=""></div>
         <div class="mobile-menu-close"><img src="{{ asset('img/menu-close-responsive.png') }}" alt=""></div>
@@ -23,7 +23,7 @@
                     <div class="header-content">
                         <h1>post-season Fantasy Sports</h1>
                         <a href="{{ route('create.league') }}" class="boxed-btn">CREATE a LEAGUE</a>
-                        <a href="join-league.html" class="boxed-btn">JOIN A LEAGUE</a>
+                        <a href="{{ route('join.league') }}" class="boxed-btn">JOIN A LEAGUE</a>
                     </div>
                 </div>
             </div>

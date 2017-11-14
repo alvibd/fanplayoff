@@ -9,6 +9,7 @@ use App\Model\ScoringCriteria;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Validation\Rule;
 
 class LeagueController extends Controller
 {
@@ -26,6 +27,33 @@ class LeagueController extends Controller
 
     public function storeLeague(Request $request)
     {
+//        dump($request);
+        $request->validate([
+            'scoring_criteria' => 'required',
+            'league_name' => 'required|string',
+            'no_of_teams' => 'required|numeric|min:3|max:5',
+            'privacy' => 'required|boolean',
+            'draft_time' => 'required|after_or_equal:'.Carbon::now(),
+            'draft_type' => [
+                'required',
+                Rule::in(League::DRAFT_TYPE)
+            ],
+            'roster_size' => 'required|numeric|min:5',
+            'total_starters' => 'required',
+            'total_on_bench' => 'required|numeric|min:1',
+            'QB' => 'required',
+            'RB' => 'required',
+            'WR' => 'required',
+            'TE' => 'required',
+            'FLEX' => 'required',
+            'DEF' => 'required',
+            'K' => 'required',
+            'BE' => 'required',
+            'scoring_type' => [
+                'required',
+                Rule::in(League::SCORING_TYPE)
+            ]
+        ]);
         $data = $request->all();
 
         $league = new League();
@@ -47,7 +75,7 @@ class LeagueController extends Controller
             {
                 $league_scoring = new LeagueScoring();
                 $league_scoring->scoringCriteria()->associate($scoring_criteria);
-                $league_scoring->league()->associate($league_scoring);
+                $league_scoring->league()->associate($league);
                 $league_scoring->custom_point = $scoring_criteria->default_point;
                 $league_scoring->saveorFail();
             }
@@ -64,15 +92,29 @@ class LeagueController extends Controller
             }
         }
 
-        foreach (LeagueRoster::POSITIONS as $positon)
+        foreach (LeagueRoster::POSITIONS as $position)
         {
             $leagueRoster = new LeagueRoster();
-            $leagueRoster->position = $positon;
-            $leagueRoster->players_allowed = $data[$positon];
+            $leagueRoster->position = $position;
+            $leagueRoster->players_allowed = $data[$position];
             $leagueRoster->league()->associate($league);
             $leagueRoster->saveOrFail();
         }
 
         return redirect(route('show.profile'));
+    }
+
+    public function showLeagues()
+    {
+        $leagues = League::all();
+
+        return view('join_league', ['leagues' => $leagues]);
+    }
+
+    public function showLeague($id)
+    {
+        $league = League::findOrFail($id)->first();
+
+        return view('league_home', compact('league'));
     }
 }
