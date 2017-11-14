@@ -21,10 +21,24 @@ class NFLOfficialAPIv2 extends SportRadar
 
     public function __construct(Client $client, $api_key, $access_level)
     {
+        $this->client = $client;
         $this->api_key = $api_key;
         $this->access_level = $access_level;
         $this->api_version = 2;
     }
+
+    /*****************************
+     * All helper methods start
+     * *********************
+     */
+    public function getLeagueHierarchy()
+    {
+        return $this->leagueHierarchy();
+    }
+    /*****************************
+     * All helper methods end
+     * *******************
+     */
 
     /*********************************
      * Sportradar Api methods start
@@ -75,7 +89,7 @@ class NFLOfficialAPIv2 extends SportRadar
      */
     protected function leagueHierarchy()
     {
-        return $this->callApi('/league/hierarchy');
+        return $this->callApi('league/hierarchy');
     }
 
     /**

@@ -43,6 +43,6 @@ class AppServiceProvider extends ServiceProvider
 
     public function provides()
     {
-        return [NationalFootballLeague::class];
+        return [NationalFootballLeague::class, NFLOfficialAPIv2::class];
     }
 }
