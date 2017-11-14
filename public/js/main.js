@@ -63,16 +63,18 @@
 
 			if($("input[type='radio']#test3x").is(':checked')) {
 				var card_type = $("input[type='radio']#test3x:checked").val();
+                $("input[type='checkbox']").prop('checked', true);
 				/* alert(card_type); */
 			}
 			/* alert(selectedVal); */
 
-			if (card_type == 'on') {
+			if (card_type == 'DEFAULT') {
 				$(".view-scoring-popup-menu").addClass("active");
 				$(".show-off-canvas-menu-shade").addClass("active");
 
 				$(".view-scoring-table thead tr th.custom-view-scoring").removeClass("show");
 				$(".view-scoring-table tbody tr td.custom-view-scoring").removeClass("show");
+
                 $(".view-scoring-table tbody tr td.custom-view-scoring").attr('disabled', 'disabled');
 
 				$(".view-scoring-table thead tr th.custom-view-scoring").addClass("hidden");
@@ -87,6 +89,7 @@
 				$(".view-scoring-table thead tr th.custom-view-scoring").removeClass("hidden");
 				$(".view-scoring-table tbody tr td.custom-view-scoring").removeClass("hidden");
                 $(".view-scoring-table tbody tr td.custom-view-scoring").attr('disabled', false);
+                $("input[type='checkbox']").prop('checked', false);
 
 				$(".view-scoring-table thead tr th.custom-view-scoring").addClass("show");
 				$(".view-scoring-table tbody tr td.custom-view-scoring").addClass("show");
@@ -275,26 +278,29 @@
 			$(".show-off-canvas-menu-shade").addClass("active");
 		});
 
-		$(".join-btn-1").on('click', function () {
+		$(".join-btn-1").on('click', function (event) {
+			event.preventDefault();
+			console.log();
 			var text = $(".league-details-body tbody tr td#access-1").text();
 			/* alert(text); */
 			if(text == "Private"){
-				$(".private-access-popup-menu").addClass("active");
+				$(".private-access-popup-menu#"+this.dataset.leagueId).addClass("active");
 				$(".show-off-canvas-menu-shade").addClass("active");
 			}else{
-				$(".public-access-popup-menu").addClass("active");
+                $(".public-access-popup-menu#"+this.dataset.leagueId).addClass("active");
 				$(".show-off-canvas-menu-shade").addClass("active");
 			}
 		});
 
-		$(".join-btn-2").on('click', function () {
+		$(".join-btn-2").on('click', function (event) {
+			event.preventDefault();
 			var text = $(".league-details-body tbody tr td#access-2").text();
 			/* alert(text); */
 			if(text == "Private"){
-				$(".private-access-popup-menu").addClass("active");
+				$(".private-access-popup-menu#"+this.dataset.leagueId).addClass("active");
 				$(".show-off-canvas-menu-shade").addClass("active");
 			}else{
-				$(".public-access-popup-menu").addClass("active");
+                $(".public-access-popup-menu#"+this.dataset.leagueId).addClass("active");
 				$(".show-off-canvas-menu-shade").addClass("active");
 			}
 		});

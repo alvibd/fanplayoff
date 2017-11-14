@@ -27,7 +27,7 @@ body {
 
 
 
-    
+
 }
 
 .c-l-top-data {
@@ -550,9 +550,9 @@ a.cl-btn-normal {
     margin-top: 6px;
 }
 
-.single-data.single-data-btn.s-d-2 form,
-.single-data.single-data-btn.s-d-3 form,
-.single-data.single-data-btn.s-d-4 form {
+.single-data.single-data-btn.s-d-2 .sd2,
+.single-data.single-data-btn.s-d-3 .sd3date,
+.single-data.single-data-btn.s-d-4 .sd4 {
     display: inline-block;
     float: right;
     width: 35%;
@@ -790,7 +790,7 @@ p.form-input-radio.bottom-toggle {
     margin-top: 60px;
 }
 
-.c-l-btn a {
+.c-l-btn input {
     color: #de413a;
     background-color: #fff;
     padding: 10px 50px;
@@ -806,7 +806,7 @@ p.form-input-radio.bottom-toggle {
 
 span.glyphicon.glyphicon-th img {
     margin-top: -7px;
-    margin-left: -16px;
+    margin-left: -28px;
     max-width: 150%;
 }
 
@@ -904,7 +904,7 @@ input.range-slider__range::-webkit-slider-thumb {
 
 /* #bench {
     background: #ffc418;
-    
+
 }
 
 .b-d-20{
@@ -929,8 +929,7 @@ input.range-slider__range::-webkit-slider-thumb {
 
 
 
-@media only screen and (min-width: 1024px) and (max-width: 1366px) { 
-  
+@media only screen and (min-width: 1024px) and (max-width: 1366px) {
 
 
 
@@ -940,17 +939,18 @@ input.range-slider__range::-webkit-slider-thumb {
 
 
 
-    
+
+
 }
 
 
 /* Medium Layout: 1280px. */
-@media only screen and (min-width: 992px) and (max-width: 1200px) { 
-  
-    
+@media only screen and (min-width: 992px) and (max-width: 1200px) {
+
+
 }
 /* Tablet Layout: 768px. */
-@media only screen and (min-width: 768px) and (max-width: 1024px) { 
+@media only screen and (min-width: 768px) and (max-width: 1024px) {
 
 .single-data.single-data-btn.s-d-2 form, .single-data.single-data-btn.s-d-3 form, .single-data.single-data-btn.s-d-4 form {
     display: inline-block;
@@ -992,14 +992,14 @@ table.position-starters-stats-table thead th:nth-child(2) {
 
 
 
-    
+
 }
 /* Mobile Layout: 320px. */
-@media only screen and (max-width: 767px) { 
- 
-    
+@media only screen and (max-width: 767px) {
+
+
 }
 /* Wide Mobile Layout: 480px. */
-@media only screen and (min-width: 480px) and (max-width: 767px) { 
+@media only screen and (min-width: 480px) and (max-width: 767px) {
 
 }
