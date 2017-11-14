@@ -37,6 +37,10 @@ class NationalFootballLeague extends SportRadar
      * *********************
      */
 
+    public function getTeamRoster($team)
+    {
+        return $this->teamRoster($team);
+    }
     public function getTeams()
     {
         return $this->teamHierarchy();

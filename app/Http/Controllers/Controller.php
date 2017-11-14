@@ -16,14 +16,22 @@ class Controller extends BaseController
     public function everythingAllowed(ContainerInterface $container)
     {
         $nfl = $container->get('App\Sportradar\NationalFootballLeague');
-        dump($nfl->getTeams());
+//        dump($nfl->getTeams());
         $team_hierarchy = $nfl->getTeams();
-        $team_hierarchy = $team_hierarchy['conferences'];
+        $team_hierarchy = $team_hierarchy->conferences;
 
-        dump($team_hierarchy);
+//        dump($team_hierarchy);
         foreach ($team_hierarchy as $conference)
         {
-            dump($conference['divisions']);
+//            dump($conference->divisions);
+            foreach ($conference->divisions as $division)
+            {
+//                dump($division->teams);
+                foreach ($division->teams as $team)
+                {
+                    dump($nfl->getTeamRoster($team->id));
+                }
+            }
         }
 //        $client = new Guzzle();
 //        $response = $client->request('get', 'http://api.sportradar.us/nfl-ot2/players/04ca4fb9-194e-47fe-8fc8-adb5790a8e78/profile.json?api_key=fpyzj35z5ckedtnvjuxuyuje');
