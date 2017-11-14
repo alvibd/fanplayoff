@@ -1,4 +1,6 @@
 @extends('layouts.base')
+
+@section('page_title', 'FANPLAYoff | League Home')
 @section('content')
     <!-- HERO AREA START -->
     <div class="hero-area padding-bottom-less padding-top-less padding-bottom-0 hero-area-bg">
@@ -73,11 +75,21 @@
                                     <h3>LEAGUE SETTINGS OVERVIEW</h3>
                                 </div>
                                 <div class="invite-manager-body">
-                                    <p><strong>Teams in League:</strong> 4</p>
-                                    <p class="margin-bottom-0"><strong>Roster Size:</strong>  16 (9 starters, 7 bench)</p>
-                                    <p class="league-special-text"><strong>Offense (16):</strong> QB, RB, RB, WR, WR, TE, FLEX, D/ST, K, BE, BE, BE, BE, BE, BE, NK</p>
-                                    <p><strong>Stat Categories:</strong>  52</p>
-                                    <p class="league-special-text">RTD(6pts), RTD(6pts),  RTD(6pts),  RTD(6pts),  RTD(6pts), RTD(6pts), RTD(6pts), RTD(6pts),  RTD(6pts),  RTD(6pts),  RTD(6pts), RTD(6pts), RTD(6pts), RTD(6pts),  RTD(6pts),  RTD(6pts),  RTD(6pts), RTD(6pts), RTD(6pts), RTD(6pts),  RTD(6pts),  RTD(6pts),  RTD(6pts), RTD(6pts), RTD(6pts), RTD(6pts),  RTD(6pts),  RTD(6pts),  RTD(6pts), RTD(6pts), RTD(6pts), RTD(6pts),  RTD(6pts),  RTD(6pts),  RTD(6pts), RTD(6pts), RTD(6pts), RTD(6pts),  RTD(6pts),  RTD(6pts),  RTD(6pts), RTD(6pts), RTD(6pts), RTD(6pts),  RTD(6pts),  RTD(6pts),  RTD(6pts), RTD(6pts), RTD(6pts), RTD(6pts),  RTD(6pts),  RTD(6pts),  RTD(6pts), RTD(6pts), RTD(6pts), RTD(6pts),</p>
+                                    <p><strong>Teams in League:</strong> {{ $league->teams()->count() }}</p>
+                                    <p class="margin-bottom-0"><strong>Roster Size:</strong>  {{ $league->roster_size }} ({{ $league->total_starters }} starters, {{ $league->total_on_bench }} bench)</p>
+                                    <p class="league-special-text"><strong>Offense ({{ $league->roster_size }}):</strong> 
+                                        @foreach($league->leagueRosters()->get() as $roster)
+                                            @for($i= 0; $i<$roster->players_allowed; $i++)
+                                                {{ $roster->position }},
+                                            @endfor
+                                        @endforeach
+                                    </p>
+                                    <p><strong>Stat Categories:</strong>  {{ $league->leagueScorings()->count() }}</p>
+                                    <p class="league-special-text">
+                                        @foreach($league->leagueScorings()->get() as $scoring)
+                                            {{ $scoring->scoringCriteria()->first()->name }}({{ $scoring->custom_point }}pts) {{ $loop->last? '': ',' }}
+                                        @endforeach
+                                    </p>
                                 </div>
                             </div>
 
