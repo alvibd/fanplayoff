@@ -48,12 +48,12 @@
                         </table>
                         <table cellspacing="0" class="team-details-body">
                             <tbody>
-                            @foreach($league->teams() as $team)
+                            @foreach($league->teams()->get() as $team)
                             <tr>
                                 <td>{{ $loop->index+1 }}</td>
                                 <td>{{ $team->name }}</td>
                                 <td>{{ $team->name }}</td>
-                                <td>{{ $team->owner()->username }}</td>
+                                <td>{{ $team->owner()->first()->username }}</td>
                                 <td>Joined</td>
                             </tr>
                                 @endforeach

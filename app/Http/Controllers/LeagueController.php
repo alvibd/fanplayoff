@@ -92,11 +92,11 @@ class LeagueController extends Controller
             }
         }
 
-        foreach (LeagueRoster::POSITIONS as $positon)
+        foreach (LeagueRoster::POSITIONS as $position)
         {
             $leagueRoster = new LeagueRoster();
-            $leagueRoster->position = $positon;
-            $leagueRoster->players_allowed = $data[$positon];
+            $leagueRoster->position = $position;
+            $leagueRoster->players_allowed = $data[$position];
             $leagueRoster->league()->associate($league);
             $leagueRoster->saveOrFail();
         }

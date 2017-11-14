@@ -11,8 +11,12 @@ class TeamController extends Controller
 {
     public function joinLeague(Request $request)
     {
+        $request->validate([
+            'league_id' => 'required|exists:leagues,id',
+            'team_name' => 'required|string'
+        ]);
         $data = $request->all();
-
+        dump($data);
         $league = League::findOrFail($data['league_id'])->first();
 
         $team = new Team();
@@ -23,9 +27,9 @@ class TeamController extends Controller
         $team->league_position = 0;
         $team->draft_order = 0;
         $team->total_points = 0.0;
-        $team->saveOrFail();
+//        $team->saveOrFail();
 
-        return redirect(route('league.home',['id'=> $league->id]));
+//        return redirect(route('league.home',['id'=> $league->id]));
 
     }
 }
