@@ -54,4 +54,9 @@ class TeamController extends Controller
         return redirect(route('league.home',['id'=> $league->id]));
 
     }
+
+    public function showTeamInfo(Team $team)
+    {
+        return view('team_roster', ['team' => $team]);
+    }
 }

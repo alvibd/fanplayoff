@@ -12,11 +12,11 @@
                         <div class="secondary-menu">
                             <ul>
                                 <li><a href="{{ route('league.home', ['id' => $league->id]) }}">League Home</a></li>
-                                <li><a href="message-board.html">Message Board</a></li>
-                                <li><a href="email-league.html">Email League</a></li>
-                                <li><a href="managers.html">Managers</a></li>
-                                <li><a href="roster.html">Rosters</a></li>
-                                <li><a href="settings.html">Settings</a></li>
+                                <li><a href="">Message Board</a></li>
+                                <li><a href="">Email League</a></li>
+                                <li><a href="">Managers</a></li>
+                                <li><a href="">Rosters</a></li>
+                                <li><a href="">Settings</a></li>
                             </ul>
                         </div>
                     </div>
@@ -48,7 +48,7 @@
                         <tbody>
                         @foreach($league->teams()->get() as $team)
                             <tr>
-                                <td><a href="">{{ $team->name }}</a></td>
+                                <td><a href="{{ route('team.roster', ['team' => $team]) }}">{{ $team->name }}</a></td>
                                 <td>-</td>
                                 <td>-</td>
                                 <td>-</td>

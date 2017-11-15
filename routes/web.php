@@ -41,5 +41,5 @@ Route::middleware('auth')->group(function (){
     Route::post('/create_league', 'LeagueController@storeLeague')->name('store.league');
     Route::get('/league_home/{id}', 'LeagueController@showLeague')->name('league.home');
 
-    Route::view('/team_roster', 'team_roster')->name('team.roster');
+    Route::get('/{team}/team_roster', 'TeamController@showTeamInfo')->name('team.roster');
 });

@@ -89,12 +89,12 @@
                     <div class="col-md-10 col-md-offset-1">
                         <div class="secondary-menu">
                             <ul>
-                                <li><a href="league-home.html">League Home</a></li>
-                                <li><a href="message-board.html">Message Board</a></li>
-                                <li><a href="email-league.html">Email League</a></li>
-                                <li><a href="managers.html">Managers</a></li>
-                                <li><a href="league-home.html">Rosters</a></li>
-                                <li><a href="settings.html">Settings</a></li>
+                                <li><a href="{{ route('league.home', ['id' => $team->league()->first()->id]) }}">League Home</a></li>
+                                <li><a href="">Message Board</a></li>
+                                <li><a href="">Email League</a></li>
+                                <li><a href="">Managers</a></li>
+                                <li><a href="">Rosters</a></li>
+                                <li><a href="">Settings</a></li>
                             </ul>
                         </div>
                     </div>
@@ -117,14 +117,16 @@
                         </div>
                         <div class="roster-profile-name">
                             <select class="custom-select-roster">
-                                <option class="custom-option-roster" value="Joey’s Standout Team">Joey’s Standout Team</option>
-                                <option class="custom-option-roster" value="Joey’s Standout Team">Joey’s Standout Team</option>
-                                <option class="custom-option-roster" value="Joey’s Standout Team">Joey’s Standout Team</option>
+                                <option class="custom-option-roster" value="Joey’s Standout Team">{{ $team->name }}</option>
+                                {{-- TODO get other teams as well--}}
+                                {{--<option class="custom-option-roster" value="Joey’s Standout Team">Joey’s Standout Team</option>--}}
+                                {{--<option class="custom-option-roster" value="Joey’s Standout Team">Joey’s Standout Team</option>--}}
+                                {{--<option class="custom-option-roster" value="Joey’s Standout Team">Joey’s Standout Team</option>--}}
                             </select>
                         </div>
                         <div class="roster-profile-status">
                             <span class="status">Standing</span>
-                            <span class="date">2nd (16th)</span>
+                            <span class="date">{{$team->league_position}}nd ({{ $team->league()->first()->teams()->get()->count() }}th)</span>
                         </div>
                     </div>
 
