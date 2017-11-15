@@ -7,16 +7,16 @@
  */
 
 use App\GameEngine\GameEngineInterface;
-use App\Sportradar\NationalFootballLeague;
+use App\Sportradar\NFLOfficialAPIv2 as NFL;
 use App\Model\Player;
 
 class ScoringEngine implements GameEngineInterface
 {
     private $nfl;
 
-    public function __construct(NationalFootballLeague $footballLeague)
+    public function __construct(NFL $nfl)
     {
-        $this->nfl = $footballLeague;
+        $this->nfl = $nfl;
     }
 
     public function calculateDefenseSack(Player $player)
