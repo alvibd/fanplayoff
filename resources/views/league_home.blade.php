@@ -33,7 +33,7 @@
             <div class="row">
                 <div class="col-md-10 col-md-offset-1">
 
-
+                    <h3>{{$league->name}}</h3>
                     <table cellspacing="0" class="league-home-table">
                         <thead>
                         <tr>

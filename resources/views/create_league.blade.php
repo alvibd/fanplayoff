@@ -193,20 +193,20 @@
                     <div class="roster">
                         <div class="single-data-rosetr">
                             <h3>roster size
-                                <input type="text" value="0" id="roster-data-f" name="roster_size" readonly>
+                                <input type="text" value="12" id="roster-data-f" name="roster_size" readonly>
                             </h3>
 
                         </div>
 
                         <div class="single-data-rosetr">
                             <h3>total starters
-                                <input type="text" value="0" id="starters-data-f" name="total_starters" readonly>
+                                <input type="text" value="9" id="starters-data-f" name="total_starters" readonly>
                             </h3>
                         </div>
 
                         <div class="single-data-rosetr">
                             <h3>total on bench
-                                <input type="text" value="0" id="bench-data-f" name="total_on_bench" readonly>
+                                <input type="text" value="3" id="bench-data-f" name="total_on_bench" readonly>
                             </h3>
                         </div>
                     </div>
@@ -235,12 +235,12 @@
                                 </td>
                                 <td>
                                     <div class="range-slider">
-                                        <input class="range-slider__range" type="range" value="0" name="QB" max="5" min="0"
+                                        <input class="range-slider__range" type="range" value="1" name="QB" max="5" min="0"
                                                id="qb-id" onclick="qbValue()">
                                         <div class="data-count">
                                             <!-- <span class="range-slider__value" id="bench-data" value="0">0</span> -->
 
-                                            <input class="range-slider__value" id="qb-data" value="0" readonly>
+                                            <input class="range-slider__value" id="qb-data" value="1" readonly>
                                         </div>
                                     </div>
                                 </td>
@@ -253,12 +253,12 @@
                                 </td>
                                 <td>
                                     <div class="range-slider">
-                                        <input class="range-slider__range" type="range" value="0" max="5" name="RB" min="0"
+                                        <input class="range-slider__range" type="range" value="2" max="5" name="RB" min="0"
                                                id="rb-id" onclick="rbValue()">
                                         <div class="data-count">
                                             <!-- <span class="range-slider__value" id="bench-data" value="0">0</span> -->
 
-                                            <input class="range-slider__value" id="rb-data" value="0" readonly>
+                                            <input class="range-slider__value" id="rb-data" value="2" readonly>
                                         </div>
                                     </div>
 
@@ -272,12 +272,12 @@
                                 </td>
                                 <td>
                                     <div class="range-slider">
-                                        <input class="range-slider__range" type="range" value="0" max="5" min="0" name="WR"
+                                        <input class="range-slider__range" type="range" value="2" max="5" min="0" name="WR"
                                                id="wr-id" onclick="wrValue()">
                                         <div class="data-count">
                                             <!-- <span class="range-slider__value" id="bench-data" value="0">0</span> -->
 
-                                            <input class="range-slider__value" id="wr-data" value="0" readonly>
+                                            <input class="range-slider__value" id="wr-data" value="2" readonly>
                                         </div>
                                     </div>
                                 </td>
@@ -289,11 +289,11 @@
                                 </td>
                                 <td>
                                     <div class="range-slider">
-                                        <input class="range-slider__range" type="range" name="TE" value="0" max="5" min="0"
+                                        <input class="range-slider__range" type="range" name="TE" value="1" max="5" min="0"
                                                id="te-id" onclick="teValue()">
                                         <div class="data-count">
 
-                                            <input class="range-slider__value" id="te-data" value="0" readonly>
+                                            <input class="range-slider__value" id="te-data" value="1" readonly>
                                         </div>
                                     </div>
                                 </td>
@@ -306,12 +306,12 @@
                                 </td>
                                 <td>
                                     <div class="range-slider">
-                                        <input class="range-slider__range" type="range" value="0" max="5" min="0" name="FLEX"
+                                        <input class="range-slider__range" type="range" value="1" max="5" min="0" name="FLEX"
                                                id="flex" onclick="flexValue()">
                                         <div class="data-count">
                                             <!-- <span class="range-slider__value" id="bench-data" value="0">0</span> -->
 
-                                            <input class="range-slider__value" id="flex-data" value="0" readonly>
+                                            <input class="range-slider__value" id="flex-data" value="1" readonly>
                                         </div>
                                     </div>
                                 </td>
@@ -324,12 +324,12 @@
                                 </td>
                                 <td>
                                     <div class="range-slider">
-                                        <input class="range-slider__range" type="range" value="0" max="5" min="0" name="DEF"
+                                        <input class="range-slider__range" type="range" value="1" max="5" min="0" name="DEF"
                                                id="def" onclick="defValue()">
                                         <div class="data-count">
                                             <!-- <span class="range-slider__value" id="bench-data" value="0">0</span> -->
 
-                                            <input class="range-slider__value" id="def-data" value="0" readonly>
+                                            <input class="range-slider__value" id="def-data" value="1" readonly>
                                         </div>
                                     </div>
 
@@ -343,12 +343,12 @@
                                 </td>
                                 <td>
                                     <div class="range-slider">
-                                        <input class="range-slider__range" type="range" value="0" max="5" min="0" name="K"
+                                        <input class="range-slider__range" type="range" value="1" max="5" min="0" name="K"
                                                id="k-id" onclick="kValue()">
                                         <div class="data-count">
                                             <!-- <span class="range-slider__value" id="bench-data" value="0">0</span> -->
 
-                                            <input class="range-slider__value" id="k-data" value="0" readonly>
+                                            <input class="range-slider__value" id="k-data" value="1" readonly>
                                         </div>
 
                                     </div>
@@ -370,14 +370,14 @@
 
 
                                     <div class="range-slider">
-                                        <input class="range-slider__range" type="range" value="0" max="10" min="0" name="BE"
+                                        <input class="range-slider__range" type="range" value="3" max="10" min="0" name="BE"
                                                id="bench" onclick="benchValue()">
 
                                         <!-- <input type="text" name="" id="benci"> -->
                                         <div class="data-count">
                                             <!-- <span class="range-slider__value" id="bench-data" value="0">0</span> -->
 
-                                            <input class="range-slider__value" id="bench-data" value="0" readonly>
+                                            <input class="range-slider__value" id="bench-data" value="3" readonly>
                                         </div>
 
                                     </div>
