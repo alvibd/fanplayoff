@@ -6,8 +6,8 @@
     <!-- SWITCH POPUP START -->
     <div class="switch-popup-menu switch-account">
         <div class="logo-area">
-            <div class="menu-logo"><a href="{{ route('index') }}"><img src="assets/img/logo-white.png" alt=""></a></div>
-            <span class="menu-close"><img src="assets/img/menu-close.png" alt=""></span>
+            <div class="menu-logo"><a href="{{ route('index') }}"><img src="{{ asset('img/logo-white.png') }}" alt=""></a></div>
+            <span class="menu-close"><img src="{{ asset('img/menu-close.png') }}" alt=""></span>
         </div>
         <div class="form-area">
             <h4>Switch Player</h4>
@@ -80,38 +80,6 @@
     </div>
     <!-- SWITCH POPUP END -->
 
-    <!-- HEADER AREA START -->
-    <div class="header-area header-absolute">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-md-4 width-40">
-                    <div class="menu-left">
-                        <ul>
-                            <!--  <li><a href="index.html">Home</a></li>
-                            <li><a href="#">Watch List</a></li> -->
-                            <li><a href="#">How to play</a></li>
-                            <!-- <li><a href="#">Tips &amp; Tricks</a></li> -->
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-md-4 width-20">
-                    <div class="logo">
-                        <a href="index.html"><img src="assets/img/logo.png" alt=""></a>
-                    </div>
-                </div>
-                <div class="col-md-4 width-40 text-right">
-                    <div class="menu-right">
-                        <ul>
-                            <li><a href="#">FAQ</a></li>
-                            <li><a href="#" class="colored-menu login-btn">Log In / Register</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- HEADER AREA END -->
-
     <!-- HERO AREA START -->
     <div class="hero-area padding-bottom-less padding-top-less padding-bottom-0 hero-area-bg">
         <p class="subtitle">Managers</p>
@@ -145,7 +113,7 @@
                 <div class="col-md-6 col-md-offset-3">
                     <div class="roster-profile-wrapper">
                         <div class="roster-profile-img">
-                            <img src="assets/img/roster-profile-img.png" alt="">
+                            <img src="{{ asset('img/roster-profile-img.png') }}" alt="">
                         </div>
                         <div class="roster-profile-name">
                             <select class="custom-select-roster">

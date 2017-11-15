@@ -14,7 +14,7 @@ Easy Installation
 - cd to project directory: `$ cd fanplayoff`
 - checkout to dev branch: `$ git checkout -b dev`
 - pull latest dev: `$ git pull oringin dev`
-- copy .env.example to .env: `$ cp .evn.example .env`
+- copy .env.example to .env: `$ cp .env.example .env`
 - set database configurations in _.env_
 - install all the requirements: `$ composer install`
 - generate key: `$ php artisan key:generate`

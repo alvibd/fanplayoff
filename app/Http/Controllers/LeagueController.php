@@ -134,6 +134,17 @@ class LeagueController extends Controller
     public function showLeague($id)
     {
         $league = League::findOrFail($id);
+        $owners = [];
+
+        foreach ($league->teams()->get() as $team)
+        {
+            $owners[] = $team->owner()->first();
+        }
+
+        if (!in_array(Auth::user(), $owners))
+        {
+            abort(403, 'You are not authorized to view this league');
+        }
 //        dump($league);
 
         return view('league_home', compact('league'));
