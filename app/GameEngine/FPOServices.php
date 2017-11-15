@@ -15,5 +15,4 @@ class FPOServices
         $this->nfl = $APIv2;
     }
 
-
 }

@@ -39,10 +39,13 @@ class AppServiceProvider extends ServiceProvider
         $this->app->singleton(NFLOfficialAPIv2::class, function($app){
             return new NFLOfficialAPIv2($app->make('\GuzzleHttp\Client'), config('services.sportradar.api_key'), config('services.sportradar.access_level'));
         });
+        $this->app->singleton(\FPOServices::class, function ($app){
+            return new FPOServices($app->make('App\Sportradar\NFLOfficialAPIv2'));
+        });
     }
 
     public function provides()
     {
-        return [NationalFootballLeague::class, NFLOfficialAPIv2::class];
+        return [NationalFootballLeague::class, NFLOfficialAPIv2::class, \FPOServices::class];
     }
 }

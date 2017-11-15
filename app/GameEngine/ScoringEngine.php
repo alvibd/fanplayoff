@@ -21,6 +21,6 @@ class ScoringEngine implements GameEngineInterface
 
     public function calculateDefenseSack(Player $player)
     {
-        // TODO: Implement calculateDefenseSack() method.
+
     }
 }
