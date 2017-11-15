@@ -57,6 +57,30 @@
 			$(".view-scoring-popup-menu").removeClass("active");
 		});
 
+        $("#test4").on('click', function () {
+        	// console.log('fdfs');
+            if($("input[type='radio']#test4").is(':checked')) {
+                var card_type = $("input[type='radio']#test4:checked").val();
+                 // alert(card_type);
+            }
+            if (card_type == 1) {
+                var password = document.getElementById("password-div-show");
+                // console.log(password);
+                password.style.display = "block";
+            }
+        });
+        $("#test3").on('click', function () {
+            if($("input[type='radio']#test3").is(':checked')) {
+                var card_type = $("input[type='radio']#test3:checked").val();
+                 // alert(card_type);
+            }
+            if (card_type == 0) {
+                var password = document.getElementById("password-div-show");
+                password.style.display = "none";
+                console.log(password.style.display);
+            }
+        });
+
 		$(".cl-btn-normal").on('click', function (event) {
 
 			event.preventDefault();

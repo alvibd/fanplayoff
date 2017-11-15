@@ -6,6 +6,7 @@ use App\Model\League;
 use App\Model\LeagueRoster;
 use App\Model\LeagueScoring;
 use App\Model\ScoringCriteria;
+use App\Model\Team;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Auth;
@@ -28,6 +29,7 @@ class LeagueController extends Controller
     public function storeLeague(Request $request)
     {
 //        dump($request);
+        $user = Auth::user();
         $request->validate([
             'scoring_criteria' => 'required',
             'league_name' => 'required|string',
@@ -52,7 +54,9 @@ class LeagueController extends Controller
             'scoring_type' => [
                 'required',
                 Rule::in(League::SCORING_TYPE)
-            ]
+            ],
+            'team_name' => 'required|string|max:100',
+            'league_password' => 'requiredif:privacy,==,1'
         ]);
         $data = $request->all();
 
@@ -66,7 +70,11 @@ class LeagueController extends Controller
         $league->total_starters = $data['total_starters'];
         $league->total_on_bench = $data['total_on_bench'];
         $league->scoring_type = $data['scoring_type'];
-        $league->creator()->associate(Auth::User());
+        if ($data['privacy'])
+        {
+            $league->password = $data['league_password'];
+        }
+        $league->creator()->associate($user);
         $league->saveOrFail();
 
         if ($data['scoring_type'] == League::SCORING_TYPE['default'])
@@ -101,7 +109,19 @@ class LeagueController extends Controller
             $leagueRoster->saveOrFail();
         }
 
-        return redirect(route('show.profile'));
+        $team = new Team();
+
+        $team->league()->associate($league);
+        $team->owner()->associate($user);
+        $team->name= $data['team_name'];
+        $team->league_position = 0;
+        $team->draft_order = 0;
+        $team->total_points = 0.0;
+        $team->saveOrFail();
+
+
+
+        return redirect(route('league.home',['id'=> $league->id]));
     }
 
     public function showLeagues()
@@ -113,7 +133,8 @@ class LeagueController extends Controller
 
     public function showLeague($id)
     {
-        $league = League::findOrFail($id)->first();
+        $league = League::findOrFail($id);
+//        dump($league);
 
         return view('league_home', compact('league'));
     }

@@ -92,6 +92,13 @@
                                 </div>
                             </div>
 
+                            <div class="single-data s-d-1 sd2">
+                                <h2>Team name</h2>
+                                <div class="c-l-input">
+                                    <input type="text" name="team_name" id="" required>
+                                </div>
+                            </div>
+
                             <div class="single-data single-data-btn s-d-2">
                                 <h2>number of teams</h2>
                                 <div class="sd2">
@@ -115,6 +122,13 @@
                                         <input type="radio" id="test4" name="privacy" value="1">
                                         <label for="test4" class="option4">Private</label>
                                     </p>
+                                </div>
+                            </div>
+
+                            <div class="single-data s-d-1 sd2 pass" id="password-div-show">
+                                <h2>Password</h2>
+                                <div class="c-l-input">
+                                    <input type="password" name="league_password" id="">
                                 </div>
                             </div>
 
@@ -509,6 +523,15 @@
         $(document).ready(function () {
             $("input[type='checkbox']").prop('checked', true);
         });
+
+        if($("input[type='radio']#test3").is(':checked')) {
+            var card_type = $("input[type='radio']#test3:checked").val();
+            /* alert(card_type); */
+        }
+        if (card_type == 0) {
+            var password = document.getElementById("password-div-show");
+            password.style.display = "none";
+        }
 
         $("input[type='checkbox']").click(function (event) {
             if($("input[type='checkbox']:checked").length && $("input[type='radio']#test3x:checked").val() == "DEFAULT")
