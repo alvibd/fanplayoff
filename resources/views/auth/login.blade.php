@@ -1,69 +1,46 @@
-@extends('layouts.app')
+@extends('layouts.base')
+
+@section('page_title', 'FANPLAYoff | Login/Register')
 
 @section('content')
-<div class="container">
-    <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-            <div class="panel panel-default">
-                <div class="panel-heading">Login</div>
+    <!-- HERO AREA START -->
+    <div class="hero-area padding-bottom-less padding-top-less hero-area-bg">
 
-                <div class="panel-body">
-                    <form class="form-horizontal" method="POST" action="{{ route('login') }}">
-                        {{ csrf_field() }}
+    </div>
+    <!-- HERO AREA END -->
 
-                        <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-                            <label for="email" class="col-md-4 control-label">E-Mail Address</label>
+    <!-- BLANK AREA START -->
+    <div class="extra-login">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-area">
+                        <h4>Sign Up</h4>
 
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required autofocus>
-
-                                @if ($errors->has('email'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('email') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
-                            <label for="password" class="col-md-4 control-label">Password</label>
-
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="form-control" name="password" required>
-
-                                @if ($errors->has('password'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('password') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <div class="col-md-6 col-md-offset-4">
-                                <div class="checkbox">
-                                    <label>
-                                        <input type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}> Remember Me
-                                    </label>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <div class="col-md-8 col-md-offset-4">
-                                <button type="submit" class="btn btn-primary">
-                                    Login
-                                </button>
-
-                                <a class="btn btn-link" href="{{ route('password.request') }}">
-                                    Forgot Your Password?
-                                </a>
-                            </div>
-                        </div>
-                    </form>
+                        <p class="terms-and-condition">By creating an account, I agree to the <a href="">Terms of Use</a> and acknowledge that I have read the <a href="">Privacy Policy</a>.</p>
+                        <p><a href="" class="sign-with-mail"><img src="{{ asset('img/mail-icon.png') }}" alt=""> Sign up with Email</a></p>
+                        <p><a href="" class="sign-with-facebook"><img src="{{ asset('img/facebook-icon.png') }}" alt=""> Sign up with Facebook</a></p>
+                    </div>
                 </div>
+
+                <div class="col-md-6">
+                    <div class="form-area">
+                        <h4>Sign In</h4>
+                        <form action="{{ route('login') }}" method="post">
+                            {{ csrf_field() }}
+                            <p><input type="text" placeholder="Username or Email Address" name="username" required></p>
+                            <p><input type="password" placeholder="Password" name="password" required></p>
+                            <input type="checkbox" name="remember" checked style="display: none">
+                            <p class="padding-top-10"><input type="submit" value="Log In"></p>
+                        </form>
+
+                        <p class="terms-and-condition padding-bottom-custom">Forgot <a href="">username</a> or <a href="">password</a>?</p>
+                        <p><a href="" class="sign-with-facebook"><img src="{{ asset('img/facebook-icon.png') }}" alt=""> Log In with Facebook</a></p>
+                    </div>
+                </div>
+
             </div>
         </div>
     </div>
-</div>
+    <!-- BLANK AREA END -->
 @endsection
