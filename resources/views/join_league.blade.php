@@ -63,7 +63,7 @@
                     </div>
                     <div class="league-setting-header">LEAGUE SETTINGS OVERVIEW</div>
                     <div class="invite-manager-body">
-                        <p><strong>Game Format: FANPLAYOFF Custom</strong> FANPLAYOFF Custom</p>
+                        <p><strong>Game Format: </strong> FANPLAYOFF {{ $league->scoring_type }}</p>
                         <p><strong>Draft Date: </strong> {{ Carbon\Carbon::parse($league->draft_time)->format('d-M-Y') }}</p>
                         <p><strong>Teams in League:</strong> {{ $league->teams()->count() }}</p>
                         <p><strong>Lineup Locktime:</strong>  Lock Individually at Scheduled Gametime</p>
@@ -96,9 +96,12 @@
                     <h4>LEAGUE</h4>
                     <p class="terms-and-condition">This League is Private. You need a password to view this league</p>
 
-                    <form action="">
+                    <form action="{{ route('store.team') }}" method="POST">
+                        {{ csrf_field() }}
+                        <input type="hidden" name="league_id" value="{{$league->id}}">
                         <a href="" class="request-access">Request Access</a>
-                        <p><input type="password" class="text-center" placeholder="Password" required></p>
+                        <p><input type="text" placeholder="Your Team" name="team_name" required></p>
+                        <p><input type="password" name="team_password" class="text-center" placeholder="Password" required></p>
 
                         <p><input type="submit" class="view-league" value="View League"></p>
                     </form>

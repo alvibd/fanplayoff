@@ -77,14 +77,14 @@
 
                         <tbody>
 {{--                        {{ dump($user->leagues()->get()) }}--}}
-                        @foreach($user->leagues()->get() as $league)
+                        @foreach($user->teams()->get() as $team)
                             <tr>
                                 <td class="serial-no">{{ $loop->index+1 }}.</td>
-                                <td>{{ $league->name }}</td>
+                                <td>{{ $team->league()->first()->name }}</td>
                                 <td>Awaiting Draft</td>
                                 <td>N/A</td>
                                 <td>
-                                    <a href="{{ route('league.home', ['id' => $league->id]) }}" class="view-btn">view</a>
+                                    <a href="{{ route('league.home', ['id' => $team->league()->first()->id]) }}" class="view-btn">view</a>
                                 </td>
 
                             </tr>

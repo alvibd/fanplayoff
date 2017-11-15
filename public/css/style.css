@@ -42,6 +42,7 @@ a:link,
 a:visited,
 a:active {
     text-decoration: none;
+    text-align: center;
 }
 
 img {
@@ -452,7 +453,7 @@ body {
 .about-text h1 {
     color: #e11d40;
     text-transform: uppercase;
-    font-size: 48px;
+    font-size: 36px;
     margin-bottom: 40px;
 }
 
@@ -961,7 +962,8 @@ table.dataTable thead .no-sort.sorting {
     width: 15% !important;
     border-right: none;
     text-align: center;
-    padding-left: 17px;
+    padding-left: 8px;
+    padding-right: 25px;
 }
 
 #data-table-simple tbody tr:nth-child(odd) {
@@ -982,20 +984,20 @@ table.dataTable thead .no-sort.sorting {
 }
 
 #data-table-simple tbody tr td:first-child {
-    width: 4% !important;
+    width: 6% !important;
     text-align: center;
 }
 
 #data-table-simple tbody tr td:nth-child(2) {
-    width: 40.6% !important;
+    width: 39.6% !important;
 }
 
 #data-table-simple tbody tr td:nth-child(3) {
-    width: 20.2% !important;
+    width: 19.8% !important;
 }
 
 #data-table-simple tbody tr td:nth-child(4) {
-    width: 20.1% !important;
+    width: 19.8% !important;
     text-align: center;
 }
 
@@ -1043,7 +1045,9 @@ table.dataTable thead .no-sort.sorting {
 .dataTables_scroll {
     position: relative;
 }
-
+.dataTables_scrollBody {
+    background: #b3b3b3;
+}
 .dataTables_scroll:before {
     position: absolute;
     right: 0;
@@ -1053,8 +1057,23 @@ table.dataTable thead .no-sort.sorting {
     background: #969696;
     content: "";
     border-left: 1px solid #fff;
+    z-index: 30;
 }
-
+.dataTables_scroll::after {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 58px;
+    height: 86%;
+    background: #969696;
+    content: "";
+    z-index: 10;
+    border-right: 1px solid #fff;
+}
+#data-table-simple {
+    z-index: 20;
+    position: relative;
+}
 .dataTables_scrollHead::before {
     position: absolute;
     right: 0;
@@ -1065,6 +1084,7 @@ table.dataTable thead .no-sort.sorting {
     content: "";
     border-left: 1px solid #fff;
     border-bottom: 1px solid #fff;
+    z-index: 40;
 }
 
 .dataTables_wrapper.no-footer .dataTables_scrollBody {
@@ -1089,6 +1109,7 @@ table.dataTable thead .no-sort.sorting {
     background-color: #3d3d3d;
     border-radius: 50px;
     width: 12px;
+    z-index: 40;
 }
 
 .dataTables_scrollBody.ps:hover>.ps__rail-y:hover {
@@ -1150,7 +1171,6 @@ table.dataTable thead .no-sort.sorting {
 .input-image-area,
 .public-access-popup-menu,
 .private-access-popup-menu,
-.switch-popup-menu,
 .view-scoring-popup-menu,
 .create-account-popup-menu,
 .signup-popup-menu,
@@ -1171,7 +1191,27 @@ table.dataTable thead .no-sort.sorting {
     border-radius: 11px;
 }
 
-.private-access,
+.switch-popup-menu {
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    background: #fff;
+    width: 550px;
+    z-index: 110;
+    height: 530px;
+    margin-left: -180px;
+    margin-top: -265px;
+    opacity: 0;
+    visibility: hidden;
+    transition: .3s;
+    transform: scale(.5);
+    border-radius: 11px;
+}
+
+.private-access{
+    height: 450px;
+    margin-top: -205px;
+}
 .create-account,
 .switch-account {
     height: 410px;
@@ -1475,6 +1515,16 @@ input[type="checkbox"]:focus+label::before {
     background: #3466cc;
 }
 
+/*Extra login*/
+.extra-login {
+    padding-top: 30px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 30px;
+}
+.extraspace{
+    margin-top: 30px;
+}
 
 /* JOIN A LEAGUE CSS */
 
@@ -1808,12 +1858,10 @@ input[type="checkbox"]:focus+label::before {
 
 .league-details-body tbody tr td:first-child {
     width: 24.6%;
-    /*text-decoration: underline;*/
 }
 
 .league-details-body tbody tr td:nth-child(2) {
     width: 14.8%;
-    /*text-decoration: underline;*/
 }
 
 .league-details-body tbody tr td:nth-child(3) {
@@ -2227,8 +2275,8 @@ input[type="checkbox"]:focus+label.checkbox-new-custom::before {
 
 .secondary-menu li a {
     color: #fff;
-    font-size: 17px;
-    padding: 10px 40px;
+    font-size: 20px;
+    padding: 10px 31px;
     display: block;
     transition: .3s;
 }
@@ -3744,7 +3792,7 @@ input[type="checkbox"]:focus+label.checkbox-new-custom::before {
 }
 
 .roster-starter-table3 thead tr th:nth-child(2) {
-    width: 35% !important;
+    width: 62% !important;
 }
 
 .roster-starter-table3 thead tr th:last-child {
@@ -3756,7 +3804,7 @@ input[type="checkbox"]:focus+label.checkbox-new-custom::before {
 }
 
 .roster-starter-table3 tbody tr td:nth-child(2) {
-    width: 35% !important;
+    width: 63% !important;
 }
 
 .roster-starter-table3 tbody tr td:last-child {
@@ -3893,7 +3941,7 @@ input[type="checkbox"]:focus+label.checkbox-new-custom::before {
 .team-table thead tr th,
 .team-table2 thead tr th {
     /* border-right: 1px solid #b5b5b5; */
-    border-top: 1px solid #b5b5b5;
+    /* border-top: 1px solid #b5b5b5; */
 }
 
 .team-table2 thead tr th.width-1 {
@@ -3963,11 +4011,11 @@ input[type="checkbox"]:focus+label.checkbox-new-custom::before {
 }
 
 .team-table thead tr th.width-1 {
-    width: 8% !important; /*value -> 3 --> changes 7-nov*/
+    width: 5% !important;
 }
 
 .team-table thead tr th.width-2 {
-    width: 28.5% !important; /*value -> 31.4 --> changes 7-nov*/
+    width: 31.4% !important;
 }
 
 .team-table thead tr th.width-3 {

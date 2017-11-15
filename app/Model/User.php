@@ -52,7 +52,7 @@ class User extends Authenticatable
      */
     public function teams()
     {
-        return $this->hasMany('App\Model\Team');
+        return $this->hasMany('App\Model\Team', 'owner_id');
     }
 
     public function invitations()

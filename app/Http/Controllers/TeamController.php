@@ -6,6 +6,7 @@ use App\Model\League;
 use App\Model\Team;
 use App\Rules\AlreadyJoined;
 use App\Rules\LeagueFull;
+use App\Rules\LeaguePasswordMatch;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -13,14 +14,15 @@ class TeamController extends Controller
 {
     public function joinLeague(Request $request)
     {
-        $league = League::findOrFail($request->get('league_id'))->first();
+        $league = League::findOrFail($request->get('league_id'));
+
         $user = Auth::user();
-//        dump($league->teams()->count());
+//        dump($request);
         $request->validate([
             'league_id' => [
                 'required',
-                'exists:leagues,id',
                 new AlreadyJoined($league, $user->id),
+                'exists:leagues,id',
                 new LeagueFull($league),
             ],
             'team_name' => 'required|string'
@@ -30,6 +32,16 @@ class TeamController extends Controller
 
 
         $team = new Team();
+
+        if ($request->has('team_password'))
+        {
+            $request->validate([
+                'team_password' => [
+                    'required',
+                    new LeaguePasswordMatch($league->password),
+                ],
+            ]);
+        }
 
         $team->league()->associate($league);
         $team->owner()->associate($user);
