@@ -5,6 +5,7 @@
  * Date: 11/7/2017
  * Time: 4:51 PM
  */
+namespace App\GameEngine;
 
 use App\GameEngine\GameEngineInterface;
 use App\Sportradar\NFLOfficialAPIv2 as NFL;
@@ -19,7 +20,7 @@ class ScoringEngine implements GameEngineInterface
         $this->nfl = $nfl;
     }
 
-    public function calculateDefenseSack(Player $player)
+    public function calculateDefenseSack(Player $player, $object)
     {
 
     }

@@ -11,5 +11,5 @@ use App\Model\Player;
 
 interface GameEngineInterface
 {
-    public function calculateDefenseSack(Player $player);
+    public function calculateDefenseSack(Player $player, $object);
 }

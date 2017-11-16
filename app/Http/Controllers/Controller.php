@@ -9,6 +9,7 @@ use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use \GuzzleHttp\Client as Guzzle;
 use Illuminate\Support\Carbon;
 use Psr\Container\ContainerInterface;
+use App\Model\League;
 
 class Controller extends BaseController
 {
@@ -16,11 +17,13 @@ class Controller extends BaseController
 
     public function everythingAllowed(ContainerInterface $container)
     {
-        $nfl = $container->get('App\Sportradar\NFLOfficialAPIv2');
-        dump($nfl->getLeagueHierarchy());
-        $carbon =  new Carbon();
-        dump($carbon->startOfWeek());
-//        $team_hierarchy = $nfl->getTeams();
+        $service = $container->get('App\GameEngine\FPOServices');
+        $league = League::first();
+        foreach ($league->teams()->first()->players()->get() as $player)
+        {
+            $service->calculatePlayerWeeklyScore($player, 10, $league);
+        }
+//          $team_hierarchy = $nfl->getTeams();
 //        $team_hierarchy = $team_hierarchy->conferences;
 //
 ////        dump($team_hierarchy);

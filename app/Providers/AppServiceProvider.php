@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\GameEngine\FPOServices;
 use App\Sportradar\NationalFootballLeague;
 use App\Sportradar\NFLOfficialAPIv2;
 use Illuminate\Support\ServiceProvider;
@@ -39,13 +40,13 @@ class AppServiceProvider extends ServiceProvider
         $this->app->singleton(NFLOfficialAPIv2::class, function($app){
             return new NFLOfficialAPIv2($app->make('\GuzzleHttp\Client'), config('services.sportradar.api_key'), config('services.sportradar.access_level'));
         });
-        $this->app->singleton(\FPOServices::class, function ($app){
-            return new FPOServices($app->make('App\Sportradar\NFLOfficialAPIv2'));
+        $this->app->singleton(FPOServices::class, function ($app){
+            return new FPOServices($app->make('App\Sportradar\NFLOfficialAPIv2'), $app->make('App\GameEngine\ScoringEngine'));
         });
     }
 
     public function provides()
     {
-        return [NationalFootballLeague::class, NFLOfficialAPIv2::class, \FPOServices::class];
+        return [NationalFootballLeague::class, NFLOfficialAPIv2::class, FPOServices::class];
     }
 }

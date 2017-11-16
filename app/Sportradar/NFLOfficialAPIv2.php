@@ -31,6 +31,17 @@ class NFLOfficialAPIv2 extends SportRadar
      * All helper methods start
      * *********************
      */
+
+    public function getWeeklySchedule($year, $nfl_season, $nfl_season_week)
+    {
+        return $this->weeklySchedule($year, $nfl_season, $nfl_season_week);
+    }
+
+    public function getGameStatistics($game_id)
+    {
+        return $this->gameStatistics($game_id);
+    }
+
     public function getLeagueHierarchy()
     {
         return $this->leagueHierarchy();
