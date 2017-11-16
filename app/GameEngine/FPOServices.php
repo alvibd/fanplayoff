@@ -25,15 +25,23 @@ class FPOServices
     public function calculatePlayerWeeklyScore(Player $player, $week, League $league)
     {
         $games = [];
+        $stats = (object) null;
 
         $games = $this->getGames($player->sr_team_id, $week);
-        dump($games);
 
         $league_scorings = $league->leagueScorings()->get();
 
         foreach ($games as $game)
         {
             dump($this->nfl->getGameStatistics($game)->statistics->home->id);
+            switch ($player->sr_team_id)
+            {
+                case $this->nfl->getGameStatistics($game)->statistics->home->id:
+                    $stats = $this->nfl->getGameStatistics($game)->statistics->home;
+                    break;
+                case $this->nfl->getGameStatistics($game)->statistics->away->id:
+                    $stats = $this->nfl->getGameStatistics($game)->statistics->away;
+            }
         }
 
         foreach ($league_scorings as $league_scoring)
