@@ -38,8 +38,11 @@ class FPOServices
             $result[$league_scoring->scoringCriteria()->first()->name] = 0;
         }
 
-        foreach (ScoringCriteria::whereIsFixed(true)->get() as $fixed)
+        $fixed_criterias = ScoringCriteria::whereIsFixed(true)->get();
+
+        foreach ($fixed_criterias as $fixed)
         {
+//            dump($fixed->name);
             $result[$fixed->name] = 0;
         }
 
@@ -55,13 +58,13 @@ class FPOServices
                     break;
             }
 
-            $result = $this->getScorings($player, $league_scorings, $stats, $result);
+            $result = $this->getScorings($player, $league_scorings, $stats, $result, $fixed_criterias);
         }
         dump($result);
 
     }
 
-    protected function getScorings($player, $league_scorings, $obj, $result)
+    protected function getScorings($player, $league_scorings, $obj, $result, $fixed_criterias)
     {
         foreach ($league_scorings as $league_scoring)
         {
@@ -115,6 +118,45 @@ class FPOServices
                 case 'Fumble Lost':
                     $result['Fumble Lost'] += $this->engine->calculateFumbleLosts($player, $obj, $league_scoring->custom_point);
                     break;
+                case 'Points After Attempt Made':
+                    $result['Points After Attempt Made'] += $this->engine->calculateExtraPointMade($player, $obj, $league_scoring->custom_point);
+                    break;
+                case 'Field Goals 0-19 Yards':
+                    $yards = $this->getFieldGoalYards($player, $obj);
+                    $result['Field Goals 0-19 Yards'] += (($yards >=0 && $yards <= 19)? $league_scoring->custom_point: 0);
+                    break;
+                case 'Field Goals 20-29 Yards':
+                    $yards = $this->getFieldGoalYards($player, $obj);
+                    $result['Field Goals 20-29 Yards'] += (($yards >=20 && $yards <= 29)? $fixed_criterias->whereName('Field Goals 20-29 Yards')->first()->custom_point: 0);
+                    break;
+                case 'Field Goals 30-39 Yards':
+                    $yards = $this->getFieldGoalYards($player, $obj);
+                    $result['Field Goals 30-39 Yards'] += (($yards >=30 && $yards <= 39)? $league_scoring->custom_point: 0);
+                    break;
+                case 'Field Goals 40-49 Yards':
+                    $yards = $this->getFieldGoalYards($player, $obj);
+                    $result['Field Goals 40-49 Yards'] += (($yards >=40 && $yards <= 49)? $league_scoring->custom_point: 0);
+                    break;
+                case 'Field Goals 50+ Yards':
+                    $yards = $this->getFieldGoalYards($player, $obj);
+                    $result['Field Goals 50+ Yards'] += ($yards >=50? $league_scoring->custom_point: 0);
+                    break;
+            }
+
+        }
+        foreach ($fixed_criterias as $fixed)
+        {
+            switch ($fixed->name)
+            {
+                case 'Rushing Yards':
+                    $result['Rushing Yards'] += $this->engine->calculateRushingYards($player, $obj);
+                    break;
+                case 'Receiving Yards':
+                    $result['Receiving Yards'] += $this->engine->calculateReceivingYards($player, $obj);
+                    break;
+                case 'Passing Yards':
+                    $result['Passing Yards'] += $this->engine->calculatePassingYards($player, $obj);
+                    break;
             }
         }
         return $result;
@@ -134,6 +176,18 @@ class FPOServices
         }
 
         return $games;
+    }
+
+    protected function getFieldGoalYards($player, $obj)
+    {
+        foreach ($obj->field_goals->players as $pl)
+        {
+            if($pl->id == $player->sportradar_id)
+            {
+                return $pl->yards;
+            }
+        }
+        return 0;
     }
 
 }

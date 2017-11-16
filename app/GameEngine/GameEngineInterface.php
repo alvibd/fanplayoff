@@ -25,7 +25,7 @@ interface GameEngineInterface
 
     public function calculateKickoffPuntReturnTouchdowns($player, $obj, $point);
 
-    public function calculatePassingYards($player, $obj, $point);
+    public function calculatePassingYards($player, $obj);
 
     public function calculatePassingTouchdowns($player, $obj, $point);
 
@@ -42,4 +42,10 @@ interface GameEngineInterface
     public function calculateExtraPointConversions($player, $obj, $point);
 
     public function calculateFumbleLosts($player, $obj, $point);
+
+    public function calculateExtraPointMade($player, $obj, $point);
+
+    public function calculateRushingYards($player, $obj);
+
+    public function calculateReceivingYards($player, $obj);
 }

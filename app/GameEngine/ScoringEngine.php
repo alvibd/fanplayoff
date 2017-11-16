@@ -113,18 +113,6 @@ class ScoringEngine implements GameEngineInterface
         return $result;
     }
 
-    public function calculatePassingYards($player, $obj, $point)
-    {
-        foreach ($obj->passing->players as $pl)
-        {
-            if($pl->id == $player->sportradar_id)
-            {
-                return $pl->yards * $point;
-            }
-        }
-        return 0;
-    }
-
     public function calculatePassingTouchdowns($player, $obj, $point)
     {
         foreach ($obj->passing->players as $pl)
@@ -216,6 +204,58 @@ class ScoringEngine implements GameEngineInterface
             if($pl->id == $player->sportradar_id)
             {
                 return $pl->lost_fumbles * $point;
+            }
+        }
+        return 0;
+    }
+
+    public function calculateExtraPointMade($player, $obj, $point)
+    {
+        foreach ($obj->extra_points->kicks->players as $pl)
+        {
+            if($pl->id == $player->sportradar_id)
+            {
+                return $pl->made * $point;
+            }
+        }
+        return 0;
+    }
+
+    public function calculateRushingYards($player, $obj)
+    {
+        foreach ($obj->rushing->players as $pl)
+        {
+            if($pl->id == $player->sportradar_id && $pl->yards >= 10)
+            {
+                $count = ($pl->yards/10) - ($pl->yards%10)/10;
+                return $count;
+            }
+        }
+        return 0;
+    }
+
+    public function calculateReceivingYards($player, $obj)
+    {
+        foreach ($obj->receiving->players as $pl)
+        {
+            if($pl->id == $player->sportradar_id && $pl->yards >= 10)
+            {
+                $count = ($pl->yards/10) - ($pl->yards%10)/10;
+                return $count;
+            }
+        }
+        return 0;
+    }
+
+    public function calculatePassingYards($player, $obj)
+    {
+        foreach ($obj->passing->players as $pl)
+        {
+            if($pl->id == $player->sportradar_id && $pl->yards >= 10)
+            {
+                $count = ($pl->yards/25) - ($pl->yards%25)/25;
+//                dump($point);
+                return $count;
             }
         }
         return 0;
