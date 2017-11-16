@@ -124,22 +124,6 @@ class ScoringCriteriasTableSeeder extends Seeder
             'ends_at' => 0
         ];
 
-        $this->criterias[] = [
-            'type' => 'Defense/Special Team',
-            'name' => '4th Down Stops',
-            'default_point' => '1',
-            'starts_from' => 0,
-            'ends_at' => 4
-        ];
-
-        $this->criterias[] = [
-            'type' => 'Defense/Special Team',
-            'name' => 'Extra Point Returned',
-            'default_point' => '2',
-            'starts_from' => 0,
-            'ends_at' => 6
-        ];
-
         /*********************************
          * End of Defense/Special Teams
          * *************************
@@ -239,30 +223,6 @@ class ScoringCriteriasTableSeeder extends Seeder
             'default_point' => '6',
             'starts_from' => 0,
             'ends_at' => 6
-        ];
-
-        $this->criterias[] = [
-            'type' => 'Offense',
-            'name' => '40+ Yards Passing Touch downs',
-            'default_point' => '1',
-            'starts_from' => 0,
-            'ends_at' => 5
-        ];
-
-        $this->criterias[] = [
-            'type' => 'Offense',
-            'name' => '40+ Yards Rushing Touch downs',
-            'default_point' => '1',
-            'starts_from' => 0,
-            'ends_at' => 5
-        ];
-
-        $this->criterias[] = [
-            'type' => 'Offense',
-            'name' => '40+ Yards Receiving Touch downs',
-            'default_point' => '1',
-            'starts_from' => 0,
-            'ends_at' => 5
         ];
 
         /*******************
