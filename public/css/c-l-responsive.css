@@ -73,9 +73,10 @@
 
 @media only screen and (min-width: 768px) and (max-width: 991px) {
     /* Tablet Device - iPad, iPad Mini, Samsung Tab etc */
-    .single-data.single-data-btn.s-d-2 form,
-    .single-data.single-data-btn.s-d-3 form,
-    .single-data.single-data-btn.s-d-4 form {
+        .c-l-input-team-no,
+    .c-l-input-l-type,
+    .c-l-input-date-time,
+    .c-l-input-draft-order {
         display: inline-block;
         float: right;
         width: 39%;
@@ -92,9 +93,10 @@
     .ddf {
         margin-left: 1px;
     }
-    .single-data.single-data-btn.s-d-2 form,
-    .single-data.single-data-btn.s-d-3 form,
-    .single-data.single-data-btn.s-d-4 form {
+        .c-l-input-team-no,
+    .c-l-input-l-type,
+    .c-l-input-date-time,
+    .c-l-input-draft-order {
         width: 34%;
         margin-left: 0px;
         margin-right: 70px;
@@ -239,9 +241,10 @@
     table.position-starters-stats-table td:nth-child(2) {
         margin-left: -30px;
     }
-    .single-data.single-data-btn.s-d-2 form,
-    .single-data.single-data-btn.s-d-3 form,
-    .single-data.single-data-btn.s-d-4 form {
+        .c-l-input-team-no,
+    .c-l-input-l-type,
+    .c-l-input-date-time,
+    .c-l-input-draft-order {
         width: 66%;
         margin-right: -112px;
     }
@@ -254,18 +257,20 @@
 }
 
 @media only screen and (max-width: 400px) {
-    .single-data.single-data-btn.s-d-2 form,
-    .single-data.single-data-btn.s-d-3 form,
-    .single-data.single-data-btn.s-d-4 form {
+        .c-l-input-team-no,
+    .c-l-input-l-type,
+    .c-l-input-date-time,
+    .c-l-input-draft-order {
         width: 75%;
     }
 }
 
 @media only screen and (max-width: 360px) {
     /* Mobile Device Small - Galaxy S5 */
-    .single-data.single-data-btn.s-d-2 form,
-    .single-data.single-data-btn.s-d-3 form,
-    .single-data.single-data-btn.s-d-4 form {
+        .c-l-input-team-no,
+    .c-l-input-l-type,
+    .c-l-input-date-time,
+    .c-l-input-draft-order {
         width: 78%;
     }
 }
@@ -324,9 +329,10 @@
     p.form-input-radio.bottom-toggle {
         z-index: 99;
     }
-    .single-data.single-data-btn.s-d-2 form,
-    .single-data.single-data-btn.s-d-3 form,
-    .single-data.single-data-btn.s-d-4 form {
+        .c-l-input-team-no,
+    .c-l-input-l-type,
+    .c-l-input-date-time,
+    .c-l-input-draft-order {
         margin-right: -110px;
         width: 78%;
     }

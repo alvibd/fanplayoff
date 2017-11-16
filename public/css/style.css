@@ -959,11 +959,11 @@ table.dataTable thead .no-sort.sorting {
 }
 
 .dataTables_scrollHeadInner thead tr th:last-child {
-    width: 15% !important;
-    border-right: none;
-    text-align: center;
-    padding-left: 8px;
-    padding-right: 25px;
+	width: 15% !important;
+	border-right: none;
+	text-align: center;
+	padding-left: 8px;
+	padding-right: 25px;
 }
 
 #data-table-simple tbody tr:nth-child(odd) {
@@ -1046,7 +1046,7 @@ table.dataTable thead .no-sort.sorting {
     position: relative;
 }
 .dataTables_scrollBody {
-    background: #b3b3b3;
+	background: #b3b3b3;
 }
 .dataTables_scroll:before {
     position: absolute;
@@ -1071,8 +1071,8 @@ table.dataTable thead .no-sort.sorting {
     border-right: 1px solid #fff;
 }
 #data-table-simple {
-    z-index: 20;
-    position: relative;
+	z-index: 20;
+	position: relative;
 }
 .dataTables_scrollHead::before {
     position: absolute;
@@ -1209,7 +1209,7 @@ table.dataTable thead .no-sort.sorting {
 }
 
 .private-access{
-    height: 450px;
+	height: 450px;
     margin-top: -205px;
 }
 .create-account,
@@ -1523,7 +1523,7 @@ input[type="checkbox"]:focus+label::before {
     padding-top: 30px;
 }
 .extraspace{
-    margin-top: 30px;
+  margin-top: 30px;
 }
 
 /* JOIN A LEAGUE CSS */
@@ -3864,7 +3864,7 @@ input[type="checkbox"]:focus+label.checkbox-new-custom::before {
 
 .team-table thead tr th,
 .team-table2 thead tr th {
-    padding: 2px;
+    padding: 2px 0px 2px 0px;
 }
 
 .team-table thead tr th:nth-child(3),
@@ -3889,18 +3889,18 @@ input[type="checkbox"]:focus+label.checkbox-new-custom::before {
 .team-table tbody tr td:nth-child(2),
 .team-table2 tbody tr td:nth-child(2) {
     border-right: 1px solid #b5b5b5;
-    width: 221px !important;
+    width: 13.5% !important;
 }
 
 .team-table tbody tr td:nth-child(1),
 .team-table2 tbody tr td:nth-child(1) {
-    width: 7% !important;
-    padding: 20px;
+    width: 5% !important;
+    padding: 5px 15px;
 }
 
 .yellow-text {
     color: #ffb300;
-    font-size: 23px;
+    font-size: 20px;
     font-weight: 500;
     margin: 0;
     line-height: 25px;
@@ -3949,7 +3949,7 @@ input[type="checkbox"]:focus+label.checkbox-new-custom::before {
 }
 
 .team-table2 thead tr th.width-2 {
-    width: 18.7% !important;
+    width: 13.9% !important;
 }
 
 .team-table2 thead tr th.width-3 {
@@ -3999,7 +3999,7 @@ input[type="checkbox"]:focus+label.checkbox-new-custom::before {
 }
 
 .team-table2 tbody tr td.width-50 {
-    width: 8.2% !important;
+    width: 24.4% !important;
 }
 
 .team-table2 tbody tr td:last-child {
@@ -4015,7 +4015,7 @@ input[type="checkbox"]:focus+label.checkbox-new-custom::before {
 }
 
 .team-table thead tr th.width-2 {
-    width: 31.4% !important;
+    width: 15.65% !important;
 }
 
 .team-table thead tr th.width-3 {
@@ -4023,7 +4023,7 @@ input[type="checkbox"]:focus+label.checkbox-new-custom::before {
 }
 
 .team-table thead tr th.width-4 {
-    width: 3.5% !important;
+    width: 3.2% !important;
 }
 
 .team-table thead tr th.width-5 {
@@ -4031,7 +4031,7 @@ input[type="checkbox"]:focus+label.checkbox-new-custom::before {
 }
 
 .team-table thead tr th.width-6 {
-    width: 3.5% !important;
+    width: 3.2% !important;
 }
 
 .team-table thead tr th.width-7 {
@@ -4039,7 +4039,7 @@ input[type="checkbox"]:focus+label.checkbox-new-custom::before {
 }
 
 .team-table thead tr th.width-8 {
-    width: 3.5% !important;
+    width: 3% !important;
 }
 
 .team-table thead tr th.width-9 {
@@ -4047,24 +4047,24 @@ input[type="checkbox"]:focus+label.checkbox-new-custom::before {
 }
 
 .team-table thead tr th.width-10 {
-    width: 3.2% !important;
+    width: 3% !important;
 }
 
 .team-table thead tr th.width-11 {
-    width: 3.6% !important;
+    width: 3% !important;
     border: none;
 }
 
 .team-table thead tr th.width-12 {
-    width: 3.5% !important;
+    width: 2.5% !important;
 }
 
 .team-table thead tr th.width-13 {
-    width: 3.1% !important;
+    width: 3% !important;
 }
 
 .team-table thead tr th.width-14 {
-    width: 3.1% !important;
+    width: 3.2% !important;
 }
 
 .team-table thead tr th.width-15 {
@@ -4072,43 +4072,43 @@ input[type="checkbox"]:focus+label.checkbox-new-custom::before {
 }
 
 .team-table thead tr th.width-16 {
-    width: 3.1% !important;
+    width: 3% !important;
 }
 
 .team-table thead tr th.width-17 {
-    width: 3.6% !important;
+    width: 3.2% !important;
 }
 
 .team-table thead tr th.width-18 {
-    width: 3.5% !important;
+    width: 3% !important;
 }
 
 .team-table thead tr th.width-19 {
-    width: 3.5% !important;
+    width: 3% !important;
 }
 
 .team-table thead tr th.width-20 {
-    width: 3.6% !important;
+    width: 3% !important;
 }
 
 .team-table thead tr th.width-21 {
-    width: 4% !important;
+    width: 3% !important;
 }
 
 .team-table thead tr th.width-22 {
-    width: 3.3% !important;
+    width: 3% !important;
 }
 
 .team-table thead tr th.width-23 {
-    width: 3.3% !important;
+    width: 3% !important;
 }
 
 .team-table thead tr th.width-24 {
-    width: 3.5% !important;
+    width: 3.2% !important;
 }
 
 .team-table thead tr th.width-25 {
-    width: 3.2% !important;
+    width: 3% !important;
     padding-left: 7px;
     padding-right: 7px;
 }
@@ -4120,35 +4120,35 @@ input[type="checkbox"]:focus+label.checkbox-new-custom::before {
 }
 
 .team-table thead tr th.width-27 {
-    width: 4% !important;
+    width: 3.2% !important;
     padding-left: 7px;
     padding-right: 7px;
 }
 
 .team-table thead tr th.width-28 {
-    width: 3.9% !important;
+    width: 3.2% !important;
     padding-left: 7px;
     padding-right: 7px;
 }
 
 .team-table thead tr th.width-29 {
-    width: 4% !important;
+    width: 3% !important;
     padding-left: 3px;
     padding-right: 4px;
 }
 
 .team-table thead tr th.width-30 {
-    width: 4% !important;
+    width: 3% !important;
     padding-left: 3px;
     padding-right: 4px;
 }
 
 .team-table thead tr th.width-31 {
-    width: 4% !important;
+    width: 3.5% !important;
 }
 
 .team-table thead tr th.width-32 {
-    width: 4% !important;
+    width: 3% !important;
     padding-left: 3px;
     padding-right: 5px;
 }

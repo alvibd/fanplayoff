@@ -34,6 +34,7 @@
 
         <!-- DATE PICKER CSS -->
         <link href="{{ asset('css/bootstrap-datepicker.min.css') }}" type="text/css" rel="stylesheet">
+        <link href="{{ asset('css/bootstrap-datepicker.min.css') }}" type="text/css" rel="stylesheet">
 
         <!-- PERFECT SCROLLBAR CSS -->
         <link href="{{ asset('css/perfect-scrollbar.min.css') }}" rel="stylesheet">
@@ -46,9 +47,11 @@
 
         <!-- MAIN CSS -->
         <link href="{{ asset('css/style.css') }}" rel="stylesheet">
+        <link href="{{ asset('css/c-l.css') }}" rel="stylesheet">
 
         <!-- RESPONSIVE CSS -->
         <link href="{{ asset('css/responsive.css') }}" rel="stylesheet">
+        <link href="{{ asset('css/c-l-responsive.css') }}" rel="stylesheet">
         @stack('push_stylesheets')
     @show
 

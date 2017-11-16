@@ -9,8 +9,7 @@
 		});
 
 		/* LOGIN, SIGNUP, CREATE ACCOUNT POPUP INTERACTION */
-		$(".login-btn").on('click', function (event) {
-			event.preventDefault();
+		$(".login-btn").on('click', function () {
 			$(".create-account-popup-menu").addClass("active");
 			$(".show-off-canvas-menu-shade").addClass("active");
 		});
@@ -33,16 +32,6 @@
 			$(".show-off-canvas-menu-shade").addClass("active");
 		});
 
-        $(".sign-with-mail").on('click', function (e) {
-        	e.preventDefault();
-            $(".login-popup-menu").removeClass("active");
-            $(".view-scoring-popup-menu").removeClass("active");
-            $(".show-off-canvas-menu-shade").removeClass("active");
-
-            $(".signup-popup-menu").addClass("active");
-            $(".show-off-canvas-menu-shade").addClass("active");
-        });
-
 
 		$(".menu-close, .show-off-canvas-menu-shade, .insert-image-btn, .insert-link-btn").on('click', function () {
 			$(".create-account-popup-menu").removeClass("active");
@@ -57,49 +46,45 @@
 			$(".view-scoring-popup-menu").removeClass("active");
 		});
 
-        $("#test4").on('click', function () {
-        	// console.log('fdfs');
-            if($("input[type='radio']#test4").is(':checked')) {
-                var card_type = $("input[type='radio']#test4:checked").val();
-                 // alert(card_type);
-            }
-            if (card_type == 1) {
-                var password = document.getElementById("password-div-show");
-                // console.log(password);
-                password.style.display = "block";
-            }
-        });
-        $("#test3").on('click', function () {
-            if($("input[type='radio']#test3").is(':checked')) {
-                var card_type = $("input[type='radio']#test3:checked").val();
-                 // alert(card_type);
-            }
-            if (card_type == 0) {
-                var password = document.getElementById("password-div-show");
-                password.style.display = "none";
-                console.log(password.style.display);
-            }
-        });
 
-		$(".cl-btn-normal").on('click', function (event) {
+		$("#test4").on('click', function () {
+			if($("input[type='radio']#test4").is(':checked')) {
+				var card_type = $("input[type='radio']#test4:checked").val();
+				/* alert(card_type); */
+			}
+			if (card_type == 'on') {
+				var password = document.getElementById("password-div-show");
+				password.style.display = "block";
+			}
+		});
+		$("#test3").on('click', function () {
+			if($("input[type='radio']#test3").is(':checked')) {
+				var card_type = $("input[type='radio']#test3:checked").val();
+				/* alert(card_type); */
+			}
+			if (card_type == 'on') {
+				var password = document.getElementById("password-div-show");
+				password.style.display = "none";
+			}
+		});
 
-			event.preventDefault();
 
+
+		$(".cl-btn-normal").on('click', function () {
+
+			
 			if($("input[type='radio']#test3x").is(':checked')) {
 				var card_type = $("input[type='radio']#test3x:checked").val();
-                $("input[type='checkbox']").prop('checked', true);
 				/* alert(card_type); */
 			}
 			/* alert(selectedVal); */
-
-			if (card_type == 'DEFAULT') {
+			
+			if (card_type == 'on') {
 				$(".view-scoring-popup-menu").addClass("active");
 				$(".show-off-canvas-menu-shade").addClass("active");
 
 				$(".view-scoring-table thead tr th.custom-view-scoring").removeClass("show");
 				$(".view-scoring-table tbody tr td.custom-view-scoring").removeClass("show");
-
-                $(".view-scoring-table tbody tr td.custom-view-scoring").attr('disabled', 'disabled');
 
 				$(".view-scoring-table thead tr th.custom-view-scoring").addClass("hidden");
 				$(".view-scoring-table tbody tr td.custom-view-scoring").addClass("hidden");
@@ -112,8 +97,6 @@
 
 				$(".view-scoring-table thead tr th.custom-view-scoring").removeClass("hidden");
 				$(".view-scoring-table tbody tr td.custom-view-scoring").removeClass("hidden");
-                $(".view-scoring-table tbody tr td.custom-view-scoring").attr('disabled', false);
-                $("input[type='checkbox']").prop('checked', false);
 
 				$(".view-scoring-table thead tr th.custom-view-scoring").addClass("show");
 				$(".view-scoring-table tbody tr td.custom-view-scoring").addClass("show");
@@ -126,7 +109,7 @@
 		});
 
 
-
+		
 
 		$(".image-btn").on('click', function () {
 			$(".input-image-area").addClass("active");
@@ -163,11 +146,11 @@
 		});
 
 		/* STACKABLE TABLE FOR MOBILE RESPONSIVE */
-
+		
 		$('#data-table-simple').stacktable();
+		
 
-
-
+		
 
 
 		/* MOBILE DETECTION */
@@ -189,7 +172,7 @@
 		if (!is_mobile && (w > 991)) {
 
 			$('#data-table-simple').DataTable({
-
+				
 				// when initialization is completed then apply scroll plugin
 				"fnInitComplete": function () {
 					/* $('.dataTables_scrollBody').perfectScrollbar(); */
@@ -199,7 +182,7 @@
 				//apply scroll on this height
 				"scrollY": 350,
 
-				//on paginition page 2,3.. often scroll shown, so reset it and assign it again
+				//on paginition page 2,3.. often scroll shown, so reset it and assign it again 
 				"fnDrawCallback": function (oSettings) {
 					/* $('.dataTables_scrollBody').perfectScrollbar('destroy').perfectScrollbar(); */
 				},
@@ -302,42 +285,29 @@
 			$(".show-off-canvas-menu-shade").addClass("active");
 		});
 
-		$(".join-btn-1").on('click', function (event) {
-			event.preventDefault();
-			console.log();
+		$("#join-btn-1").on('click', function () {
 			var text = $(".league-details-body tbody tr td#access-1").text();
 			/* alert(text); */
 			if(text == "Private"){
-				$(".private-access-popup-menu#"+this.dataset.leagueId).addClass("active");
+				$(".private-access-popup-menu").addClass("active");
 				$(".show-off-canvas-menu-shade").addClass("active");
 			}else{
-                $(".public-access-popup-menu#"+this.dataset.leagueId).addClass("active");
+				$(".public-access-popup-menu").addClass("active");
 				$(".show-off-canvas-menu-shade").addClass("active");
 			}
 		});
-
-		$(".join-btn-2").on('click', function (event) {
-			event.preventDefault();
+		$("#join-btn-2").on('click', function () {
 			var text = $(".league-details-body tbody tr td#access-2").text();
 			/* alert(text); */
 			if(text == "Private"){
-				$(".private-access-popup-menu#"+this.dataset.leagueId).addClass("active");
+				$(".private-access-popup-menu").addClass("active");
 				$(".show-off-canvas-menu-shade").addClass("active");
 			}else{
-                $(".public-access-popup-menu#"+this.dataset.leagueId).addClass("active");
+				$(".public-access-popup-menu").addClass("active");
 				$(".show-off-canvas-menu-shade").addClass("active");
 			}
 		});
-
-        $('.logout').click(function (e) {
-            e.preventDefault();
-            $(this).parent('li').next('form').submit();
-        });
-
-        $('#c1').click(function () {
-			$(this).is(':checked')? $('.signup-email').attr('type', 'text') : $('.signup-email').attr('type', 'password');
-        })
-
+			
 
 	});
 
