@@ -32,6 +32,11 @@ class NFLOfficialAPIv2 extends SportRadar
      * *********************
      */
 
+    public function getGameBoxscore($game_id)
+    {
+        return $this->gameBoxscore($game_id);
+    }
+
     public function getWeeklySchedule($year, $nfl_season, $nfl_season_week)
     {
         return $this->weeklySchedule($year, $nfl_season, $nfl_season_week);

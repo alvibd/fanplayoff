@@ -8,7 +8,7 @@ namespace App\GameEngine;
  */
 use App\Sportradar\NFLOfficialAPIv2 as Nfl;
 use App\Model\Player;
-use App\model\League;
+use App\Model\League;
 use App\Model\ScoringCriteria;
 use Carbon\Carbon;
 
@@ -28,6 +28,7 @@ class FPOServices
         $games = [];
         $stats = (object) null;
         $result = [];
+        $result['Players Name'] = $player->name;
 
         $games = $this->getGames($player->sr_team_id, $week);
 
@@ -48,23 +49,26 @@ class FPOServices
 
         foreach ($games as $game)
         {
+            $opponents_point = 0;
             switch ($player->sr_team_id)
             {
                 case $this->nfl->getGameStatistics($game)->statistics->home->id:
+                    $opponents_point = $this->nfl->getGameBoxscore($game)->summary->away->points;
                     $stats = $this->nfl->getGameStatistics($game)->statistics->home;
                     break;
                 case $this->nfl->getGameStatistics($game)->statistics->away->id:
+                    $opponents_point = $this->nfl->getGameBoxscore($game)->summary->home->points;
                     $stats = $this->nfl->getGameStatistics($game)->statistics->away;
                     break;
             }
 
-            $result = $this->getScorings($player, $league_scorings, $stats, $result, $fixed_criterias);
+            $result = $this->getScorings($player, $league_scorings, $stats, $result, $fixed_criterias, $opponents_point);
         }
         dump($result);
 
     }
 
-    protected function getScorings($player, $league_scorings, $obj, $result, $fixed_criterias)
+    protected function getScorings($player, $league_scorings, $obj, $result, $fixed_criterias, $opponents_point)
     {
         foreach ($league_scorings as $league_scoring)
         {
@@ -107,7 +111,7 @@ class FPOServices
                     $result['Receptions'] += $this->engine->calculateReceivingReceptions($player, $obj, $league_scoring->custom_point);
                     break;
                 case 'Receiving Touchdowns':
-                    $result['Receiving Touchdowns'] += $this->engine->calculateReceivingTouchdowns($player, $obj, $league_scoring->custom_point);
+                    $result['Receiving Touchdowns'] += $this->engine->calculateReceivingTouchdowns($player, $obj, 6);
                     break;
                 case 'Return Touchdowns':
                     $result['Return Touchdowns'] += $this->engine->calculatePuntReturnTouchdowns($player, $obj, $league_scoring->custom_point);
@@ -140,6 +144,27 @@ class FPOServices
                 case 'Field Goals 50+ Yards':
                     $yards = $this->getFieldGoalYards($player, $obj);
                     $result['Field Goals 50+ Yards'] += ($yards >=50? $league_scoring->custom_point: 0);
+                    break;
+                case 'Points Allowed 0 Point':
+                    $result['Points Allowed 0 Point'] += ($opponents_point == 0? $league_scoring->custom_point: 0);
+                    break;
+                case 'Points Allowed 1-6 Point':
+                    $result['Points Allowed 1-6 Point'] += (($opponents_point>= 1 && $opponents_point<=6)? $league_scoring->custom_point: 0);
+                    break;
+                case 'Points Allowed 7-13 Point':
+                    $result['Points Allowed 7-13 Point'] += (($opponents_point>= 7 && $opponents_point<=13)? $league_scoring->custom_point: 0);
+                    break;
+                case 'Points Allowed 14-20 Point':
+                    $result['Points Allowed 14-20 Point'] += (($opponents_point>= 14 && $opponents_point<=20)? $league_scoring->custom_point: 0);
+                    break;
+                case 'Points Allowed 21-27 Point':
+                    $result['Points Allowed 21-27 Point'] += (($opponents_point>= 21 && $opponents_point<=27)? $league_scoring->custom_point: 0);
+                    break;
+                case 'Points Allowed 28-34 Point':
+                    $result['Points Allowed 28-34 Point'] += (($opponents_point>= 28 && $opponents_point<=34)? $league_scoring->custom_point: 0);
+                    break;
+                case 'Points Allowed 35+ Point':
+                    $result['Points Allowed 35+ Point'] += ($opponents_point>= 35 ? $league_scoring->custom_point: 0);
                     break;
             }
 

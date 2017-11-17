@@ -158,7 +158,7 @@ class ScoringCriteriasTableSeeder extends Seeder
 
         $this->criterias[] = [
             'type' => 'Offense',
-            'name' => 'Rushing yards',
+            'name' => 'Rushing Yards',
             'default_point' => '10 Yards Per Point',
             'is_fixed' => true
         ];
@@ -167,7 +167,8 @@ class ScoringCriteriasTableSeeder extends Seeder
             'type' => 'Offense',
             'name' => 'Rushing Touchdowns',
             'default_point' => '6',
-            'is_fixed' => true
+            'starts_from' => 0,
+            'ends_at' => 1
         ];
 
         $this->criterias[] = [

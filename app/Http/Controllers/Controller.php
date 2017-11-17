@@ -19,9 +19,10 @@ class Controller extends BaseController
     {
         $service = $container->get('App\GameEngine\FPOServices');
         $league = League::first();
+
         foreach ($league->teams()->first()->players()->get() as $player)
         {
-            $service->calculatePlayerWeeklyScore($player, 10, $league);
+            $service->calculatePlayerWeeklyScore($player, 11, $league);
         }
 //          $team_hierarchy = $nfl->getTeams();
 //        $team_hierarchy = $team_hierarchy->conferences;
